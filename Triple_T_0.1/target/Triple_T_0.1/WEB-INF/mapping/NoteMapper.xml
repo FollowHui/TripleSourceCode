@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Dao.dao.NoteMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.Note" >
+    <id column="noteId" property="noteid" jdbcType="INTEGER" />
+    <result column="pushDate" property="pushdate" jdbcType="TIMESTAMP" />
+    <result column="collectedTimes" property="collectedtimes" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="pushContent" property="pushcontent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    noteId, pushDate, collectedTimes, userId, pushContent
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from note
+    where noteId = #{noteid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from note
+    where noteId = #{noteid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Dao.model.Note" >
+    insert into note (noteId, pushDate, collectedTimes, 
+      userId, pushContent)
+    values (#{noteid,jdbcType=INTEGER}, #{pushdate,jdbcType=TIMESTAMP}, #{collectedtimes,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{pushcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Dao.model.Note" >
+    insert into note
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="noteid != null" >
+        noteId,
+      </if>
+      <if test="pushdate != null" >
+        pushDate,
+      </if>
+      <if test="collectedtimes != null" >
+        collectedTimes,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="pushcontent != null" >
+        pushContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="noteid != null" >
+        #{noteid,jdbcType=INTEGER},
+      </if>
+      <if test="pushdate != null" >
+        #{pushdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectedtimes != null" >
+        #{collectedtimes,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="pushcontent != null" >
+        #{pushcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.Note" >
+    update note
+    <set >
+      <if test="pushdate != null" >
+        pushDate = #{pushdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="collectedtimes != null" >
+        collectedTimes = #{collectedtimes,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="pushcontent != null" >
+        pushContent = #{pushcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where noteId = #{noteid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Dao.model.Note" >
+    update note
+    set pushDate = #{pushdate,jdbcType=TIMESTAMP},
+      collectedTimes = #{collectedtimes,jdbcType=INTEGER},
+      userId = #{userid,jdbcType=INTEGER},
+      pushContent = #{pushcontent,jdbcType=VARCHAR}
+    where noteId = #{noteid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Dao.dao.schoolInformationMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.schoolInformation" >
+    <id column="schoolId" property="schoolid" jdbcType="INTEGER" />
+    <result column="schoolName" property="schoolname" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="tuition" property="tuition" jdbcType="REAL" />
+    <result column="score" property="score" jdbcType="REAL" />
+    <result column="ranking" property="ranking" jdbcType="INTEGER" />
+    <result column="phoneNumber" property="phonenumber" jdbcType="CHAR" />
+    <result column="emailAddress" property="emailaddress" jdbcType="CHAR" />
+    <result column="schoolLogo" property="schoollogo" jdbcType="CHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    schoolId, schoolName, address, tuition, score, ranking, phoneNumber, emailAddress, 
+    schoolLogo, description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from schoolinformation
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from schoolinformation
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Dao.model.schoolInformation" >
+    insert into schoolinformation (schoolId, schoolName, address, 
+      tuition, score, ranking, 
+      phoneNumber, emailAddress, schoolLogo, 
+      description)
+    values (#{schoolid,jdbcType=INTEGER}, #{schoolname,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, 
+      #{tuition,jdbcType=REAL}, #{score,jdbcType=REAL}, #{ranking,jdbcType=INTEGER}, 
+      #{phonenumber,jdbcType=CHAR}, #{emailaddress,jdbcType=CHAR}, #{schoollogo,jdbcType=CHAR}, 
+      #{description,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Dao.model.schoolInformation" >
+    insert into schoolinformation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="schoolid != null" >
+        schoolId,
+      </if>
+      <if test="schoolname != null" >
+        schoolName,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="tuition != null" >
+        tuition,
+      </if>
+      <if test="score != null" >
+        score,
+      </if>
+      <if test="ranking != null" >
+        ranking,
+      </if>
+      <if test="phonenumber != null" >
+        phoneNumber,
+      </if>
+      <if test="emailaddress != null" >
+        emailAddress,
+      </if>
+      <if test="schoollogo != null" >
+        schoolLogo,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="schoolid != null" >
+        #{schoolid,jdbcType=INTEGER},
+      </if>
+      <if test="schoolname != null" >
+        #{schoolname,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tuition != null" >
+        #{tuition,jdbcType=REAL},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=REAL},
+      </if>
+      <if test="ranking != null" >
+        #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="phonenumber != null" >
+        #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="emailaddress != null" >
+        #{emailaddress,jdbcType=CHAR},
+      </if>
+      <if test="schoollogo != null" >
+        #{schoollogo,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.schoolInformation" >
+    update schoolinformation
+    <set >
+      <if test="schoolname != null" >
+        schoolName = #{schoolname,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tuition != null" >
+        tuition = #{tuition,jdbcType=REAL},
+      </if>
+      <if test="score != null" >
+        score = #{score,jdbcType=REAL},
+      </if>
+      <if test="ranking != null" >
+        ranking = #{ranking,jdbcType=INTEGER},
+      </if>
+      <if test="phonenumber != null" >
+        phoneNumber = #{phonenumber,jdbcType=CHAR},
+      </if>
+      <if test="emailaddress != null" >
+        emailAddress = #{emailaddress,jdbcType=CHAR},
+      </if>
+      <if test="schoollogo != null" >
+        schoolLogo = #{schoollogo,jdbcType=CHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Dao.model.schoolInformation" >
+    update schoolinformation
+    set schoolName = #{schoolname,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR},
+      tuition = #{tuition,jdbcType=REAL},
+      score = #{score,jdbcType=REAL},
+      ranking = #{ranking,jdbcType=INTEGER},
+      phoneNumber = #{phonenumber,jdbcType=CHAR},
+      emailAddress = #{emailaddress,jdbcType=CHAR},
+      schoolLogo = #{schoollogo,jdbcType=CHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </update>
+</mapper>

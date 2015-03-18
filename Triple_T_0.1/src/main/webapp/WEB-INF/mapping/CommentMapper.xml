@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Dao.dao.CommentMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.Comment" >
+    <id column="commentId" property="commentid" jdbcType="INTEGER" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="commentDate" property="commentdate" jdbcType="TIMESTAMP" />
+    <result column="noteId" property="noteid" jdbcType="INTEGER" />
+    <result column="commentContent" property="commentcontent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    commentId, userId, commentDate, noteId, commentContent
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from comment
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Dao.model.Comment" >
+    insert into comment (commentId, userId, commentDate, 
+      noteId, commentContent)
+    values (#{commentid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{commentdate,jdbcType=TIMESTAMP}, 
+      #{noteid,jdbcType=INTEGER}, #{commentcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Dao.model.Comment" >
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentid != null" >
+        commentId,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="commentdate != null" >
+        commentDate,
+      </if>
+      <if test="noteid != null" >
+        noteId,
+      </if>
+      <if test="commentcontent != null" >
+        commentContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentid != null" >
+        #{commentid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="commentdate != null" >
+        #{commentdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteid != null" >
+        #{noteid,jdbcType=INTEGER},
+      </if>
+      <if test="commentcontent != null" >
+        #{commentcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.Comment" >
+    update comment
+    <set >
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="commentdate != null" >
+        commentDate = #{commentdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noteid != null" >
+        noteId = #{noteid,jdbcType=INTEGER},
+      </if>
+      <if test="commentcontent != null" >
+        commentContent = #{commentcontent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Dao.model.Comment" >
+    update comment
+    set userId = #{userid,jdbcType=INTEGER},
+      commentDate = #{commentdate,jdbcType=TIMESTAMP},
+      noteId = #{noteid,jdbcType=INTEGER},
+      commentContent = #{commentcontent,jdbcType=VARCHAR}
+    where commentId = #{commentid,jdbcType=INTEGER}
+  </update>
+</mapper>
