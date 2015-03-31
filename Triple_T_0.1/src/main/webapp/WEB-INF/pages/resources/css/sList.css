@@ -1,0 +1,128 @@
+*{padding:0; margin: 0;}
+#container{
+	min-width: 1024px;
+	width:expression(document.body.clientWidth<1024>"1024px":auto);
+}
+/***********************************filter part**********************************************************/
+#search_filter{
+	width: 100%;
+	background-color: #026276;
+}
+
+.filter{
+	width: 85%;
+	height: 30px;
+	margin: 0 auto;
+	padding: 5px 0;
+	overflow: hidden;
+}
+
+.f_left{
+	width: 10%;
+	float: left;
+	font-size: 20px;
+	color: #fff;
+	display: inline;
+}
+
+.f_right{
+	width: 90%;
+	float: left;
+	display: inline;
+}
+
+.f_right ul {
+	width: 100%; 
+	display: block;
+}
+
+.f_right li {
+	text-decoration: none;
+	list-style-type: none;
+	color: #fff;
+	font-size: 18px;
+	display: inline;
+	margin-right: 50px;
+}
+
+.f_right li:hover {
+	background-color: #663300;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.f_right p {
+	float: left;
+	color: #fff;
+	font-size: 18px;
+	margin-left: 10px;
+	display: inline;
+}
+
+.f_right input{
+	float: left;
+	width: 50px;
+	height: 25px;
+	border-radius:5px;
+	margin-left: 10px;
+	display: inline;
+}
+
+/*************************************result part*****************************************************************************/
+#search_result{
+	padding-top: 5px;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/bg.jpg");
+	background-repeat: repeat;
+	background-position: center;
+}
+
+#sr_title{
+	width: 100%;
+	height: 25px;
+	background-color: #663300;
+	color: #FFFFFF; 
+	font-size: 20px;
+	padding: 5px;
+}
+
+#wrap{
+	width: 90%;
+	margin: 0 auto;
+}
+
+#sr_content{
+	width: 85%;
+	margin:0 auto;
+}
+
+#sr_content li{
+	list-style-type: none;
+	display: inline-block;
+}
+
+.sr_content_detail{
+	width: 250px;
+	height: 220px;
+	margin-top: 10px;
+}
+
+.sr_img_container,.sr_name_container{
+	width: 60%;
+	margin: 0 auto;
+}
+.sr_img{
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-image: url("../img/borderBrown.png");
+	padding:11px;
+}
+
+.sr_img img{
+	width: 125px;
+}
+
+.sr_name{
+	word-wrap:break-word;
+}

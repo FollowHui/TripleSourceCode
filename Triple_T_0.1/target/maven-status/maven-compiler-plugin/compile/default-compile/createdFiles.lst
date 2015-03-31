@@ -1,1 +1,15 @@
-com\springapp\mvc\HelloController.class
+Dao\dao\NoteMapper.class
+Dao\model\Comment.class
+controller\HelloController.class
+Dao\dao\UserMapper.class
+Dao\dao\schoolNewsMapper.class
+Dao\model\schoolInformation.class
+service\LoginService.class
+Dao\model\Note.class
+Dao\dao\CommentMapper.class
+Dao\model\schoolNews.class
+Dao\dao\FavouritesMapper.class
+Dao\dao\schoolInformationMapper.class
+Dao\model\Favourites.class
+service\RegisterService.class
+Dao\model\User.class

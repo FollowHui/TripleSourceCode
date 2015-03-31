@@ -1,0 +1,81 @@
+*{ padding: 0; margin: 0;}
+
+body{
+	background-image: url("../img/bg-noise.jpg");
+	background-position: center;
+}
+#container{
+	min-width: 1024px;
+	width:expression(document.body.clientWidth<1024>"1024px":auto);
+}
+#wrap{
+	width: 1080px;
+	height: 100%;
+	margin: 0 auto;
+	padding:10px;
+}
+
+.bl_title{
+	width: 100%;
+	height: 30px;
+	background-color: #663300;
+}
+
+.bl_title p{
+	color: #FFFFFF; 
+	font-size: 20px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+#bl_table{
+	border: 2px solid #663300;
+ 	margin: 1em;
+ 	width: 90%;
+ 	padding: 5px;
+}
+
+#bl_table li{
+	list-style-type: none;
+	display: inline;
+}
+
+.bl_container{
+	width: 100%;
+	height: 20px;
+	margin-left:4%;
+	padding:8px;
+}
+.bl_con_title{
+	float: left;
+	width: 75%;
+	height:20px;
+	overflow: hidden;
+	display: inline;
+}
+
+.bl_con_title a{
+	text-decoration: none;
+	color: #000;
+}
+
+.bl_con_favor, .bl_con_comment{
+	float: left;
+	width: 10%;
+	height:20px;
+	overflow: hidden;
+	display: inline;
+}
+
+#bl_addmore{
+	margin: 2px auto;
+	width: 92%;
+	height: 20px;
+	background-color: #663300;
+	opacity: 0.4;
+}
+
+#bl_addmore:hover{
+	opacity: 0.8;
+	cursor: pointer;
+}

@@ -20,6 +20,7 @@ public class RegisterServiceTest extends TestCase {
     public void testUser()throws Exception{
         User user = new User();
         user.setUsername("东哥");
+        user.setUserid(3);
         System.out.println(registerService.saveUserInformation(user));
 
     }
