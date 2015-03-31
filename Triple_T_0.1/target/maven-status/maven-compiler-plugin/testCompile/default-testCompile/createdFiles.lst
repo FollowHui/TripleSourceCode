@@ -1,1 +1,2 @@
-com\springapp\mvc\AppTests.class
+controller\AppTests.class
+service\RegisterServiceTest.class

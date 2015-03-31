@@ -10,7 +10,7 @@
               <property name="username" value="root"/>
 
               <!-- Connection Pooling DBCP -->
-              <property name="password" value="lyd19930310"/>
+              <property name="password" value="1234"/>
 
               <property name="initialSize" value="5" />
               <property name="maxActive" value="100" />

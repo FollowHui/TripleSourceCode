@@ -1,0 +1,98 @@
+*{ padding: 0; margin: 0;}
+
+body{
+	background-image: url("../img/bg-noise.jpg");
+	background-position: center;
+}
+#container{
+	min-width: 1024px;
+	width:expression(document.body.clientWidth<1024>"1024px":auto);
+}
+#wrap{
+	width: 1080px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.sd_title{
+	width: 100%;
+	height: 30px;
+	background-color: #663300;
+}
+
+.sd_title_t, .sd_click{
+	float: left;
+	display: inline;
+	color: #FFFFFF; 
+	font-size: 20px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+.sd_click:hover{
+	cursor: pointer;
+}
+
+.sd_title_t{
+	width: 83%;
+}
+
+.sd_click{
+	width: 15%;
+}
+
+#sd_detail, #sd_comment{
+	width: 100%;
+	overflow: hidden;
+}
+
+/*******************************sd_detail part*******************************************************************/
+#sd_article, #sd_list{
+	width:90%;
+	margin:0 auto;
+}
+
+#sd_article p{
+	color: #000; 
+	font-size: 20px;
+	padding: 10px;
+}
+/*******************************sd_comment part********************************************************************/
+#sd_list {
+	margin-top: 10px;
+	
+}
+
+#sd_list li{
+	list-style: none;
+	border: 1px solid #663300;
+}
+
+.user{
+	height: 22px;
+	padding:2px;
+	background-color: #663300;
+	color: #FFF;
+	opacity: 0.9;
+	font-size: 18px;
+}
+
+.user_name{
+	width: 80%;
+	padding:3px;
+	float: left;
+	display: inline;
+}
+
+.comment_time{
+	width: 15%;
+	padding:3px;
+	float: left;
+	display: inline;
+}
+
+.comment_detail{
+	padding:3px;
+	word-wrap: break-word;
+}
