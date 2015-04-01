@@ -12,18 +12,15 @@ body{
 
 #home-page {
 	width: 100%;
-	min-width: 1024px;
 	height:758px;
-	background:url("../img/bg.jpg");
+	background:url("/resources/img/bg.jpg");
 	background-repeat:no-repeat;
 	background-position:center;
-	margin-top: 0px;
 	position: relative;
-
 }
 #logo{
-	margin-left: 39%;
-	margin-top: 6%;
+	padding-left: 36%;
+	padding-top: 6%;
 	position: relative;
 }
 .logo-h1{

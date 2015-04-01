@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="../css/head.css">
+		<link rel="stylesheet" href="/resources/css/head.css">
 	</head>
 
 <style type="text/css">
@@ -16,7 +16,7 @@
     margin-bottom: 40px;
     margin-left: 11%;
     margin-top: 10%;
-    background: url(../img/mainpage.png) top center no-repeat;
+    background: url(/resources/img/mainpage.png) top center no-repeat;
 }
 #slideshow {
 	margin:0 auto;
@@ -97,12 +97,12 @@
 #leftControl {
   top: 85px;
   left:0;
-  background:transparent url(../img/slider_left_control.png) no-repeat 0 0;
+  background:transparent url(/resources/img/slider_left_control.png) no-repeat 0 0;
 }
 #rightControl {
   top: 85px;
   right:0;
-  background: transparent url(../img/slider_right_control.png) no-repeat 0 0;
+  background: transparent url(/resources/img/slider_right_control.png) no-repeat 0 0;
 }
 .collegelogo
 {

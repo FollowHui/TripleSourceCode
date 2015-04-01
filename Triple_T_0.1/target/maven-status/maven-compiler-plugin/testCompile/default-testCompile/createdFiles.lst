@@ -1,2 +1,3 @@
+service\LoginServiceTest.class
 controller\AppTests.class
 service\RegisterServiceTest.class

@@ -12,8 +12,21 @@ import org.springframework.stereotype.Service;
 public class RegisterService {
     @Autowired(required = false)
     private UserMapper userMapper;
-    public String saveUserInformation(User user){
-        userMapper.insert(user);
-        return "just test";
+    @Autowired(required = false)
+    private User user;
+    public String getRegInfo(String userName,String email,String password){
+        user.setUsername(userName);
+        user.setEmailaddress(email);
+        user.setPassword(password);
+        try {
+            userMapper.insert(user);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return "insert failed in insert into db";
+        }
+        return "success";
+
     }
+
 }

@@ -3,13 +3,13 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>College of software engneering of SEU</title>
+		<title></title>
 
-		<link rel="stylesheet" href="../css/sList.css">
+		<link rel="stylesheet" href="/resources/css/sList.css">
 	</head>
 
 	<body>
-	<div id="container">
+	<div id="container_sList">
 		<div id="search_filter">
 			<div class="filter" name="addrfilter">
 				<div class="f_left">地区偏好</div>
@@ -57,35 +57,35 @@
 					<ul>
 						<li>
 							<div class="sr_content_detail">
-								<div class="sr_img_container"><div class="sr_img"><img src="../img/MIT.png" /></div></div>
+								<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
 								<div class="sr_name_container"><div class="sr_name"><p>TMITMITEEEE</p></div></div>
 							</div>
 						</li>
 
 						<li>
 							<div class="sr_content_detail">
-								<div class="sr_img_container"><div class="sr_img"><img src="../img/MIT.png" /></div></div>
+								<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
 								<div class="sr_name_container"><div class="sr_name">MIT</div></div>
 							</div>
 						</li>
 
 						<li>
 							<div class="sr_content_detail">
-								<div class="sr_img_container"><div class="sr_img"><img src="../img/MIT.png" /></div></div>
+								<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
 								<div class="sr_name_container"><div class="sr_name">MIT</div></div>
 							</div>
 						</li>
 
 						<li>
 							<div class="sr_content_detail">
-								<div class="sr_img_container"><div class="sr_img"><img src="../img/MIT.png" /></div></div>
+								<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
 								<div class="sr_name_container"><div class="sr_name">MIT</div></div>
 							</div>
 						</li>
 
 						<li>
 							<div class="sr_content_detail">
-								<div class="sr_img_container"><div class="sr_img"><img src="../img/MIT.png" /></div></div>
+								<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
 								<div class="sr_name_container"><div class="sr_name">MIT</div></div>
 							</div>
 						</li>

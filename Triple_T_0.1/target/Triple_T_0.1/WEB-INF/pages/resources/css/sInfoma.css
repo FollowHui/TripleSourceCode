@@ -1,11 +1,8 @@
 *{ padding: 0; margin: 0;}
-body{
-	background-image: url("../img/bg-noise.jpg");
-	background-position: center;
-}
+
 #container{
 	min-width: 1024px;
-	width:expression(document.body.clientWidth<1024>"1024px":auto);
+	width:expression(document.body.clientWidth<1024?"1024px":auto);
 }
 #wrap{
 	width: 1080px;

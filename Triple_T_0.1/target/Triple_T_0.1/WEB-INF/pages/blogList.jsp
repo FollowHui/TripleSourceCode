@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title></title>
 
-		<link rel="stylesheet" href="WEB-INF/pages/resoures/css/blogList.css">
+		<link rel="stylesheet" href="/resources/css/blogList.css">
 	</head>
 
 	<body>

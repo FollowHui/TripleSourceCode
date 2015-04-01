@@ -3,9 +3,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>College of software engneering of SEU</title>
+		<title></title>
 
-		<link rel="stylesheet" href="../css/sInfoma.css">
+		<link rel="stylesheet" href="/resources/css/sInfoma.css">
 	</head>
 
 	<body>
