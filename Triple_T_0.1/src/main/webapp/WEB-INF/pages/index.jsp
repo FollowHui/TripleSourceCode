@@ -94,6 +94,44 @@
             })
 
         });
+         $(document).ready(function() {
+            $("#email").blur(function () {
+                var email = $("#email").val();
+                if (email == '') {
+                    document.getElementById("sm").style.display="block";
+                    return false;
+                }
+                else {
+                    var reg =/^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+                    if (!reg.test(email)) {
+                        document.getElementById("sm").style.display="block";
+                        return false;
+                    }
+                }
+                document.getElementById("sm").style.display="none";
+            })
+        });
+        function Cmd(obj){
+            var len = obj.value.replace(/[^\x00-\xff]/g, "**").length;
+            if(len < 6|| len > 18){
+               // alert("请输入6-18个字节的字符");
+                document.getElementById("sp").style.display="block";
+              //  obj.focus();
+            }else
+            {
+                document.getElementById("sp").style.display="none";
+            }
+        }
+        function confirm(obj){
+            var conpassword = obj.value;
+            var password = $("#R_password").val();
+            if(conpassword!=password){
+                document.getElementById("scp").style.display="block";
+            }else{
+
+                document.getElementById("scp").style.display="none";
+            }
+        }
     </script>
 </head>
 
@@ -144,24 +182,37 @@
         <%@include file="sList.jsp"%>
     </div>
 
-    <div class="login-mask">
+     <div class="login-mask">
         <div class="login-box" style=" display:none;">
             <h1>Triple T</h1>
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
-            <form method="post" action="/login">
+            <form method="post" action="">
                 <div class="name">
-                    <label>用户名：</label>
-                    <input type="text" name="userName"  tabindex="1" autocomplete="off" />
+                    <div class="before">
+                        <label>用户名：</label>
+                    </div>
+                    <div class="back">
+                        <input type="text" name="" id="L_username" tabindex="1" autocomplete="off" />
+                    </div>
                 </div>
                 <div class="password">
-                    <label>密  码：</label>
-                    <input type="password" name="password" maxlength="16"  tabindex="2"/>
+                    <div class="before">
+                        <label>密  码：</label>
+                    </div>
+                    <div class="back">
+                        <input type="password" name="" maxlength="16" id="L_password"   tabindex="2"/>
+                    </div>
+
                 </div>
                 <div class="code">
-                    <label>验证码：</label>
-                    <input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
+                    <div class="before">
+                        <label>验证码：</label>
+                    </div>
+                    <div class="back">
+                        <input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
+                    </div>
                     <div class="codeImg">
                         <img src="/Kaptcha.jpg" id="captcha-image" onclick="changeImg();"/>
                     </div>
@@ -176,43 +227,59 @@
             </form>
         </div>
     </div>
-
     <div class="register-mask">
         <div class="register-box" style="display:none;">
             <h1>Triple T</h1>
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
-            <form method="post" action="/register">
             <div class="name">
-                <label>用户名:</label>
-                <input type="text" name="userName"  tabindex="1" autocomplete="off" />
+                <div class="before">
+                    <label>用户名:</label>
+                </div>
+                <div class="back">
+                    <input type="text" name="" id="R_username" tabindex="1" autocomplete="off" />
+                </div>
             </div>
             <div class="password">
-                <label>密码：</label>
-                <input type="password" name="" path="password" maxlength="16" tabindex="2"/>
+                <div class="before">
+                    <label>密码：</label>
+                </div>
+                <div class="back">
+                    <input type="password"  placeholder="最少6个字符"  name="" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
+                </div>
+                <span id="sp" style="display: none">输入错误</span>
             </div>
-            <div class="pqssword">
-                <label>确认密码：</label>
-                <input type="password" name="" id="identifyPassword" maxlength="16" tabindex="2"/>
+            <div class="password">
+                <div class="before">
+                    <label>确认密码：</label>
+                </div>
+                <div class="back">
+                    <input type="password" name="" id="C_password" maxlength="16" tabindex="2" onblur="confirm(this)"/>
+                </div>
+                <span id="scp" style="display: none">输入错误</span>
             </div>
             <div class="mailbox">
-                <label>邮箱:</label>
-                <input type="text" name="" path="email" maxlength="16" />
+                <div class="before">
+                    <label>邮箱:</label>
+                </div>
+                <div class="back">
+                    <input type="text"  placeholder="如:15150698580@163.com" name="R_email" id="email"/>
+                </div>
+                <span id="sm" style="display: none">输入非法</span>
             </div>
             <div class="sex">
-                <label>性别：</label>
-                <input type="text" name="" path="sex" maxlength="16" />
+                <div class="before">
+                    <label>性别：</label>
+                </div>
+                <div class="back" style="margin-top: 10px;">
+                    男<input type="radio" checked="checked" name="sex" value="male"/>
+                    女<input type="radio" checked="checked" name="sex" value="female"/>
+                </div>
             </div>
-            <div class="grades">
-                <label>分数：</label>
-                <input type="text" name="" path="score" maxlength="16" />
-            </div>
-            </br>
             <div class="register">
-                <button type="submit" tabindex="5">注册</button>
+                <button type="submit" tabindex="5" class="submit">注册</button>
             </div>
-            </form>
         </div>
     </div>
 </div>
