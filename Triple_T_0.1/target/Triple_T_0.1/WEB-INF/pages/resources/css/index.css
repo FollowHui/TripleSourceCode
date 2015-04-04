@@ -58,8 +58,16 @@
 	z-index: 0;
 }
 
-#header-nav span, #header-nab img{
+#header-nav li:hover{
+	cursor:pointer;
+}
+
+#header-nav img{
+	width:52px;
 	z-index: 99;
+	position:relative;
+	margin-left:5%;
+	float:left;
 }
 
 .ful{
@@ -68,6 +76,7 @@
 	position: relative;
 	color: black;
 }
+
 .fli{
 	color: #FFFFFF;
 	border-right: 4px;
