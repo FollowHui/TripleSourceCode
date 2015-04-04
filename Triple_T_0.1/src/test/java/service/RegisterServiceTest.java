@@ -18,9 +18,10 @@ public class RegisterServiceTest extends TestCase {
     private RegisterService registerService;
     @Test
     public void testUser()throws Exception{
-
-
-
+        String username="test";
+        String password="test";
+        String email="heh@qq.com";
+        registerService.getRegInfo(username,email,password,true);
     }
 
 

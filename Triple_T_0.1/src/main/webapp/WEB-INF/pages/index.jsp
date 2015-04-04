@@ -158,7 +158,7 @@
         <ul class="ful">
             <c:choose>
                 <c:when test="${sessionScope.flag}">
-                    <li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>
+                    <li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
                 </c:when>
@@ -214,7 +214,7 @@
                         <label>用户名：</label>
                     </div>
                     <div class="back">
-                        <input type="text" name="L_username" id="L_username" tabindex="1" autocomplete="off" />
+                        <input type="text" name="userName" id="L_username" tabindex="1" autocomplete="off" />
                     </div>
                 </div>
                 <div class="password">
@@ -222,7 +222,7 @@
                         <label>密  码：</label>
                     </div>
                     <div class="back">
-                        <input type="password" name="L_password" maxlength="16" id="L_password"   tabindex="2"/>
+                        <input type="password" name="password" maxlength="16" id="L_password"   tabindex="2"/>
                     </div>
 
                 </div>

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.LoginService;
-import service.RegisterService;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -22,9 +22,9 @@ public class LoginController {
     LoginService loginService;
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String getLoginResult(ModelMap modelMap,
-                                    @RequestParam(value="L_username",required = false) String userName,
+                                    @RequestParam(value="userName",required = false) String userName,
 //                                  @RequestParam(value="email",required = false) String email,
-                                    @RequestParam(value="L_password",required = false) String password,
+                                    @RequestParam(value="password",required = false) String password,
                                     @RequestParam(value = "verifyCode") String verifyCode,
                                     HttpServletRequest request,
                                     HttpSession httpSession
@@ -34,18 +34,20 @@ public class LoginController {
         verifyCode = verifyCode.toLowerCase();
         System.out.println(verifyCode);
         if (verifyCode.equals(code)){
-            System.out.println("match verifyCode");
+            modelMap.addAttribute("message","dongge");
+            System.out.println(userName);
+            System.out.println(password);
+            int resultCode=loginService.getLoginInfo(userName,password);
+            if(resultCode>0){
+                httpSession.setAttribute("flag",true);
+                httpSession.setAttribute("userId",resultCode);
+                httpSession.setAttribute("userName",userName);
+            }
+            return "index";
         }
-        modelMap.addAttribute("message",userName);
-        System.out.println(userName);
-        System.out.println(password);
-        int resultCode=loginService.getLoginInfo(userName,password);
-        if(resultCode>0){
-            httpSession.setAttribute("flag",true);
-            httpSession.setAttribute("userId",resultCode);
-            httpSession.setAttribute("userName",userName);
+        else{
+            return  "验证码错误";
         }
-        return "index2";
 
     }
 

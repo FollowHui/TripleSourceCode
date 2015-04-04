@@ -4,6 +4,7 @@ import Dao.dao.UserMapper;
 import Dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +18,7 @@ public class LoginService {
     User user;
     @Autowired(required = false)
     public int getLoginInfo(String userName,String password){
-        String passwordTemp;
+        Md5PasswordEncoder md5 = new Md5PasswordEncoder();
         try {
             user = userMapper.selectByUserName(userName);
         }
@@ -25,7 +26,9 @@ public class LoginService {
             e.printStackTrace();
             return -2;
         }
-        if(user.getPassword().equals(password)){
+        String md5Pwd=md5.encodePassword(password, userName);
+       // System.out.println(md5Pwd);
+        if(user.getPassword().equals(md5Pwd)){
             return user.getUserid();
         }
         else {
