@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/resources/css/index.css">
     <link rel="stylesheet" href="/resources/css/login_register.css">
     <script class="autoinsert" src="/resources/js/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script src="/resources/js/jquery-1.4.2.min.js"></script>
 
     <script type="text/javascript">
@@ -21,6 +22,7 @@
             document.getElementById("div3").style.display="none";
             document.getElementById("div4").style.display="none";
             document.getElementById("div5").style.display="none";
+            document.getElementById("div6").style.display="none";
         }
         function click2 () {
             document.getElementById("div1").style.display="none";
@@ -28,6 +30,7 @@
             document.getElementById("div3").style.display="none";
             document.getElementById("div4").style.display="none";
             document.getElementById("div5").style.display="none";
+            document.getElementById("div6").style.display="none";
         }
         function click3 () {
             document.getElementById("div1").style.display="none";
@@ -35,6 +38,7 @@
             document.getElementById("div3").style.display="block";
             document.getElementById("div4").style.display="none";
             document.getElementById("div5").style.display="none";
+            document.getElementById("div6").style.display="none";
         }
         function click4 () {
             document.getElementById("div1").style.display="none";
@@ -42,6 +46,7 @@
             document.getElementById("div3").style.display="none";
             document.getElementById("div4").style.display="block";
             document.getElementById("div5").style.display="none";
+            document.getElementById("div6").style.display="none";
         }
         function click5 () {
             document.getElementById("div1").style.display="none";
@@ -49,6 +54,7 @@
             document.getElementById("div3").style.display="none";
             document.getElementById("div4").style.display="none";
             document.getElementById("div5").style.display="block";
+            document.getElementById("div6").style.display="none";
         }
 
         function onSearch(){
@@ -71,10 +77,21 @@
         $(document).ready(function($){
 
             $('.theme-login').click(function(){
-                $('.login-mask').show();
-                $('.login-mask').height($(document).height());
-                $('.login-box').slideDown(200);
-            })
+                if($('.theme-login span').html()=="登录") {
+                    $('.login-mask').show();
+                    $('.login-mask').height($(document).height());
+                    $('.login-box').slideDown(200);
+                }
+                else
+                {
+                    document.getElementById("div1").style.display="none";
+                    document.getElementById("div2").style.display="none";
+                    document.getElementById("div3").style.display="none";
+                    document.getElementById("div4").style.display="none";
+                    document.getElementById("div5").style.display="none";
+                    document.getElementById("div6").style.display="block";
+                }
+                 })
             $('.close').click(function(){
                 $('.login-mask').hide();
                 $('.login-box').slideUp(200);
@@ -181,6 +198,9 @@
     <div id="div5"  style="display: none">
         <%@include file="sList.jsp"%>
     </div>
+    <div id="div6" style="display:none">
+        <%@include file="selfinfo.jsp"%>
+    </div>
 
      <div class="login-mask">
         <div class="login-box" style=" display:none;">
@@ -188,13 +208,13 @@
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
-            <form method="post" action="">
+            <form method="post" action="/login">
                 <div class="name">
                     <div class="before">
                         <label>用户名：</label>
                     </div>
                     <div class="back">
-                        <input type="text" name="" id="L_username" tabindex="1" autocomplete="off" />
+                        <input type="text" name="L_username" id="L_username" tabindex="1" autocomplete="off" />
                     </div>
                 </div>
                 <div class="password">
@@ -202,7 +222,7 @@
                         <label>密  码：</label>
                     </div>
                     <div class="back">
-                        <input type="password" name="" maxlength="16" id="L_password"   tabindex="2"/>
+                        <input type="password" name="L_password" maxlength="16" id="L_password"   tabindex="2"/>
                     </div>
 
                 </div>
@@ -233,6 +253,7 @@
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
+            <form method="post" action="/register">
             <div class="name">
                 <div class="before">
                     <label>用户名:</label>
@@ -280,6 +301,7 @@
             <div class="register">
                 <button type="submit" tabindex="5" class="submit">注册</button>
             </div>
+            </form>
         </div>
     </div>
 </div>

@@ -22,9 +22,9 @@ public class LoginController {
     LoginService loginService;
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String getLoginResult(ModelMap modelMap,
-                                    @RequestParam(value="userName",required = false) String userName,
+                                    @RequestParam(value="L_username",required = false) String userName,
 //                                  @RequestParam(value="email",required = false) String email,
-                                    @RequestParam(value="password",required = false) String password,
+                                    @RequestParam(value="L_password",required = false) String password,
                                     @RequestParam(value = "verifyCode") String verifyCode,
                                     HttpServletRequest request,
                                     HttpSession httpSession
@@ -36,7 +36,7 @@ public class LoginController {
         if (verifyCode.equals(code)){
             System.out.println("match verifyCode");
         }
-        modelMap.addAttribute("message","dongge");
+        modelMap.addAttribute("message",userName);
         System.out.println(userName);
         System.out.println(password);
         int resultCode=loginService.getLoginInfo(userName,password);
@@ -45,7 +45,8 @@ public class LoginController {
             httpSession.setAttribute("userId",resultCode);
             httpSession.setAttribute("userName",userName);
         }
-        return "hello";
+        return "index2";
+
     }
 
 }

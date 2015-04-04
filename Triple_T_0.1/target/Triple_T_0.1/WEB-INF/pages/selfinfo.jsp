@@ -3,134 +3,9 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<link rel="stylesheet" href="/resources/css/head.css">
+		<link rel="stylesheet" href="/resources/css/selfinfo.css">
 	</head>
 
-<style type="text/css">
-*{padding:0px;margin:0px;}
-#main-page{
-	clear: both;
-  	width: 900px;
-    height: 200px;
-    padding: 50px 40px 70px 40px;
-    margin-bottom: 40px;
-    margin-left: 11%;
-    margin-top: 10%;
-    background: url(/resources/img/mainpage.png) top center no-repeat;
-}
-#slideshow {
-	margin:0 auto;
-	width: 900px;
-	height:250px;
-	position:relative;
-}
-#slideshow #slidesContainer {
-  margin:0 auto;
-  width: 750px;
-  height: 250px;
-  overflow:hidden;
-  position:relative;
-}
-#slideshow #slidesContainer .slide {
-  width: 750px;
-  height: 250px;
-  margin:0 auto;  
-  font-size: 10px;
-  font-family: 微软雅黑;
-}
-.slide_input
-{
-	padding: 5px 0 0 35%;
-	display: block;
-}
-.slide img {
-	float:left;
-	margin-right: 40px;
-	border:1px solid #4f4b42;
-}
-.slide input{
-	font-family: weiruanyahei;
-	height: 23px;
-	width: 120px;
-	padding: 2px;
-	margin: 0px;
-	color: #fad40d;
-	font-size: 12px;
-	font-variant: normal;
-	line-height: normal;
-	background: none;
-	border: 1px dashed #aeada4;	
-}
-.slide select{
-	width:120px;
-	cursor:hand;
-	border:1px solid #aeada4;
-	background-color:transparent;
-}
-.control {
-  display:block;
-  width: 30px;
-  height: 200px;
-  text-indent:-10000px;
-  position:absolute;
-  cursor: pointer;
-}
-#note
-{
-	width: 650px;
-	height: 200px;
-	overflow: auto;
-	background:none;
-	margin-left: 25px;
-	border: 1px dashed #aeada4;	
-
-}
-#note p
-{
-	margin:0px; 
-	padding:0px; 
-	font-size:14px;
-	color:#C6C6C6;
-    letter-spacing:2px; 
-	font-weight:bold;
-}
-#leftControl {
-  top: 85px;
-  left:0;
-  background:transparent url(/resources/img/slider_left_control.png) no-repeat 0 0;
-}
-#rightControl {
-  top: 85px;
-  right:0;
-  background: transparent url(/resources/img/slider_right_control.png) no-repeat 0 0;
-}
-.collegelogo
-{
-	float: left;
-	width: 30px;
-	height: 30px;
-	padding: 50px 0 0 40px;
-	background-color: transparent;
-	border-color: transparent;
-
-}
-#submitbutton
-{
-	float: left;
-	padding: 2px 5px 0 10px;
-	position: relative;
-	margin-bottom: 2px;
-	margin-left: 15%;
-}
-#cancelbutton
-{
-	float: left;
-	padding: 2px 0 0 200px;
-	position: relative;
-
-}
-</style>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script language="javascript" type="text/javascript">
 $(document).ready(function(){
   var currentPosition = 0;
@@ -198,7 +73,6 @@ $(document).bind('click',function(e){
 });
 </script>
 	<body id="body">
-		<iframe name="head" src="bg.jsp" width=100% height="93px" frameborder="0" scrolling="no"></iframe>
 		<div id="main-page">
 			<div id="slideshow">
           		<div id="slidesContainer">
