@@ -4,9 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-
 	<link rel="stylesheet" href="/resources/css/blogList.css">
-	<script src="/resources/js/blogList.js"></script>
 </head>
 
 <body>

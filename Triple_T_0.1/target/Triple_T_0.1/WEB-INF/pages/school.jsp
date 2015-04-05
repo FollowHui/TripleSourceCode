@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>College of software engneering of SEU</title>
 
-		<link rel="stylesheet" href="../css/school.css">
+		<link rel="stylesheet" href="/resources/css/school.css">
 	</head>
 
 	<body>

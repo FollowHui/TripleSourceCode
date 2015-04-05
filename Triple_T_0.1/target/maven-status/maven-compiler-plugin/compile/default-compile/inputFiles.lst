@@ -1,3 +1,4 @@
+D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\controller\SListController.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\service\RegisterService.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\model\Favourites.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\model\schoolInformation.java
@@ -10,6 +11,7 @@ D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\dao\sch
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\model\User.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\dao\UserMapper.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\controller\RegisterController.java
+D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\controller\SchoolController.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\controller\SInfomaController.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\dao\schoolNewsMapper.java
 D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\src\main\java\Dao\model\Comment.java

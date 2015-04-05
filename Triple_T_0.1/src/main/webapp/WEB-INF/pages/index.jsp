@@ -15,6 +15,8 @@
     <script src="/resources/js/index.js"></script>
     <script src="/resources/js/blogList.js"></script>
     <script src="/resources/js/sInfoma.js"></script>
+    <script src="/resources/js/sList.js"></script>
+
     <script type="text/javascript">
         function changeImg(){
             document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);

@@ -1,8 +1,5 @@
 /**
- * Created by Administrator on 2015/4/4.
- */
-/**
- * Created by Freyja on 2015/3/31.
+ * Created by Freyja on 2015/4/4.
  */
 
 function si_addmoreclick(){
