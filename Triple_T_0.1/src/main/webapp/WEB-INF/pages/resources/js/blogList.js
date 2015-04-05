@@ -25,7 +25,6 @@ function bl_addmoreclick(){
 
 function bl_Jump(param){
     var xmlhttp;
-    alert("click get");
     var reqname = param.getAttribute("name");
     alert(reqname);
     if (window.XMLHttpRequest)

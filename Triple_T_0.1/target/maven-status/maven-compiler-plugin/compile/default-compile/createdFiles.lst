@@ -9,7 +9,6 @@ controller\IndexController.class
 controller\BlogListController.class
 service\LoginService.class
 Dao\model\Note.class
-controller\SchoolController.class
 Dao\dao\CommentMapper.class
 controller\RegisterController.class
 controller\LoginController.class
@@ -19,4 +18,3 @@ Dao\dao\schoolInformationMapper.class
 Dao\dao\FavouritesMapper.class
 service\RegisterService.class
 Dao\model\User.class
-controller\SListController.class

@@ -16,7 +16,6 @@
     <script src="/resources/js/blogList.js"></script>
     <script src="/resources/js/sInfoma.js"></script>
     <script src="/resources/js/sList.js"></script>
-
     <script type="text/javascript">
         function changeImg(){
             document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
@@ -25,7 +24,11 @@
         function onSearch(){
 
         }
-
+        $(document).ready(function($){
+            $('.exit').click(function(){
+                location.href = "/logout";
+            })
+        });
         $(document).ready(function($){
 
             $('.theme-login').click(function(){
@@ -106,9 +109,11 @@
         <ul class="ful">
             <c:choose>
                 <c:when test="${sessionScope.flag}">
+                    <li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
                     <li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
+
                 </c:when>
                 <c:otherwise>
                     <li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>

@@ -23,7 +23,7 @@ function index_Jump(param){
     if(reqname == "index")
         xmlhttp.open("GET","/index",true);
     else if(reqname == "sInfoma")
-        xmlhttp.open("GET","/sInfoma",false);
+        xmlhttp.open("GET","/sInfoma",true);
     else if(reqname == "sList")
         xmlhttp.open("GET","/sList",true);
     else if(reqname == "blogList")
