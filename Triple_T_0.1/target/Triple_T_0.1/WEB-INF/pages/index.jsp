@@ -16,6 +16,8 @@
     <script src="/resources/js/blogList.js"></script>
     <script src="/resources/js/sInfoma.js"></script>
     <script src="/resources/js/sList.js"></script>
+    <script src="/resources/js/selfinfo.js"></script>
+
     <script type="text/javascript">
         function changeImg(){
             document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
@@ -24,11 +26,7 @@
         function onSearch(){
 
         }
-        $(document).ready(function($){
-            $('.exit').click(function(){
-                location.href = "/logout";
-            })
-        });
+
         $(document).ready(function($){
 
             $('.theme-login').click(function(){
@@ -39,8 +37,9 @@
                 }
                 else
                 {
-                    document.getElementById("div1").style.display="none";
-                    document.getElementById("div6").style.display="block";
+                    onselfinfoclick();
+                    //document.getElementById("div1").style.display="none";
+                    //document.getElementById("div6").style.display="block";
                 }
                  })
             $('.close').click(function(){
@@ -48,6 +47,11 @@
                 $('.login-box').slideUp(200);
             })
 
+        });
+        $(document).ready(function($){
+            $('.exit').click(function(){
+                location.href = "/logout";
+            })
         });
         $(document).ready(function($){
 
@@ -136,7 +140,7 @@
         </ul>
         <br clear="all"/>
     </div>
-    <div id="div1"  >
+    <div id="div1">
         <%@include file="bg.jsp"%>
     </div>
 
@@ -201,7 +205,7 @@
                     <label>用户名:</label>
                 </div>
                 <div class="back">
-                    <input type="text" name="" id="R_username" tabindex="1" autocomplete="off" />
+                    <input type="text" name="userName" id="R_username" tabindex="1" autocomplete="off" />
                 </div>
             </div>
             <div class="password">
@@ -209,7 +213,7 @@
                     <label>密码：</label>
                 </div>
                 <div class="back">
-                    <input type="password"  placeholder="最少6个字符"  name="" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
+                    <input type="password"  placeholder="最少6个字符"  name="password" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
                 </div>
                 <span id="sp" style="display: none">输入错误</span>
             </div>
@@ -227,7 +231,7 @@
                     <label>邮箱:</label>
                 </div>
                 <div class="back">
-                    <input type="text"  placeholder="如:15150698580@163.com" name="R_email" id="email"/>
+                    <input type="text"  placeholder="如:15150698580@163.com" name="email" id="email"/>
                 </div>
                 <span id="sm" style="display: none">输入非法</span>
             </div>

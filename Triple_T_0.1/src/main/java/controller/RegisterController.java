@@ -19,11 +19,18 @@ public class RegisterController {
     public String getRegisterResult(ModelMap modelMap,
                                     @RequestParam(value="userName",required = false) String userName,
                                     @RequestParam(value="email",required = false) String email,
-                                    @RequestParam(value="password",required = false) String password
+                                    @RequestParam(value="password",required = false) String password,
+                                    @RequestParam(value="sex",required = false) String sex
                                     ) {
-        String test;
-        test="hehe";
-        return test;
+        boolean realSex;
+        if(sex.equals("female")){
+            realSex=false;
+        }else{
+            realSex=true;
+        }
+        String result=registerService.getRegInfo(userName,email,password,realSex);
+        System.out.println(result);
+        return "index";
 
     }
 

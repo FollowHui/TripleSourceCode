@@ -7,25 +7,44 @@
     <result column="collectedTimes" property="collectedtimes" jdbcType="INTEGER" />
     <result column="userId" property="userid" jdbcType="INTEGER" />
     <result column="pushContent" property="pushcontent" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="CHAR" />
+    <result column="notePublisher" property="notePublisher" jdbcType="CHAR" />
+    <result column="commentCount" property="commentCount" jdbcType="CHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    noteId, pushDate, collectedTimes, userId, pushContent
+    noteId, pushDate, collectedTimes, userId, pushContent, title
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    <include refid="Base_Column_List" />
-    from note
+    n.userId as userId,u.userName as notePublisher,title,collectedTimes,noteId,pushContent
+    from note n,user u
+    where noteId = #{noteid,jdbcType=INTEGER} and n.userId = u.userId
+  </select>
+  <select id="getAllNotes" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    n.userId as userId,u.userName as notePublisher,title,collectedTimes,noteId
+    from note n,user u
+    where n.userId = u.userId
+    limit 0,#{noteCount,jdbcType=INTEGER}
+  </select>
+  <select id="getCommentTimes" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select
+    COUNT(*) as commentCount
+    from comment
     where noteId = #{noteid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from note
     where noteId = #{noteid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="Dao.model.Note" >
     insert into note (noteId, pushDate, collectedTimes, 
-      userId, pushContent)
+      userId, pushContent, title
+      )
     values (#{noteid,jdbcType=INTEGER}, #{pushdate,jdbcType=TIMESTAMP}, #{collectedtimes,jdbcType=INTEGER}, 
-      #{userid,jdbcType=INTEGER}, #{pushcontent,jdbcType=VARCHAR})
+      #{userid,jdbcType=INTEGER}, #{pushcontent,jdbcType=VARCHAR}, #{title,jdbcType=CHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="Dao.model.Note" >
     insert into note
@@ -45,6 +64,9 @@
       <if test="pushcontent != null" >
         pushContent,
       </if>
+      <if test="title != null" >
+        title,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="noteid != null" >
@@ -61,6 +83,9 @@
       </if>
       <if test="pushcontent != null" >
         #{pushcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -79,6 +104,9 @@
       <if test="pushcontent != null" >
         pushContent = #{pushcontent,jdbcType=VARCHAR},
       </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=CHAR},
+      </if>
     </set>
     where noteId = #{noteid,jdbcType=INTEGER}
   </update>
@@ -87,7 +115,8 @@
     set pushDate = #{pushdate,jdbcType=TIMESTAMP},
       collectedTimes = #{collectedtimes,jdbcType=INTEGER},
       userId = #{userid,jdbcType=INTEGER},
-      pushContent = #{pushcontent,jdbcType=VARCHAR}
+      pushContent = #{pushcontent,jdbcType=VARCHAR},
+      title = #{title,jdbcType=CHAR}
     where noteId = #{noteid,jdbcType=INTEGER}
   </update>
 </mapper>

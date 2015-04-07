@@ -1,13 +1,15 @@
 package Dao.model;
 
-import java.util.Date;
 
-public class schoolNews {
+
+public class SchoolNews {
     private Integer schoolnewsid;
 
-    private Date newsdate;
+    private String newsdate;
 
     private String newscontent;
+
+    private String url;
 
     private Integer schoolid;
 
@@ -19,11 +21,11 @@ public class schoolNews {
         this.schoolnewsid = schoolnewsid;
     }
 
-    public Date getNewsdate() {
+    public String getNewsdate() {
         return newsdate;
     }
 
-    public void setNewsdate(Date newsdate) {
+    public void setNewsdate(String newsdate) {
         this.newsdate = newsdate;
     }
 
@@ -35,6 +37,14 @@ public class schoolNews {
         this.newscontent = newscontent == null ? null : newscontent.trim();
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
+    }
+
     public Integer getSchoolid() {
         return schoolid;
     }
@@ -42,4 +52,5 @@ public class schoolNews {
     public void setSchoolid(Integer schoolid) {
         this.schoolid = schoolid;
     }
+
 }

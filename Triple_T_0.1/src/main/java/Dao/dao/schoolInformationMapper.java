@@ -1,17 +1,17 @@
 package Dao.dao;
 
-import Dao.model.schoolInformation;
+import Dao.model.SchoolInformation;
 
-public interface schoolInformationMapper {
+public interface SchoolInformationMapper {
     int deleteByPrimaryKey(Integer schoolid);
 
-    int insert(schoolInformation record);
+    int insert(SchoolInformation record);
 
-    int insertSelective(schoolInformation record);
+    int insertSelective(SchoolInformation record);
 
-    schoolInformation selectByPrimaryKey(Integer schoolid);
+    SchoolInformation selectByPrimaryKey(Integer schoolid);
 
-    int updateByPrimaryKeySelective(schoolInformation record);
+    int updateByPrimaryKeySelective(SchoolInformation record);
 
-    int updateByPrimaryKey(schoolInformation record);
+    int updateByPrimaryKey(SchoolInformation record);
 }

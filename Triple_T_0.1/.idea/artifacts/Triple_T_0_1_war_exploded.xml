@@ -56,7 +56,7 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="C:\Users\badguy\Desktop\Triple_T_0.14.5\target/MANIFEST.MF" />
+        <element id="file-copy" path="D:\Project\3T\sourcecode\Triple_T_0.1_404\Triple_T_0.1\target/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="Triple_T_0.1/web/Web" />
     </root>

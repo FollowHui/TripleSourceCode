@@ -7,6 +7,7 @@
     <result column="commentDate" property="commentdate" jdbcType="TIMESTAMP" />
     <result column="noteId" property="noteid" jdbcType="INTEGER" />
     <result column="commentContent" property="commentcontent" jdbcType="VARCHAR" />
+    <result column="commenter" property="commenter" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     commentId, userId, commentDate, noteId, commentContent
@@ -16,6 +17,12 @@
     <include refid="Base_Column_List" />
     from comment
     where commentId = #{commentid,jdbcType=INTEGER}
+  </select>
+  <select id="getCommentsByNoteId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    u.userName as commenter,commentContent,commentDate
+    from comment c, user u
+    where  noteId = #{noteId,jdbcType=INTEGER} and u.userId=c.userId
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from comment

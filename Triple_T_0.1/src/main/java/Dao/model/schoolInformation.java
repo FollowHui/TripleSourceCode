@@ -1,6 +1,6 @@
 package Dao.model;
 
-public class schoolInformation {
+public class SchoolInformation {
     private Integer schoolid;
 
     private String schoolname;

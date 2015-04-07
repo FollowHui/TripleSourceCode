@@ -19,7 +19,7 @@ function si_addmoreclick(){
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            document.getElementById("si_addmore").innerHTML=xmlhttp.responseText;
+            document.getElementById("div1").innerHTML=xmlhttp.responseText;
         }
     };
     xmlhttp.open("GET","/sinfoma/addmore",true);

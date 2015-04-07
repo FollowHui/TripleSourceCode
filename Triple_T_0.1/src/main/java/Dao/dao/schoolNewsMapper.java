@@ -1,17 +1,20 @@
 package Dao.dao;
 
-import Dao.model.schoolNews;
+import Dao.model.SchoolNews;
 
-public interface schoolNewsMapper {
+import java.util.List;
+
+public interface SchoolNewsMapper {
     int deleteByPrimaryKey(Integer schoolnewsid);
 
-    int insert(schoolNews record);
+    int insert(SchoolNews record);
 
-    int insertSelective(schoolNews record);
+    int insertSelective(SchoolNews record);
 
-    schoolNews selectByPrimaryKey(Integer schoolnewsid);
+    SchoolNews selectByPrimaryKey(Integer schoolnewsid);
 
-    int updateByPrimaryKeySelective(schoolNews record);
+    int updateByPrimaryKeySelective(SchoolNews record);
 
-    int updateByPrimaryKey(schoolNews record);
+    int updateByPrimaryKey(SchoolNews record);
+    List<SchoolNews> selectAllSchoolNews(int sInfoCount);
 }

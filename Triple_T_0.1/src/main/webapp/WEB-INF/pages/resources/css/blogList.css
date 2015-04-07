@@ -58,10 +58,12 @@
 	width: 70%;
 	height:20px;
 	overflow: hidden;
+	line-height: 18px;
 	display: inline;
 }
 
 .bl_con_title p, .bl_con_favor p, .bl_con_comment p{
+	color:#000000;
 	text-decoration: none;
 	font-size: 1.3em;
 }

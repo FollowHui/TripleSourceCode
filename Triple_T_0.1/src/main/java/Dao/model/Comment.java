@@ -12,6 +12,13 @@ public class Comment {
     private Integer noteid;
 
     private String commentcontent;
+    private String commenter;
+    public String getCommenter(){
+        return commenter;
+    }
+    public void setCommenter(String commenter){
+        this.commenter=commenter;
+    }
 
     public Integer getCommentid() {
         return commentid;

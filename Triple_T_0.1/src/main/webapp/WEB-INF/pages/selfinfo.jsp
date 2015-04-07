@@ -4,7 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/resources/css/selfinfo.css">
-		<script src="/resources/js/selfinfo.js"></script>
+
 	</head>
 	<body>
 	<div id="main-page">
@@ -18,14 +18,14 @@
 							<a href="javascript:;" class="a-upload"><input type="file" name="imgfile" id="imgfile" style="width:150px;" onchange="javascript:setImagePreview();"><span>上传图片</span></a>
 						</div>
 					</div>
-					<form action="/selfinfo" method="post">
+
 						<div class="selfinfo2">
 							<div class="layer">
 								<div class="mylabel">
 									<label>用户名:</label>
 								</div>
 								<div class="slide_input">
-									<input type="text" name="username"/><br/>
+									<p><c:out value="${user.username}"></c:out></p>
 								</div>
 							</div>
 							<div class="layer">
@@ -33,7 +33,7 @@
 									<label>性别:</label>
 								</div>
 								<div class="slide_input">
-									<select>
+									<select id="s_sex">
 										<option value="男">男</option>
 										<option value="女">女</option>
 									</select>
@@ -44,7 +44,7 @@
 									<label>邮箱:</label>
 								</div>
 								<div class="slide_input">
-									<input type="text" name="mailbox"/><br/>
+									<input type="text" id="S_email" name="mailbox" value="${user.emailaddress}"/><br/>
 								</div>
 							</div>
 							<div class="layer">
@@ -52,7 +52,7 @@
 									<label>分数:</label>
 								</div>
 								<div class="slide_input">
-									<input type="text" name="grade"/><br/>
+									<input type="text" id="S_grade" name="grade" value="${user.score}"/><br/>
 								</div>
 							</div>
 							<div class="layer">
@@ -60,7 +60,7 @@
 									<label>类型:</label>
 								</div>
 								<div class="slide_input">
-									<select>
+									<select id="s_gradetype">
 										<option>托福</option>
 										<option>雅思</option>
 									</select>
@@ -71,7 +71,7 @@
 									<label>GPA:</label>
 								</div>
 								<div class="slide_input">
-									<input type="text" name="gpa"/><br/>
+									<input type="text" id="S_gpa" name="gpa" value="${user.gpa}"/><br/>
 								</div>
 							</div>
 							<div class="layer">
@@ -79,24 +79,30 @@
 									<label>GRE:</label>
 								</div>
 								<div class="slide_input">
-									<input type="text" name="gre"/><br/>
+									<input type="text" id="S_gre" name="gre" value="${user.grescore}"/><br/>
 								</div>
 							</div>
 							<div class="savebutton">
-								<input style="height:30px;"type="button" name="submit" value="保存" onclick="#">
+								<input style="height:30px;"type="button" name="submit" value="保存" onclick="sendmessage()">
 								<%--<button style="height:30px;" type="submit" name="save" tabindex="5">保存</button>--%>
 							</div>
 						</div>
+				</div>
 						<div class="slide">
 							<h3>收藏的学校</h3>
 							<div class="collegelogo">
-							</div>
-							<div class="collegelogo">
-							</div>
-							<div class="collegelogo">
+								<ul>
+									<li><a href="#">xuexiao</a><span>2009-6-21</span></li>
+									<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+									<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+									<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+									<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+									<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+								</ul>
 							</div>
 						</div>
-					</form>
+
+
 				</div>
 				<div class="slide">
 					<h3>收藏的帖子</h3>
@@ -108,7 +114,6 @@
 							<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
 							<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
 							<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-
 						</ul>
 					</div>
 				</div>

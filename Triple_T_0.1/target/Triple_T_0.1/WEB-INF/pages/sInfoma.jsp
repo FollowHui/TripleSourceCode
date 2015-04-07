@@ -4,7 +4,6 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
-
 	<link rel="stylesheet" href="/resources/css/sInfoma.css">
 </head>
 
@@ -14,22 +13,17 @@
 		<div class="si_title"><p>校内资讯</p></div>
 		<div id="si_table">
 			<ul>
+				<c:forEach items="${schoolNewsList}" var="SchoolNews" begin="0" end="${sessionScope.sInfoCount}">
 				<li class="si_table_title">
-					<div class="si_container" href="www.seu.edu.cn">
-						<div class="si_con_title"><p>怎么申请国外的学校？</p></div>
-						<div class="si_con_time"><p>2015-03-14</p></div>
+					<div class="si_container" ><a href="${SchoolNews.url}" target="_blank">
+						<div class="si_con_title"><p>${SchoolNews.newscontent}</p></div>
+						<div class="si_con_time"><p>${SchoolNews.newsdate}</p></div></a>
 					</div>
 				</li>
+				</c:forEach>
 
 				<li class="si_table_title">
-					<div class="si_container" href="www.seu.edu.cn">
-						<div class="si_con_title"><p>怎么申请国外的学校？</p></div>
-						<div class="si_con_time"><p>2015-03-14</p></div>
-					</div>
-				</li>
-
-				<li class="si_table_title">
-					<div class="si_container" href="www.seu.edu.cn">
+					<div class="si_container" href="http://www.seu.edu.cn">
 						<div class="si_con_title"><p>怎么申请国外的学校？</p></div>
 						<div class="si_con_time"><p>2015-03-14</p></div>
 					</div>

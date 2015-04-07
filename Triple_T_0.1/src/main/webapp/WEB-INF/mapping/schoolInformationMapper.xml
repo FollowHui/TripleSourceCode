@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="Dao.dao.schoolInformationMapper" >
-  <resultMap id="BaseResultMap" type="Dao.model.schoolInformation" >
+<mapper namespace="Dao.dao.SchoolInformationMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.SchoolInformation" >
     <id column="schoolId" property="schoolid" jdbcType="INTEGER" />
     <result column="schoolName" property="schoolname" jdbcType="CHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     delete from schoolinformation
     where schoolId = #{schoolid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="Dao.model.schoolInformation" >
+  <insert id="insert" parameterType="Dao.model.SchoolInformation" >
     insert into schoolinformation (schoolId, schoolName, address, 
       tuition, score, ranking, 
       phoneNumber, emailAddress, schoolLogo, 
@@ -37,7 +37,7 @@
       #{phonenumber,jdbcType=CHAR}, #{emailaddress,jdbcType=CHAR}, #{schoollogo,jdbcType=CHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="Dao.model.schoolInformation" >
+  <insert id="insertSelective" parameterType="Dao.model.SchoolInformation" >
     insert into schoolinformation
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="schoolid != null" >
@@ -104,7 +104,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.schoolInformation" >
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.SchoolInformation" >
     update schoolinformation
     <set >
       <if test="schoolname != null" >
@@ -137,7 +137,7 @@
     </set>
     where schoolId = #{schoolid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="Dao.model.schoolInformation" >
+  <update id="updateByPrimaryKey" parameterType="Dao.model.SchoolInformation" >
     update schoolinformation
     set schoolName = #{schoolname,jdbcType=CHAR},
       address = #{address,jdbcType=VARCHAR},

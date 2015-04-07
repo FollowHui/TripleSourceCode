@@ -13,6 +13,31 @@ public class Note {
 
     private String pushcontent;
 
+    private String title;
+    private String notePublisher;
+
+    private String commenter;
+
+    private Integer commentCount;
+    public Integer getCommentCount(){
+        return commentCount;
+    }
+    public void setCommentCount(int commentCount){
+        this.commentCount=commentCount;
+    }
+    public String getNotePublisher(){
+        return notePublisher;
+    }
+    public void setNotePublisher(String notePublisher) {
+        this.notePublisher = notePublisher;
+    }
+    public String getCommenter(){
+        return commenter;
+    }
+    public void setCommenter(String commenter){
+        this.commenter=commenter;
+    }
+
     public Integer getNoteid() {
         return noteid;
     }
@@ -51,5 +76,13 @@ public class Note {
 
     public void setPushcontent(String pushcontent) {
         this.pushcontent = pushcontent == null ? null : pushcontent.trim();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 }

@@ -69,17 +69,20 @@
 	float: left;
 	width: 70%;
 	height:20px;
+	line-height:18px;
 	overflow: hidden;
 	display: inline;
 }
 
 .si_con_title p{
 	text-decoration: none;
+	color: #000;
 	font-size: 1.3em;
 }
 
 .si_con_time p{
 	text-decoration: none;
+	color: #000;
 	font-size: 1.2em;
 }
 
@@ -103,4 +106,8 @@
 #si_addmore:hover{
 	opacity: 0.8;
 	cursor: pointer;
+}
+
+.si_container a{
+	text-decoration: none;
 }

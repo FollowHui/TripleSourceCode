@@ -1,3 +1,7 @@
-service\LoginServiceTest.class
+service\SelfInfoServiceTest.class
+service\GetSchoolNewsServiceTest.class
+service\BlogListServiceTest.class
 controller\AppTests.class
+service\GetAllNotesServiceTest.class
 service\RegisterServiceTest.class
+service\LoginServiceTest.class

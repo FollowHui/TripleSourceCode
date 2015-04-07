@@ -95,3 +95,32 @@ function setImagePreview(avalue) {
     }
     return true;
 }
+function sendmessage()
+{
+    //var username = document.getElementById("S_username").value;
+    var sex = ((document.getElementById("s_sex").value) == "男" ? "male" : "female");
+    var email = document.getElementById("S_email").value;
+    var grade = parseFloat(document.getElementById("S_grade").value);
+    var gradetype = ((document.getElementById("s_gradetype").value) == "托福" ? "tofel" : "itels");
+    var gpa = parseFloat(document.getElementById("S_gpa").value);
+    var gre = parseFloat(document.getElementById("S_gre").value);
+
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            //document.getElementById("si_addmore").innerHTML=xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET","/selfinfo/change?sex="+sex+"&email="+email+"&grade="+grade+"&gradetype="+gradetype+"&gpa="+gpa+"&gre="+gre,true);
+    xmlhttp.send();
+}

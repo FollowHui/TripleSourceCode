@@ -2,6 +2,8 @@ package Dao.dao;
 
 import Dao.model.Comment;
 
+import java.util.List;
+
 public interface CommentMapper {
     int deleteByPrimaryKey(Integer commentid);
 
@@ -14,4 +16,5 @@ public interface CommentMapper {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+    List<Comment> getCommentsByNoteId(int noteId);
 }

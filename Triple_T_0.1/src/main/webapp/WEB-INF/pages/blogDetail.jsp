@@ -13,20 +13,12 @@
 		<div id="wrap">
 			<div id="sd_detail">
 				<div class="sd_title">
-					<div class="sd_title_t">这里是帖子的标题</div>
+					<div class="sd_title_t">${note.title}</div>
 					<div class="sd_click"> 收藏</div>
 				</div>
 				<div id="sd_article">
 					<p>
-						Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.Do you wanna know how to get the entrance permission of foreign school?
-						heihei, I do not know either.
+						${note.pushcontent}
 					</p>
 				</div>
 			</div>
@@ -38,35 +30,23 @@
 				</div>
 				<div id="sd_list">
 					<ul>
+						<c:forEach items="${commentList}" var="Comment">
 						<li class="list_detail">
 							<div class="user">
-								<div class="user_name">#1:woshiheicu</div>
-								<div class="comment_time">2015-03-18</div>
+								<div class="user_name">
+								${Comment.commenter}
+								</div>
+								<div class="comment_time">
+								${Comment.commentdate}
+								</div>
 							</div>
 							<div class="comment_detail">
-								sdhfiaoenfaofaeifalnfdlfihao
+								${Comment.commentcontent}
 							</div>
 						</li>
+						</c:forEach>
 
-						<li class="list_detail">
-							<div class="user">
-								<div class="user_name">#2:woshiheicu</div>
-								<div class="comment_time">2015-03-18</div>
-							</div>
-							<div class="comment_detail">
-								sdhfiaoenfaofaeifalnfdlfihaoadnviadhfaldfuaioefnadlvhadfuakdjhfnsdhfiaoenfaofaeifalnfdlfihaoadnviadhfaldfuaioefnadlvhadfuakdjhfnsdhfiaoenfaofaeifalnfdlfihaoadnviadhfaldfuaioefnadlvhadfuakdjhfnsdhfiaoenfaofaeifalnfdlfihaoadnviadhfaldfuaioefnadlvhadfuakdjhfnsdhfiaoenfaofaeifalnfdlfihaoadnviadhfaldfuaioefnadlvhadfuakdjhfn
-							</div>
-						</li>
 
-						<li class="list_detail">
-							<div class="user">
-								<div class="user_name">#:3woshiheicu</div>
-								<div class="comment_time">2015-03-18</div>
-							</div>
-							<div class="comment_detail">
-								sdhfiaoenfaofaeifalnfdlfihao
-							</div>
-						</li>
 					</ul>
 				</div>
 			</div>

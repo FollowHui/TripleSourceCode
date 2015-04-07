@@ -47,7 +47,7 @@ function xmlHttp(param, sel){
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            //document.getElementById("si_addmore").innerHTML=xmlhttp.responseText;
+            //document.getElementById("search_result").innerHTML=xmlhttp.responseText;
         }
     };
     xmlhttp.open("GET","/slist/filter1?param="+param + "&sel="+sel,true);
@@ -70,7 +70,7 @@ function tuitionfinish(){
             }
             xmlhttp.onreadystatechange = function () {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    //document.getElementById("si_addmore").innerHTML=xmlhttp.responseText;
+                    //document.getElementById("search_result").innerHTML=xmlhttp.responseText;
                 }
             };
             xmlhttp.open("GET", "/slist/filter2?low=" + lowtui + "&high=" + hightui, true);
