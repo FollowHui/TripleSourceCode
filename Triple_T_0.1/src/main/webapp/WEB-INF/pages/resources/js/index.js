@@ -5,6 +5,7 @@
 function index_Jump(param){
     var xmlhttp;
     var reqname = param.getAttribute("name");
+    var username = param.getAttribute("")
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -15,8 +16,12 @@ function index_Jump(param){
     }
     xmlhttp.onreadystatechange=function()
     {
+        document.getElementById("div6").style.display="none";
+        document.getElementById("div1").style.display="block";
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
+            document.getElementById("div6").style.display="none";
+            document.getElementById("div1").style.display="block";
             document.getElementById("div1").innerHTML=xmlhttp.responseText;
         }
     };

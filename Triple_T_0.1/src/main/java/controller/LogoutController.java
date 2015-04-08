@@ -14,6 +14,9 @@ public class LogoutController {
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(HttpSession httpSession){
         httpSession.setAttribute("flag",false);
+        httpSession.setAttribute("favourFlag",false);
+        httpSession.setAttribute("favourNoteFlag",false);
+        httpSession.removeAttribute("userId");
         return "index";
 
     }

@@ -14,7 +14,7 @@ public class SelfInfoService {
     private UserMapper userMapper;
     @Autowired(required = false)
     private User user;
-    public String changeSelfInformation(Integer userId,String email,float score,float GPA,float GRE){
+    public String changeSelfInformation(Integer userId,String email,Float score,Float GPA,Float GRE){
         user=new User();
         user.setUserid(userId);
         user.setEmailaddress(email);

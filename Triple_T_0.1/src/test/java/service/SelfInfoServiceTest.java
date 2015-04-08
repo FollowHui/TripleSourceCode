@@ -19,8 +19,8 @@ public class SelfInfoServiceTest extends TestCase {
     @Test
     public void setSelfInfoService(){
         String email="dongge@qq.com";
-        float gpa=(float)3.98;
-        selfInfoService.changeSelfInformation(3,email,gpa,4,5);
+        Float gpa=new Float(3.0);
+        selfInfoService.changeSelfInformation(3,email,gpa,null,new Float(5.0));
     }
 
 }

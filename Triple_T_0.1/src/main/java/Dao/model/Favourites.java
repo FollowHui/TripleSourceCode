@@ -5,7 +5,7 @@ public class Favourites {
 
     private Boolean collecttype;
 
-    private Integer schoolid;
+    private Integer schoolornoteid;
 
     private Integer userid;
 
@@ -25,12 +25,12 @@ public class Favourites {
         this.collecttype = collecttype;
     }
 
-    public Integer getSchoolid() {
-        return schoolid;
+    public Integer getSchoolornoteid() {
+        return schoolornoteid;
     }
 
-    public void setSchoolid(Integer schoolid) {
-        this.schoolid = schoolid;
+    public void setSchoolornoteid(Integer schoolornoteid) {
+        this.schoolornoteid= schoolornoteid;
     }
 
     public Integer getUserid() {

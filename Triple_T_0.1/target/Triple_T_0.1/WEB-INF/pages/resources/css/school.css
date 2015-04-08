@@ -3,30 +3,64 @@ body{
 	background-image: url("/resources/img/bg-noise.jpg");
 	background-position: center;
 }
+
+#nav-title{
+	width: 30%;
+	text-decoration: none;
+	font-size:22px;
+	color: #FFF;
+	display: inline;
+	float: left;
+}
+
+#s_outer
+{	min-width: 1024px;
+	width:expression(document.body.clientWidth<1024?"1024px":auto);
+	height:100%;line-height:1;
+	background:transparent;
+}
+
 #container{
+	padding-top: 10px;
 	min-width: 1024px;
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
 }
 #wrap{
-	width: 1080px;
+	width: 80%;
 	height: 100%;
 	margin: 0 auto;
+	padding-top: 20px;
 }
 
 .s_title{
 	width: 100%;
 	height: 30px;
+	margin-bottom: 5px;
 	background-color: #663300;
 }
 
-.s_title p, .s_title a{
+.s_title p, .s_title a, #s_collect, .s_t_p{
+	display: inline;
 	color: #FFFFFF;
 	font-size: 20px;
 	padding: 5px;
 	text-decoration: none;
 }
 
+.s_t_p{
+	float: left;
+}
+#s_collect{
+	float: right;
+	margin-right: 20px;
+}
+
+#s_collect:hover{
+	cursor: pointer;
+}
+
 #s_discribe, #s_address, #s_contact, #s_project{
+	margin-top: 30px;
 	width: 100%;
 	overflow: hidden;
 }
@@ -34,6 +68,7 @@ body{
 /*******************************s_discribe part*******************************************************************/
 #s_disc_left{
 	width:60%;
+	margin-left:10px;
 	padding: 5px;
 	float: left;
 	display: inline;
@@ -52,10 +87,13 @@ body{
 	display: block;
 }
 /*******************************s_address part********************************************************************/
+#s_addr, #s_cont_content{
+	width: 90%;
+	margin-left:10px;
+}
 
 
-/*******************************s_contact part********************************************************************/
 
 
 
-/********************************s_project part*******************************************************************/
+

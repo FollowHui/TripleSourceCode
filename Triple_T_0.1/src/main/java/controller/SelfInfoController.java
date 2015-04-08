@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.SelfInfoService;
 
 import javax.servlet.http.HttpSession;
-//import sun.net.httpserver.HttpServerImpl;
-
-//import javax.servlet.http.HttpServletRequest;
-//import javax.servlet.http.HttpSession;
-
 /**
  * Created by badguy on 2015/4/5.
  */
@@ -26,19 +21,22 @@ public class SelfInfoController {
     public void getSaveInfo(ModelMap modelMap,
                               @RequestParam(value="sex",required = false)String sex,
                               @RequestParam(value="email",required = false)String email,
-                              @RequestParam(value="grade",required = false)float score,
+                              @RequestParam(value="grade",required = false)Float score,
                               @RequestParam(value="gradetype",required = false)String gradetype,
-                              @RequestParam(value="gpa",required = false)float gpa,
-                              @RequestParam(value="gre",required = false)float gre,
-                              //HttpServletRequest request,
+                              @RequestParam(value="gpa",required = false)Float gpa,
+                              @RequestParam(value="gre",required = false)Float gre,
                               HttpSession httpSession
     ){
-        System.out.println(gpa);
-        System.out.println(gre);
         int userId=(Integer)(httpSession.getAttribute("userId"));
-        System.out.println(userId);
-        System.out.println(email);
-        System.out.println(score);
+        if(score.isNaN()){
+            score=null;
+        }
+        if(gpa.isNaN()){
+            gpa=null;
+        }
+        if(gre.isNaN()){
+            gre=null;
+        }
         selfInfoService.changeSelfInformation(userId,email,score,gpa,gre);
 
     }

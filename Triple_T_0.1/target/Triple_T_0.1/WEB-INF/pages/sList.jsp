@@ -53,7 +53,7 @@
 				<ul>
 					<li>
 						<div class="sr_content_detail">
-							<div class="sr_img_container"><div class="sr_img"><a href="/school?id=1" target="_blank"><img src="/resources/img/MIT.png" /></a></div></div>
+							<div class="sr_img_container"><div class="sr_img"><a href="/school/1" target="_blank"><img src="/resources/img/MIT.png" /></a></div></div>
 							<div class="sr_name_container"><div class="sr_name"><p>TMITMITEEEE</p></div></div>
 						</div>
 					</li>

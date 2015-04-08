@@ -1,7 +1,9 @@
 service\SelfInfoServiceTest.class
 service\GetSchoolNewsServiceTest.class
+service\FavouriteSchoolServiceTest.class
+service\AddCommentServiceTest.class
 service\BlogListServiceTest.class
 controller\AppTests.class
-service\GetAllNotesServiceTest.class
 service\RegisterServiceTest.class
+service\GetAllNotesServiceTest.class
 service\LoginServiceTest.class

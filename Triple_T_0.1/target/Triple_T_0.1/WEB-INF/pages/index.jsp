@@ -38,8 +38,8 @@
                 else
                 {
                     onselfinfoclick();
-                    //document.getElementById("div1").style.display="none";
-                    //document.getElementById("div6").style.display="block";
+//                    document.getElementById("div1").style.display="none";
+//                    document.getElementById("div6").style.display="block";
                 }
                  })
             $('.close').click(function(){
@@ -109,6 +109,7 @@
 
 <body>
 <div id="outer">
+    <div id="div7" style="display: none">${sessionScope.userName}</div>
     <div id="header">
         <ul class="ful">
             <c:choose>

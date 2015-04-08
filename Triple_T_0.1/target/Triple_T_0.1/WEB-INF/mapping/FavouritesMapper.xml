@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="Dao.model.Favourites" >
     <id column="collectId" property="collectid" jdbcType="INTEGER" />
     <result column="collectType" property="collecttype" jdbcType="BIT" />
-    <result column="schoolId" property="schoolid" jdbcType="INTEGER" />
+    <result column="schoolOrNoteId" property="schoolornoteid" jdbcType="INTEGER" />
     <result column="userId" property="userid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    collectId, collectType, schoolId, userId
+    collectId, collectType, schoolOrNoteId, userId
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -16,14 +16,34 @@
     from favourites
     where collectId = #{collectid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <select id="selectSchoolByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from favourites
+    where userId = #{userId,jdbcType=INTEGER} and collectType=1;
+  </select>
+  <select id="selectNoteByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from favourites
+    where userId = #{userId,jdbcType=INTEGER} and collectType=0;
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from favourites
     where collectId = #{collectid,jdbcType=INTEGER}
   </delete>
+  <delete id="collectSchoolCancle" parameterType="Dao.model.Favourites">
+    delete from favourites
+    where userId = #{userid,jdbcType=INTEGER} and collectType=1 and schoolOrNoteId=#{schoolornoteid,jdbcType=INTEGER}
+  </delete>
+  <delete id="collectNoteCancle" parameterType="Dao.model.Favourites">
+    delete from favourites
+    where userId = #{userid,jdbcType=INTEGER} and collectType=0 and schoolOrNoteId=#{schoolornoteid,jdbcType=INTEGER}
+  </delete>
   <insert id="insert" parameterType="Dao.model.Favourites" >
-    insert into favourites (collectId, collectType, schoolId, 
+    insert into favourites (collectId, collectType, schoolOrNoteId,
       userId)
-    values (#{collectid,jdbcType=INTEGER}, #{collecttype,jdbcType=BIT}, #{schoolid,jdbcType=INTEGER}, 
+    values (#{collectid,jdbcType=INTEGER}, #{collecttype,jdbcType=BIT}, #{schoolOrNoteId,jdbcType=INTEGER},
       #{userid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="Dao.model.Favourites" >
@@ -35,8 +55,8 @@
       <if test="collecttype != null" >
         collectType,
       </if>
-      <if test="schoolid != null" >
-        schoolId,
+      <if test="schoolornoteid != null" >
+        schoolOrNoteId,
       </if>
       <if test="userid != null" >
         userId,
@@ -49,8 +69,8 @@
       <if test="collecttype != null" >
         #{collecttype,jdbcType=BIT},
       </if>
-      <if test="schoolid != null" >
-        #{schoolid,jdbcType=INTEGER},
+      <if test="schoolornoteid != null" >
+        #{schoolornoteid,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
         #{userid,jdbcType=INTEGER},
@@ -63,8 +83,8 @@
       <if test="collecttype != null" >
         collectType = #{collecttype,jdbcType=BIT},
       </if>
-      <if test="schoolid != null" >
-        schoolId = #{schoolid,jdbcType=INTEGER},
+      <if test="schoolornoteid != null" >
+        schoolOrNoteId = #{schoolornoteid,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
         userId = #{userid,jdbcType=INTEGER},
@@ -75,7 +95,7 @@
   <update id="updateByPrimaryKey" parameterType="Dao.model.Favourites" >
     update favourites
     set collectType = #{collecttype,jdbcType=BIT},
-      schoolId = #{schoolid,jdbcType=INTEGER},
+      schoolOrNoteId = #{schoolornoteid,jdbcType=INTEGER},
       userId = #{userid,jdbcType=INTEGER}
     where collectId = #{collectid,jdbcType=INTEGER}
   </update>
