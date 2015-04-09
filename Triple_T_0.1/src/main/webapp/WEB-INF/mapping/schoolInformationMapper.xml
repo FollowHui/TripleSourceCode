@@ -5,8 +5,14 @@
     <id column="schoolId" property="schoolid" jdbcType="INTEGER" />
     <result column="schoolName" property="schoolname" jdbcType="CHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
-    <result column="tuition" property="tuition" jdbcType="REAL" />
-    <result column="score" property="score" jdbcType="REAL" />
+    <result column="continent" property="continent" jdbcType="INTEGER" />
+    <result column="offerCondition" property="offercondition" jdbcType="VARCHAR" />
+    <result column="hotClass" property="hotclass" jdbcType="VARCHAR" />
+    <result column="setTime" property="settime" jdbcType="VARCHAR" />
+    <result column="website" property="website" jdbcType="CHAR" />
+    <result column="classSet" property="classset" jdbcType="VARCHAR" />
+    <result column="tuition" property="tuition" jdbcType="CHAR" />
+    <result column="score" property="score" jdbcType="DOUBLE" />
     <result column="ranking" property="ranking" jdbcType="INTEGER" />
     <result column="phoneNumber" property="phonenumber" jdbcType="CHAR" />
     <result column="emailAddress" property="emailaddress" jdbcType="CHAR" />
@@ -14,8 +20,8 @@
     <result column="description" property="description" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    schoolId, schoolName, address, tuition, score, ranking, phoneNumber, emailAddress, 
-    schoolLogo, description
+    schoolId, schoolName, address, continent, offerCondition, hotClass, setTime, website, 
+    classSet, tuition, score, ranking, phoneNumber, emailAddress, schoolLogo, description
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -29,11 +35,15 @@
   </delete>
   <insert id="insert" parameterType="Dao.model.SchoolInformation" >
     insert into schoolinformation (schoolId, schoolName, address, 
+      continent, offerCondition, hotClass, 
+      setTime, website, classSet, 
       tuition, score, ranking, 
       phoneNumber, emailAddress, schoolLogo, 
       description)
     values (#{schoolid,jdbcType=INTEGER}, #{schoolname,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}, 
-      #{tuition,jdbcType=REAL}, #{score,jdbcType=REAL}, #{ranking,jdbcType=INTEGER}, 
+      #{continent,jdbcType=INTEGER}, #{offercondition,jdbcType=VARCHAR}, #{hotclass,jdbcType=VARCHAR}, 
+      #{settime,jdbcType=VARCHAR}, #{website,jdbcType=CHAR}, #{classset,jdbcType=VARCHAR}, 
+      #{tuition,jdbcType=CHAR}, #{score,jdbcType=DOUBLE}, #{ranking,jdbcType=INTEGER}, 
       #{phonenumber,jdbcType=CHAR}, #{emailaddress,jdbcType=CHAR}, #{schoollogo,jdbcType=CHAR}, 
       #{description,jdbcType=VARCHAR})
   </insert>
@@ -48,6 +58,24 @@
       </if>
       <if test="address != null" >
         address,
+      </if>
+      <if test="continent != null" >
+        continent,
+      </if>
+      <if test="offercondition != null" >
+        offerCondition,
+      </if>
+      <if test="hotclass != null" >
+        hotClass,
+      </if>
+      <if test="settime != null" >
+        setTime,
+      </if>
+      <if test="website != null" >
+        website,
+      </if>
+      <if test="classset != null" >
+        classSet,
       </if>
       <if test="tuition != null" >
         tuition,
@@ -81,11 +109,29 @@
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
       </if>
+      <if test="continent != null" >
+        #{continent,jdbcType=INTEGER},
+      </if>
+      <if test="offercondition != null" >
+        #{offercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="hotclass != null" >
+        #{hotclass,jdbcType=VARCHAR},
+      </if>
+      <if test="settime != null" >
+        #{settime,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=CHAR},
+      </if>
+      <if test="classset != null" >
+        #{classset,jdbcType=VARCHAR},
+      </if>
       <if test="tuition != null" >
-        #{tuition,jdbcType=REAL},
+        #{tuition,jdbcType=CHAR},
       </if>
       <if test="score != null" >
-        #{score,jdbcType=REAL},
+        #{score,jdbcType=DOUBLE},
       </if>
       <if test="ranking != null" >
         #{ranking,jdbcType=INTEGER},
@@ -113,11 +159,29 @@
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
       </if>
+      <if test="continent != null" >
+        continent = #{continent,jdbcType=INTEGER},
+      </if>
+      <if test="offercondition != null" >
+        offerCondition = #{offercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="hotclass != null" >
+        hotClass = #{hotclass,jdbcType=VARCHAR},
+      </if>
+      <if test="settime != null" >
+        setTime = #{settime,jdbcType=VARCHAR},
+      </if>
+      <if test="website != null" >
+        website = #{website,jdbcType=CHAR},
+      </if>
+      <if test="classset != null" >
+        classSet = #{classset,jdbcType=VARCHAR},
+      </if>
       <if test="tuition != null" >
-        tuition = #{tuition,jdbcType=REAL},
+        tuition = #{tuition,jdbcType=CHAR},
       </if>
       <if test="score != null" >
-        score = #{score,jdbcType=REAL},
+        score = #{score,jdbcType=DOUBLE},
       </if>
       <if test="ranking != null" >
         ranking = #{ranking,jdbcType=INTEGER},
@@ -141,8 +205,14 @@
     update schoolinformation
     set schoolName = #{schoolname,jdbcType=CHAR},
       address = #{address,jdbcType=VARCHAR},
-      tuition = #{tuition,jdbcType=REAL},
-      score = #{score,jdbcType=REAL},
+      continent = #{continent,jdbcType=INTEGER},
+      offerCondition = #{offercondition,jdbcType=VARCHAR},
+      hotClass = #{hotclass,jdbcType=VARCHAR},
+      setTime = #{settime,jdbcType=VARCHAR},
+      website = #{website,jdbcType=CHAR},
+      classSet = #{classset,jdbcType=VARCHAR},
+      tuition = #{tuition,jdbcType=CHAR},
+      score = #{score,jdbcType=DOUBLE},
       ranking = #{ranking,jdbcType=INTEGER},
       phoneNumber = #{phonenumber,jdbcType=CHAR},
       emailAddress = #{emailaddress,jdbcType=CHAR},

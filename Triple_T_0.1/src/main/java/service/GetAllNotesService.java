@@ -20,7 +20,7 @@ public class GetAllNotesService {
         for(Note noteTemp:noteList){
             int commentCount=noteMapper.getCommentTimes(noteTemp.getNoteid());
             noteTemp.setCommentCount(commentCount);
-            System.out.println(noteTemp.getTitle());
+           // System.out.println(noteTemp.getTitle());
         }
         return noteList;
     }

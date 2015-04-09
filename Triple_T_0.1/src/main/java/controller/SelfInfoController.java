@@ -42,13 +42,16 @@ public class SelfInfoController {
     }
 
     @RequestMapping(value = "/selfinfo",method = RequestMethod.GET)
-    public String getSaveInfo(ModelMap modelMap,HttpSession httpSession){
-        int userId=(Integer)httpSession.getAttribute("userId");
-        User user;
-        System.out.println(userId);
-        user=selfInfoService.getSelfInfomation(userId);
-        modelMap.addAttribute("user",user);
+    public String getSaveInfo(ModelMap modelMap,HttpSession httpSession) {
+        System.out.println("come in selfinfo controller");
+        Integer userId = (Integer) httpSession.getAttribute("userId");
+        if (userId != null) {
+            User user;
+            System.out.println(userId);
+            user = selfInfoService.getSelfInfomation(userId);
+            modelMap.addAttribute("user", user);
+            return "selfinfo";
+        }
         return "selfinfo";
-
     }
 }

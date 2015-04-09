@@ -29,6 +29,7 @@ public class LoginController {
                                     HttpServletRequest request,
                                     HttpSession httpSession
     ) {
+        System.out.println("login");
         String code = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         code = code.toLowerCase();
         verifyCode = verifyCode.toLowerCase();

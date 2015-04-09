@@ -4,13 +4,14 @@ Dao\model\SchoolNews.class
 Dao\dao\SchoolNewsMapper.class
 controller\IndexController.class
 service\LoginService.class
+service\InsertAllDataService.class
 Dao\model\Note.class
 service\GetSchoolNewsService.class
 Dao\model\SchoolInformation.class
 Dao\dao\SchoolInformationMapper.class
 Dao\dao\CommentMapper.class
-controller\LoginController.class
 controller\RegisterController.class
+controller\LoginController.class
 service\SelfInfoService.class
 Dao\dao\FavouritesMapper.class
 service\FavouriteNoteService.class
@@ -23,8 +24,8 @@ controller\HelloController.class
 controller\BlogDetailController.class
 Dao\dao\UserMapper.class
 controller\BlogListController.class
-controller\SchoolController.class
 service\AddCommentService.class
+controller\SchoolController.class
 service\FavouriteSchoolService.class
 controller\SelfInfoController.class
 Dao\model\Favourites.class

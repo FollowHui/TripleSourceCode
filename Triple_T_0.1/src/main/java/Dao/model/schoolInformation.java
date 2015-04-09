@@ -7,9 +7,21 @@ public class SchoolInformation {
 
     private String address;
 
-    private Float tuition;
+    private Integer continent;
 
-    private Float score;
+    private String offercondition;
+
+    private String hotclass;
+
+    private String settime;
+
+    private String website;
+
+    private String classset;
+
+    private String tuition;
+
+    private Double score;
 
     private Integer ranking;
 
@@ -45,19 +57,67 @@ public class SchoolInformation {
         this.address = address == null ? null : address.trim();
     }
 
-    public Float getTuition() {
+    public Integer getContinent() {
+        return continent;
+    }
+
+    public void setContinent(Integer continent) {
+        this.continent = continent;
+    }
+
+    public String getOffercondition() {
+        return offercondition;
+    }
+
+    public void setOffercondition(String offercondition) {
+        this.offercondition = offercondition == null ? null : offercondition.trim();
+    }
+
+    public String getHotclass() {
+        return hotclass;
+    }
+
+    public void setHotclass(String hotclass) {
+        this.hotclass = hotclass == null ? null : hotclass.trim();
+    }
+
+    public String getSettime() {
+        return settime;
+    }
+
+    public void setSettime(String settime) {
+        this.settime = settime == null ? null : settime.trim();
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website == null ? null : website.trim();
+    }
+
+    public String getClassset() {
+        return classset;
+    }
+
+    public void setClassset(String classset) {
+        this.classset = classset == null ? null : classset.trim();
+    }
+
+    public String getTuition() {
         return tuition;
     }
 
-    public void setTuition(Float tuition) {
-        this.tuition = tuition;
+    public void setTuition(String tuition) {
+        this.tuition = tuition == null ? null : tuition.trim();
     }
 
-    public Float getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 

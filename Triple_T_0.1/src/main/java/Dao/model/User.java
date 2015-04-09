@@ -1,5 +1,7 @@
 package Dao.model;
 
+import java.util.List;
+
 public class User {
     private Integer userid;
 

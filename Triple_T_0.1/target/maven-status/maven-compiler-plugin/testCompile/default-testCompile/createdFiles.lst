@@ -7,3 +7,4 @@ controller\AppTests.class
 service\RegisterServiceTest.class
 service\GetAllNotesServiceTest.class
 service\LoginServiceTest.class
+service\InsertAllDataServiceTest.class

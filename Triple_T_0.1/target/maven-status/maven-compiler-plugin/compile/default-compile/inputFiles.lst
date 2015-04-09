@@ -1,15 +1,15 @@
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\BlogDetailController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\GetSchoolNewsService.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\LoginService.java
-C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\AddCommentService.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\model\Favourites.java
+C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\AddCommentService.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\dao\SchoolInformationMapper.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\SchoolController.java
-C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\model\Comment.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\SInfomaController.java
+C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\model\Comment.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\FavouriteSchoolService.java
-C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\dao\UserMapper.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\LogoutController.java
+C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\dao\UserMapper.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\SListController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\SelfInfoController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\Dao\dao\NoteMapper.java
@@ -27,6 +27,7 @@ C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Tri
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\IndexController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\BlogListController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\RegisterService.java
+C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\InsertAllDataService.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\controller\LoginController.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\BlogListService.java
 C:\Users\Administrator\Desktop\计算机设计大赛\sourceCode\Triple_T_0.5\Triple_T_0.1\src\main\java\service\SelfInfoService.java

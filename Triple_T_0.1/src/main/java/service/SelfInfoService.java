@@ -1,9 +1,14 @@
 package service;
 
+import Dao.dao.NoteMapper;
 import Dao.dao.UserMapper;
+import Dao.model.Note;
 import Dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by badguy on 2015/4/5.
@@ -14,6 +19,8 @@ public class SelfInfoService {
     private UserMapper userMapper;
     @Autowired(required = false)
     private User user;
+    @Autowired(required = false)
+    NoteMapper noteMapper;
     public String changeSelfInformation(Integer userId,String email,Float score,Float GPA,Float GRE){
         user=new User();
         user.setUserid(userId);
@@ -29,6 +36,11 @@ public class SelfInfoService {
             return "update failed";
         }
         return "success";
+    }
+    public List<Note> getUserFavourNote(Integer userId){
+        List<Note> noteList;
+        noteList=noteMapper.getNotesByUserId(userId);
+        return  noteList;
     }
     public User getSelfInfomation(Integer userId){
         try {

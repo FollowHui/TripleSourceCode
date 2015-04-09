@@ -27,6 +27,13 @@
     where n.userId = u.userId
     limit 0,#{noteCount,jdbcType=INTEGER}
   </select>
+  <select id="getNotesByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from note
+    where userId=#{userId,jdbcType=INTEGER}
+    limit 0,5
+  </select>
   <select id="getCommentTimes" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
     select
     COUNT(*) as commentCount
