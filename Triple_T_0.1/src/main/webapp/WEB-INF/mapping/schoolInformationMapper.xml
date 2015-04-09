@@ -29,6 +29,18 @@
     from schoolinformation
     where schoolId = #{schoolid,jdbcType=INTEGER}
   </select>
+  <select id="getSchoolByContinent" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from schoolinformation
+    where continent = #{continent,jdbcType=INTEGER}
+  </select>
+  <select id="getSchoolByRanking" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from schoolinformation
+    where ranking  &lt; #{ranking,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from schoolinformation
     where schoolId = #{schoolid,jdbcType=INTEGER}

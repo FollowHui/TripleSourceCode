@@ -1,10 +1,12 @@
 package controller;
 
+import Dao.model.SchoolInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import service.FavouriteSchoolService;
+import service.GetSchoolService;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +17,8 @@ import javax.servlet.http.HttpSession;
 public class SchoolController {
     @Autowired
     FavouriteSchoolService favouriteSchoolService;
+    @Autowired(required = false)
+    GetSchoolService getSchoolService;
     @RequestMapping(value = "/school/{schoolId}",method = RequestMethod.GET)
     public String getSchool(ModelMap modelMap,
                                  @PathVariable(value="schoolId") Integer schoolId,
@@ -31,7 +35,10 @@ public class SchoolController {
         if(result){
             httpSession.setAttribute("favourFlag", true);
         }
+        SchoolInformation schoolInformation;
+        schoolInformation=getSchoolService.getSchoolDetail(schoolId);
         modelMap.addAttribute("schoolId",schoolId);
+        modelMap.addAttribute("school",schoolInformation);
         return "school";
     }
 

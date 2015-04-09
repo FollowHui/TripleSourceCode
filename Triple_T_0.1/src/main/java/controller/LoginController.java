@@ -33,11 +33,10 @@ public class LoginController {
         String code = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         code = code.toLowerCase();
         verifyCode = verifyCode.toLowerCase();
-        System.out.println(verifyCode);
         if (verifyCode.equals(code)){
             modelMap.addAttribute("message","dongge");
-            System.out.println(userName);
-            System.out.println(password);
+            //System.out.println(userName);
+            //System.out.println(password);
             int resultCode=loginService.getLoginInfo(userName,password);
             if(resultCode>0){
                 httpSession.setAttribute("flag",true);

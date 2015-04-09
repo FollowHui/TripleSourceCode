@@ -19,7 +19,8 @@
 							<label>用户名:</label>
 						</div>
 						<div class="slide_input">
-							<input type="text" id="S_username" name="username"/>
+							<%--<input type="text" id="S_username" name="username"/>--%>
+								<p><c:out value="${user.username}"></c:out></p>
 						</div>
 					</div>
 					<div class="layer">
@@ -38,7 +39,7 @@
 							<label>邮箱:</label>
 						</div>
 						<div class="slide_input">
-							<input type="text" id="S_email" name="mailbox"/><br/>
+							<input type="text" id="S_email" name="mailbox" value="${user.emailaddress}"/><br/>
 						</div>
 					</div>
 					<div class="layer">
@@ -46,7 +47,7 @@
 							<label>分数:</label>
 						</div>
 						<div class="slide_input">
-							<input type="text" id="S_grade" name="grade"/><br/>
+							<input type="text" id="S_grade" name="grade" value="${user.score}"/><br/>
 						</div>
 					</div>
 					<div class="layer">
@@ -65,7 +66,7 @@
 							<label>GPA:</label>
 						</div>
 						<div class="slide_input">
-							<input type="text" id="S_gpa" name="gpa"/><br/>
+							<input type="text" id="S_gpa" name="gpa" value="${user.gpa}"/><br/>
 						</div>
 					</div>
 					<div class="layer">
@@ -73,7 +74,7 @@
 							<label>GRE:</label>
 						</div>
 						<div class="slide_input">
-							<input type="text" id="S_gre" name="gre"/><br/>
+							<input type="text" id="S_gre" name="gre" value="${user.grescore}"/><br/>
 						</div>
 					</div>
 					<div class="savebutton">
@@ -85,12 +86,9 @@
 			<h3>收藏的帖子</h3>
 			<div class="talk">
 				<ul>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
-					<li><a href="#">Js弹出基于Table的可关闭浮动层</a><span>2009-6-21</span></li>
+					<c:forEach items="${noteList}" var="Favourites">
+					<li><a href="/bloglist/bljump/${Favourites.noteId}">${Favourites.noteTitle}</a><span>${Favourites.pushDate}</span></li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -99,26 +97,29 @@
 				<h3>收藏的学校</h3>
 				<div class="collegelogo">
 					<ul>
-						<li><a href="#"><img src="../img/seu.png" style="width:40px;height:40x;border:none;"></a><p style="padding:10px;">东南大学 2009-6-21</p></li>
-						<li><a href="#"><img src="../img/seu.png" style="width:40px;height:40x;border:none;"></a><p style="padding:10px;">东南大学 2009-6-21</p></li>
-						<li><a href="#"><img src="../img/seu.png" style="width:40px;height:40x;border:none;"></a><p style="padding:10px;">东南大学 2009-6-21</p></li>
-						<li><a href="#"><img src="../img/seu.png" style="width:40px;height:40x;border:none;"></a><p style="padding:10px;">东南大学 2009-6-21</p></li>
+						<c:forEach items="${schoolList}" var="Favourites">
+						<li><a href="/school/${Favourites.schoolId}"><img src="/resources/schoolLogo/${Favourites.schoolLogo}" style="width:40px;height:40px;border:none;"></a><p style="padding:10px;">${Favourites.schoolName}</p></li>
+						</c:forEach>
+						<li><a href="#"><img src="../img/seu.png" style="width:40px;height:40px;border:none;"></a><p style="padding:10px;">东南大学 2009-6-21</p></li>
+
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="writecomment">
 			<h3>写帖</h3>
-			<div id="note"contenteditable="true">
-				<p>说点什么吧！</p>
-			</div>
+			<form action="/sendcomment" method="post">
+				<input id="notetitle" type="text" name="notetitle" value="标题写在这"/>
+				<textarea id="note"  name="notemessage" clos="20" rows="5" >
+					说点什么吧！
+				</textarea>
 			<div class="submitbutton">
 				<button type="submit" tabindex="5">发布</button>
 			</div>
-			<div class="cancelbutton">
-				<button type="cancel" tabindex="5">取消</button>
-			</div>
-
+			<%--<div class="cancelbutton">--%>
+				<%--<button type="cancel" tabindex="5">取消</button>--%>
+			<%--</div>--%>
+			</form>
 		</div>
 
 

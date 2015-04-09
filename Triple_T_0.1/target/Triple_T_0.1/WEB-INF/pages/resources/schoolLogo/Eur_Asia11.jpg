@@ -1,0 +1,2622 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//Dtd XHTML 1.0 Transitional//EN" "http://www.w3.org/tr/xhtml1/Dtd/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>大都会留学</title>
+<meta name="keywords" content="大都会留学" />
+<meta name="description" content="大都会留学" />
+<meta name="robots" content="all" />
+<meta name="googlebot" content="all" />
+<!--[if IE 6]>
+<script language="javascript" src="Iepngfix/iepngfix_tilebg.js"></script>
+<script language="javascript" src="Iepngfix/png_img.js"></script>
+<![endif]-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9" />
+<link href="Css/Config.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="Script/jquery1.4.2.js"></script>
+<script type="text/javascript" src="Script/youku.js"></script>
+
+<link href="facefiles/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="facefiles/facebox.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox() 
+    })
+</script>
+<script type="text/javascript">
+$(function(){
+//---------------------------------------------------------------------------------------------------
+	var $div_li =$("div.tab_menu ul li");
+	$div_li.click(function(){
+		$(this).addClass("selected")            //当前<li>元素高亮
+			   .siblings().removeClass("selected");  //去掉其它同辈<li>元素的高亮
+		var index =  $div_li.index(this);  // 获取当前点击的<li>元素 在 全部li元素中的索引。
+		$("div.tab_box > div")   	//选取子节点。不选取子节点的话，会引起错误。如果里面还有div 
+				.eq(index).show()   //显示 <li>元素对应的<div>元素
+				.siblings().hide(); //隐藏其它几个同辈的<div>元素
+	}).hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	});
+	
+//---------------------------------------------------------------------------------------------------
+	var $div_li_2 =$("div.tab_menu_2 ul li");
+	$div_li_2.click(function(){
+		$(this).addClass("selected")            //当前<li>元素高亮
+			   .siblings().removeClass("selected");  //去掉其它同辈<li>元素的高亮
+		var index_2 =  $div_li_2.index(this);  // 获取当前点击的<li>元素 在 全部li元素中的索引。
+		$("div.tab_box_2 > div")   	//选取子节点。不选取子节点的话，会引起错误。如果里面还有div 
+				.eq(index_2).show()   //显示 <li>元素对应的<div>元素
+				.siblings().hide(); //隐藏其它几个同辈的<div>元素
+	}).hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	});
+		
+//---------------------------------------------------------------------------------------------------
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
+	var index = 0;
+	var picTimer;
+	
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
+	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+		index = $("#focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+	//上一页、下一页按钮透明度处理
+	$("#focus .preNext").css("opacity",0.2).hover(function() {
+		$(this).stop(true,false).animate({"opacity":"0.5"},1000);
+	},function() {
+		$(this).stop(true,false).animate({"opacity":"0.2"},1000);
+	});
+
+	//上一页按钮
+	$("#focus .pre").click(function() {
+		index -= 1;
+		if(index == -1) {index = len - 1;}
+		showPics(index);
+	});
+
+	//下一页按钮
+	$("#focus .next").click(function() {
+		index += 1;
+		if(index == len) {index = 0;}
+		showPics(index);
+	});
+
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	$("#focus ul").css("width",sWidth * (len));
+	
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+	
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},1000); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},1000).eq(index).stop(true,false).animate({"opacity":"1"},1000); //为当前的按钮切换到选中的效果
+	}
+//----------------------------------------------------------------------------------------------------	
+})
+</script>
+<style type="text/css">
+/*弹窗*/
+.popup{ width:610px; height:360px; overflow:hidden; position:fixed; _position:absolute; left:50%; margin-left:-300px; top:50%; margin-top:-200px; background:#fff; z-index:999; display:none;}
+.popup del{ display:block; position:absolute; right:10px; top:0; width:20px; height:20px; font-family:Arial, Helvetica, sans-serif; text-decoration:none; font-size:30px; text-shadow: 0 1px 0 #FFFFFF; cursor:pointer; color:#ccc;  }
+</style>
+<script type="text/javascript">
+$(function(){
+	$('a[rel=popup1]').click(function(){
+		$('body').prepend('<div id="mask"></div>').find('#mask').css({opacity:0.5,  cursor:'pointer', background:'black', position:'absolute', zIndex:999, width:'100%',  height:$(document).height()});
+		$($(this).attr('href')).fadeIn().animate({'top':'60%'});
+		return false;
+		
+	})
+	$('a[rel=popup2]').click(function(){
+		$('body').prepend('<div id="mask"></div>').find('#mask').css({opacity:0.5,  cursor:'pointer', background:'black', position:'absolute', zIndex:999, width:'100%',  height:$(document).height()});
+		$($(this).attr('href')).fadeIn().animate({'top':'60%'});
+		return false;
+		
+	})	
+	$('a[rel=popup3]').click(function(){
+		$('body').prepend('<div id="mask"></div>').find('#mask').css({opacity:0.5,  cursor:'pointer', background:'black', position:'absolute', zIndex:999, width:'100%',  height:$(document).height()});
+		$($(this).attr('href')).fadeIn().animate({'top':'60%'});
+		return false;
+		
+	})	
+	
+	/*点击遮罩关闭,live方法用于，为通过js新增的元素添加事件*/
+	$('#mask, .popup del').live('click',function(){
+		$('#mask').remove();
+		$(this).parent('.popup').fadeOut(); $(this).parent().parent('.popup').fadeOut();
+		$('.popup').fadeOut();
+	})
+})
+</script>
+</head>
+<body>
+<div class="mainBox">
+	    <script language="javascript">
+	function all_seaForm_Validator(emailForm)
+	{
+		if (all_seaForm.allKey.value == ""){
+			alert("请输入关键字！");
+			all_seaForm.allKey.focus();
+			return (false);
+		}
+	}
+	</script>
+    <style type="text/css">
+	  .logoBox .top_weixin{float:right;width:200px;text-align:right;}
+	  .logoBox .top_weixin img {border:#FFF solid 3px; height:95px; margin:10px 0;}
+	</style>
+    <div class="logoBox">
+    <a href="http://www.cosmo-edu.com/" title="大都会留学"><img src="images/logo.jpg"  style="margin-top:10px;" /></a>
+    <div class="top_weixin"><img src="images/top_weixin.jpg" /></div>
+    </div>
+
+	<ul class="navBox">
+    	<li class="tou"><a href="Index.Asp" class="n_a1">首 页</a></li>
+        
+    	<li><a href="StudyChannel.Asp?CH_ID=1" class="n_a2">英国留学</a></li>
+        
+    	<li><a href="StudyChannel.Asp?CH_ID=2" class="n_a3">美国留学</a></li>
+        
+    	<li><a href="StudyChannel.Asp?CH_ID=3" class="n_a4">加拿大留学</a></li>
+        
+    	<li><a href="StudyChannel.Asp?CH_ID=4" class="n_a5">澳新留学</a></li>
+        
+    	<li><a href="StudyChannel.Asp?CH_ID=5" class="n_a6">欧亚留学</a></li>
+        
+    	<li><a href="NewsList.Asp?N_ID=2" class="n_a8">留学培训</a></li>
+        
+    	
+    	<li><a href="Evaluate.Asp" class="n_a9">在线评估</a></li>
+		<li class="mo"><a href="AboutUs.Asp" class="n_a10">关于我们</a></li>
+    </ul>
+	<div class="clear"></div>
+    
+
+<table width="1000" border="0" cellspacing="0" cellpadding="0" height="37">
+  <tr>
+    <td width="502"><ul class="cg_at">
+    	<li>成功在</li>
+    	<li><a href="StudyChannel.Asp?CH_ID=1"><img src="Images/Country/England.jpg" border="0" /></a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=1">英 国</a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=2"><img src="Images/Country/America.jpg" border="0" /></a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=2">美 国</a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=3"><img src="Images/Country/Canada.jpg" border="0" /></a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=3">加 拿 大</a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=4"><img src="Images/Country/Australia.jpg" border="0" /></a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=4">澳 洲</a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=5"><img src="Images/Country/eu.jpg" border="0" /></a></li>
+    	<li><a href="StudyChannel.Asp?CH_ID=5">欧亚</a></li>
+    	
+    </ul></td>
+    <td width="498">  <div class="k_seaBox">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <form id="all_seaForm" name="all_seaForm" method="get" action="SearchAll.Asp" onsubmit="return all_seaForm_Validator(this)" >
+        <td width="317">
+        <input name="allKey" type="text" class="k_sea_input" style="padding-left:20px;" id="allKey" maxlength="25" />
+        <input type="submit" name="button" id="button" value="搜 索" class="k_sea_btn" />
+        </td>
+        </form>
+        <td width="212">
+        <div class="keyBox">
+            关键字：<a href='http://www.cosmo-edu.com/NewsInfo.Asp?ID=463' target='_blank' style='margin-left:5px; margin-right:5px;'>英国排名</a><a href='http://www.cosmo-edu.com/NewsInfo.Asp?ID=469' target='_blank' style='margin-left:5px; margin-right:5px;'>重要通知</a>
+        </div>
+        </td>
+        </tr>
+        </table>
+    </div></td>
+  </tr>
+</table>
+
+    
+	
+	  
+    <div class="clear"></div>
+	    
+    <div class="banBox left mar_top10">
+      <div id="focus" style="margin-left:10px;">
+        <ul>
+          
+          <li><a href="zhuanti/zhuanti1.html" title="首页banner图片" target="_blank"><img src="uploadfile/20120810/20120813104741834.gif" width="700" height="320" /></a></li>
+          
+          <li><a href="zhuanti2/zhuanti2.html" title="首页bnner2图片" target="_blank"><img src="uploadfile/20130707/20130707214045494.jpg" width="700" height="320" /></a></li>
+          
+          <li><a href="zhuanti3/zhuanti3.html" title="首页banner3" target="_blank"><img src="uploadfile/20130707/20130707214212727.jpg" width="700" height="320" /></a></li>
+          
+          <li><a href="zhuanti4/zhuanti4.html" title="首页banner4" target="_blank"><img src="uploadfile/20130707/20130707214249865.jpg" width="700" height="320" /></a></li>
+          
+        </ul>
+      </div>
+        <div class="seaBox" style="width:700px;">
+		
+  
+		
+		
+		
+        <form id="seaForm" name="seaForm" method="get" action="Search1.Asp">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+      
+        <td class="sea_bg" width="710">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td align="right"><input type="text" name="allKey" id="allKey" class="sea_input" /></td>
+            <td align="center"><input type="submit" name="button" id="button" value=" " class="sea_btn" /></td>
+            </tr>
+            </table>
+        </td>
+        <td><a href="SchoolList.Asp?CH_ID=1"><img src="Images/h_sea_ico.jpg" name="h_sea" border="0" id="h_sea" style="cursor:pointer" /></a></td>
+        </tr>
+        </table>
+        </form> 
+    </div>
+    <div style="height:10px"></div>
+	
+	
+  </div>
+    <div class="newsBox_1 right mar_top10">
+    	<div class="bt_1">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td align="left" height="29">留学新闻</td>
+            <td width="30" align="center"><a href="NewsList.Asp" target="_blank">更多</a></td>
+            </tr>
+            </table>
+        </div>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:6px;">
+        
+        <tr>
+        <td height="25" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+        <td align="left"><a href="NewsInfo.Asp?ID=611" target="_blank">莱斯特大学2014年停止开设媒介与传…</a></td>
+        </tr>
+        
+        <tr>
+        <td height="25" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+        <td align="left"><a href="NewsInfo.Asp?ID=610" target="_blank">卡迪夫大学2014年将不再开设教育学…</a></td>
+        </tr>
+        
+        <tr>
+        <td height="25" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+        <td align="left"><a href="NewsInfo.Asp?ID=609" target="_blank">英学生票选体育最强英国大学 拉夫堡…</a></td>
+        </tr>
+        
+        <tr>
+        <td height="25" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+        <td align="left"><a href="NewsInfo.Asp?ID=608" target="_blank">2013年终总结：最受留学生关注的5所…</a></td>
+        </tr>
+        
+        </table>
+		
+        <div style="height:1px; background:#d7d7d7; font-size:0px; margin-top:3px;"></div>
+		 <div style="margin-top:5px;"><a href="#popup1" rel="popup1" title="查看视频"><img src="uploadfile/20130606/20130606042358135.jpg" width="250" height="175" /></a></div>
+		 <DIV style="margin-top:10PX;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><a href="Ranks.Asp?Ch_ID=0&ID=1" target="_blank"><img src="uploadfile/20130520/20130520211250873.jpg" width="125" height="41" /></a><a href="School_Google_Map.Asp?Ch_ID=1&amp;CC_ID=1&amp;YX_ID=&amp;DC_ID=&amp;M_seaKey=&amp;M_seaBtn=+"></a></td>
+    <td><a href="Ranks.Asp?Ch_ID=0&ID=2" target="_blank"><img src="uploadfile/20120912/20120912105551399.jpg" width="125" height="41" /></a><a href="Ranks.Asp?Ch_ID=1&amp;ID=3"></a></td>
+  </tr>
+</table>
+</DIV>
+  </div>
+    <div class="clear"></div>
+    
+</div>
+
+<div class="Title_ico"><div class="Kite_ico"></div>
+</div>
+<div class="conBox_1">
+	<div class="left leftBox">
+        <div class="tab">
+            <div class="tab_menu">
+                <ul id="tabBox">
+                    <li class="selected"><img src="Images/Country/England.jpg" /><span>英国</span></li>
+                    <li><img src="Images/Country/America.jpg" /><span>美国</span></li> 
+                    <li><img src="Images/Country/Canada.jpg" /><span>加拿大</span></li> 
+                    <li><img src="Images/Country/Australia.jpg" /><span>澳新</span></li> 
+                    <li><img src="Images/Country/EU.jpg" /><span>欧亚</span></li> 
+                </ul>
+            </div>
+            <div class="tab_box">
+
+                <div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="335" style="padding-right:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">大学推荐</td>
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=1" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=92" target="_blank">阿伯泰邓迪大学 (AbertayDundee)</a></td>
+                        <td width="40" align="right">09.10</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=91" target="_blank">安格利亚鲁斯金大学 (ARU)</a></td>
+                        <td width="40" align="right">10.25</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=90" target="_blank">利兹都会大学 (LeedsMet)</a></td>
+                        <td width="40" align="right">09.10</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=89" target="_blank">曼城城市大学 (MMU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=88" target="_blank">金斯顿大学 (Kingston)</a></td>
+                        <td width="40" align="right">09.10</td>
+                        </tr>
+						
+                        </table>
+
+                        
+                        
+                        
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                          <tr>
+                            <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                            <td align="left">热门课程</td>
+                            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=1&N_ID=32" target="_blank">更多</a></td>
+                          </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=627" target="_blank">雷丁大学计算机硕士课程提供3000英镑奖学金…</a></td>
+                            <td width="40" align="right">01.15</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=619" target="_blank">留英盘点：六大研究生热门专业就业前景分析…</a></td>
+                            <td width="40" align="right">03.28</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=618" target="_blank">盘点2014英国优秀硕士专业和知名院校</a></td>
+                            <td width="40" align="right">03.19</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=617" target="_blank">2014英国留学电子信息工程详解及名校推荐</a></td>
+                            <td width="40" align="right">03.19</td>
+                          </tr>
+                          
+                        </table>
+                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">院校排名</td>
+                        
+                        <td align="right" style="padding-right:6px;"><a href="http://www.cosmo-edu.com/Ranks.Asp?Ch_ID=0&ID=2" target="_blank"><img src="uploadfile/20120810/20120815133233469.gif" width="130" height="24" /></a></td>
+                        
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=1" target="_blank">更多</a></td>
+                        </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=8" target="_blank">牛津大学 (Oxford)</a></td>
+                        <td width="40" align="right">10.02</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=2" target="_blank">埃克塞特大学 (Exeter)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=88" target="_blank">金斯顿大学 (Kingston)</a></td>
+                        <td width="40" align="right">09.10</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=89" target="_blank">曼城城市大学 (MMU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=90" target="_blank">利兹都会大学 (LeedsMet)</a></td>
+                        <td width="40" align="right">09.10</td>
+                        </tr>
+						
+                        </table>
+                    </td>
+                    <td width="335" style="border-left:1px dashed #A9BEDB; height:365px; padding-left:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" height="1">
+                        <tr>
+                        
+                        <td height="55" valign="top"><a href="School_Google_Map.Asp" target="_blank"><img src="uploadfile/20130520/20130520202453298.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?Ch_ID=1&ID=3" target="_blank"><img src="uploadfile/20130520/20130520202642390.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?Ch_ID=1&ID=4" target="_blank"><img src="uploadfile/20130520/20130520202736286.jpg"></a></td>
+                        
+                        </tr>
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请急报</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=1&N_ID=11" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=626" target="_blank">萨里大学今日举办2014年研究生网络开放日</a></td>
+                        <td width="40" align="right">01.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=624" target="_blank">普利茅斯奖学金种类丰富金额高昂 6月才截止…</a></td>
+                        <td width="40" align="right">01.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=623" target="_blank">威斯敏斯特大学语言课程种类及入学要求一览…</a></td>
+                        <td width="40" align="right">01.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=621" target="_blank">2014英国留学语言课程全解读 附热门课程申请…</a></td>
+                        <td width="40" align="right">01.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=620" target="_blank">英国知名大学录取所需学位押金 </a></td>
+                        <td width="40" align="right">01.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=567" target="_blank">哈德斯菲尔德大学收到语言课程全部费用才出…</a></td>
+                        <td width="40" align="right">11.04</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=560" target="_blank">英国提高对留学签证申请人的语言要求</a></td>
+                        <td width="40" align="right">10.30</td>
+                        </tr>
+                        
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请材料</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=1&N_ID=12" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=625" target="_blank">英国留学体检办理相关信息及注意事项</a></td>
+                        <td width="40" align="right">04.30</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=622" target="_blank">2014年英国T4学生签证材料清单</a></td>
+                        <td width="40" align="right">03.28</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=554" target="_blank">申请会计与金融专业PS范文展示</a></td>
+                        <td width="40" align="right">10.28</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=526" target="_blank">外籍人士手持英国毕业生创业签证更容易就业…</a></td>
+                        <td width="40" align="right">10.14</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=525" target="_blank">在英国如何办理学生签证续签</a></td>
+                        <td width="40" align="right">10.14</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=524" target="_blank">英国入境签证被拒如何申请复议</a></td>
+                        <td width="40" align="right">10.14</td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </td>
+                    </tr>
+                    </table>
+                </div>
+                
+                <div class="hide">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="335" style="padding-right:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">大学推荐</td>
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=2" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=282" target="_blank">科罗拉多州立大学 (CSU)</a></td>
+                        <td width="40" align="right">07.03</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=281" target="_blank">肯塔基大学 (Kentucky)</a></td>
+                        <td width="40" align="right">07.04</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=280" target="_blank">亚利桑那大学 (Arizona)</a></td>
+                        <td width="40" align="right">11.23</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=279" target="_blank">俄亥俄大学 (Ohio)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=278" target="_blank">旧金山大学 (SanFrancisco)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+
+                        
+                        
+                        
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                          <tr>
+                            <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                            <td align="left">热门课程</td>
+                            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=2&N_ID=33" target="_blank">更多</a></td>
+                          </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=493" target="_blank">美国留学：学生所需注意的细节</a></td>
+                            <td width="40" align="right">12.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=492" target="_blank">US News美国大学排名变化大吐槽</a></td>
+                            <td width="40" align="right">12.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=491" target="_blank">解答美国研究生申请常见疑问</a></td>
+                            <td width="40" align="right">12.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=490" target="_blank">美国留学奖学金申请5大须知</a></td>
+                            <td width="40" align="right">12.04</td>
+                          </tr>
+                          
+                        </table>
+                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">院校排名</td>
+                        
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=2" target="_blank">更多</a></td>
+                        </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=161" target="_blank">哈佛大学 (Harvard)</a></td>
+                        <td width="40" align="right">07.04</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=170" target="_blank">杜克大学 (Duke)</a></td>
+                        <td width="40" align="right">07.04</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=266" target="_blank">太平洋大学 (Pacific)</a></td>
+                        <td width="40" align="right">07.04</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=265" target="_blank">田纳西大学 (Tennessee)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=264" target="_blank">俄勒冈大学 (Oregon)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+                    </td>
+                    <td width="335" style="border-left:1px dashed #A9BEDB; height:365px; padding-left:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" height="1">
+                        <tr>
+                        
+                        <td height="55" valign="top"><a href="StudyChannel.Asp?CH_ID=2" target="_blank"><img src="uploadfile/20130520/20130520213830877.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?Ch_ID=2&ID=6" target="_blank"><img src="uploadfile/20130520/20130520214145446.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="#" target="_blank"><img src="uploadfile/20130609/20130609010425148.jpg"></a></td>
+                        
+                        </tr>
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请急报</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=2&N_ID=15" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=536" target="_blank">美国留学网上申报已经开始</a></td>
+                        <td width="40" align="right">10.20</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=532" target="_blank">申请美国本科申请截止时间解析</a></td>
+                        <td width="40" align="right">10.19</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=213" target="_blank">美国高等教育：“常春藤”之外有名校</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=209" target="_blank">六大问题探路美国留学</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=208" target="_blank">赴美国留学三大认识误区</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=194" target="_blank">美国优秀私立学校学费渐涨已超哈佛</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=179" target="_blank">美国顶级商学院毕业薪金对比</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请材料</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=2&N_ID=16" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=572" target="_blank">美国研究生留学 六类材料要准备</a></td>
+                        <td width="40" align="right">11.04</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=215" target="_blank">2013申请季：网上填写英文表格注意事项</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=214" target="_blank">2013申请季：美国留学奖学金审核依据</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=212" target="_blank">2013申请季：美国申请文书(PS)中不可碰触的…</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=211" target="_blank">美国留学申请材料要吸引审阅人关注</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=210" target="_blank">如何申请美国名校 写推荐信不一定请“牛人”…</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </td>
+                    </tr>
+                    </table>
+                </div>
+                
+                <div class="hide">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="335" style="padding-right:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">大学推荐</td>
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=3" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=336" target="_blank">菲莎河谷大学 (Fraser Valley)</a></td>
+                        <td width="40" align="right">07.08</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=335" target="_blank">魁北克大学 (Quebec)</a></td>
+                        <td width="40" align="right">07.08</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=334" target="_blank">北英属哥伦比亚大学 (NBC)</a></td>
+                        <td width="40" align="right">07.05</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=333" target="_blank">布鲁克大学 (Brock)</a></td>
+                        <td width="40" align="right">07.05</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=332" target="_blank">萨斯卡切温大学 (Saskatchewan)</a></td>
+                        <td width="40" align="right">07.05</td>
+                        </tr>
+						
+                        </table>
+
+                        
+                        
+                        
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                          <tr>
+                            <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                            <td align="left">热门课程</td>
+                            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=3&N_ID=34" target="_blank">更多</a></td>
+                          </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=575" target="_blank">加拿大留学：渥太华大学校内设施一应俱全</a></td>
+                            <td width="40" align="right">11.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=574" target="_blank">加拿大多伦多大学硕士留学各项费用</a></td>
+                            <td width="40" align="right">11.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=448" target="_blank">工程专业</a></td>
+                            <td width="40" align="right">09.23</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=447" target="_blank">环境工程专业</a></td>
+                            <td width="40" align="right">05.24</td>
+                          </tr>
+                          
+                        </table>
+                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">院校排名</td>
+                        
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=3" target="_blank">更多</a></td>
+                        </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=112" target="_blank">西蒙弗雷泽大学 (SFU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=102" target="_blank">麦吉尔大学&#8232; (&#8232;McGill)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=110" target="_blank">渥太华大学&#8232; (Ottawa)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=101" target="_blank">里贾纳大学 (Regina)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=328" target="_blank">加拿大阿尔伯塔大学 (Alberta)</a></td>
+                        <td width="40" align="right">07.05</td>
+                        </tr>
+						
+                        </table>
+                    </td>
+                    <td width="335" style="border-left:1px dashed #A9BEDB; height:365px; padding-left:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" height="1">
+                        <tr>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?CH_Id=3" target="_blank"><img src="uploadfile/20130521/20130521042926206.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="#" target="_blank"><img src="uploadfile/20130609/20130609010617850.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="#" target="_blank"><img src="uploadfile/20130609/20130609010649260.jpg"></a></td>
+                        
+                        </tr>
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请急报</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=3&N_ID=19" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=535" target="_blank">避免签证问题 留加学生要及时续签大小签证</a></td>
+                        <td width="40" align="right">10.20</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=230" target="_blank">加拿大院校入学要求解析</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=229" target="_blank">申请加拿大名校三大途径</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=228" target="_blank">细数加拿大商科好的大学</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=223" target="_blank">加拿大商学院申请要点及优势分析</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=222" target="_blank">2013年加拿大留学名校申请倒计时开始</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=218" target="_blank">加拿大留学：加拿大大学施行学分制</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请材料</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=3&N_ID=20" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=227" target="_blank">加拿大留学申请书范文撰写建议</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=226" target="_blank">去加拿大读硕士申请书</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=225" target="_blank">加拿大签证：申请GIC需符合四大条件</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=224" target="_blank">加拿大本科申请资料经验谈</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=221" target="_blank">加拿大留学：读研究生必须要注意的问题</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=220" target="_blank">加拿大留学申请的必备常识</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </td>
+                    </tr>
+                    </table>
+                </div>
+                
+                <div class="hide">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="335" style="padding-right:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">大学推荐</td>
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=4" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=160" target="_blank">梅西大学 (Massey)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=159" target="_blank">坎特伯雷大学 (Canterbury)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=158" target="_blank">怀卡托理工学院 (WIT)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=157" target="_blank">怀卡托大学 (Waikato)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=156" target="_blank">奥塔哥大学 (Otago)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+
+                        
+                        
+                        
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                          <tr>
+                            <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                            <td align="left">热门课程</td>
+                            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=4&N_ID=35" target="_blank">更多</a></td>
+                          </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=585" target="_blank">澳大利亚留学：维多利亚大学特色双硕士学位…</a></td>
+                            <td width="40" align="right">11.06</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=576" target="_blank">2013年澳洲留学申请指南</a></td>
+                            <td width="40" align="right">11.04</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=518" target="_blank">澳洲南十字星大学本硕连读课程</a></td>
+                            <td width="40" align="right">10.13</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=453" target="_blank">教育专业</a></td>
+                            <td width="40" align="right">09.23</td>
+                          </tr>
+                          
+                        </table>
+                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">院校排名</td>
+                        
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=4" target="_blank">更多</a></td>
+                        </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=154" target="_blank">奥克兰大学 (Auckland)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=152" target="_blank">查尔斯达尔文大学 (CDU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=151" target="_blank">巴拉瑞特大学 (Ballarat)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=150" target="_blank">澳大利亚天主教大学 (ACU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=149" target="_blank">埃迪斯科文大学 (ECU)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+                    </td>
+                    <td width="335" style="border-left:1px dashed #A9BEDB; height:365px; padding-left:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" height="1">
+                        <tr>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?CH_ID=4&ID=11" target="_blank"><img src="uploadfile/20130609/20130609012905345.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?CH_Id=4" target="_blank"><img src="uploadfile/20130609/20130609023017571.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="#" target="_blank"><img src="uploadfile/20130609/20130609013118746.jpg"></a></td>
+                        
+                        </tr>
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请急报</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=4&N_ID=23" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=360" target="_blank">成功申请新西兰留学的四大因素</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=358" target="_blank">澳大利亚奖学金分类及申请技巧</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=357" target="_blank">新西兰深造与就业的向上人生路</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=355" target="_blank">新西兰大学各学科留学费用解析</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=353" target="_blank">澳洲授课型硕士和研究型硕士区别介绍</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=193" target="_blank">澳洲留学：放松对大学入学人数限制</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=192" target="_blank">申请澳洲留学签证 需提交正式OFFER</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请材料</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=4&N_ID=24" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=362" target="_blank">申请新西兰留学签证需要的材料</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=361" target="_blank">新西兰留学申请时应注意的四点</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=359" target="_blank">澳洲留学申请表</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=356" target="_blank">新西兰留学携带行李指南</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=354" target="_blank">澳大利亚研究生申请方案</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=185" target="_blank">新西兰留学申请材料清单 </a></td>
+                        <td width="40" align="right">04.18</td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </td>
+                    </tr>
+                    </table>
+                </div>
+                
+                <div class="hide">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    <td width="335" style="padding-right:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">大学推荐</td>
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=5" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=323" target="_blank">国立梅努斯大学 (NUIM)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=322" target="_blank">利莫瑞克大学 (Limerick)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=321" target="_blank">都柏林理工学院 (DIT)</a></td>
+                        <td width="40" align="right">06.06</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=320" target="_blank">都柏林城市大学 (DublinCity)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=319" target="_blank">国立高威大学 (NUIG)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+
+                        
+                        
+                        
+                  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                          <tr>
+                            <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                            <td align="left">热门课程</td>
+                            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=5&N_ID=36" target="_blank">更多</a></td>
+                          </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=437" target="_blank">旅游酒店管理专业</a></td>
+                            <td width="40" align="right">09.25</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=435" target="_blank">香港热门专业推荐</a></td>
+                            <td width="40" align="right">09.25</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=413" target="_blank">新加坡留学建筑专业名校</a></td>
+                            <td width="40" align="right">05.19</td>
+                          </tr>
+                          
+                          <tr>
+                            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                            <td align="left"><a href="NewsInfo.Asp?ID=412" target="_blank">建筑工程学</a></td>
+                            <td width="40" align="right">05.19</td>
+                          </tr>
+                          
+                        </table>
+                        
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">院校排名</td>
+                        
+                        <td width="30" align="center"><a href="SchoolList.Asp?CH_ID=5" target="_blank">更多</a></td>
+                        </tr>
+                      </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=317" target="_blank">都柏林大学 (Dublin)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=309" target="_blank">乌特勒支大学 (Utrecht)</a></td>
+                        <td width="40" align="right">09.18</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=294" target="_blank">东京大学 (UTokyo)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=292" target="_blank">新加坡国立大学 (NUS)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="SchoolInfo.Asp?ID=288" target="_blank">香港大学 (HongKong)</a></td>
+                        <td width="40" align="right">09.21</td>
+                        </tr>
+						
+                        </table>
+                    </td>
+                    <td width="335" style="border-left:1px dashed #A9BEDB; height:365px; padding-left:10px;" valign="top">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" height="1">
+                        <tr>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?CH_ID=5&ID=9" target="_blank"><img src="uploadfile/20130609/20130609015846719.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="Ranks.Asp?CH_ID=5&ID=10" target="_blank"><img src="uploadfile/20130609/20130609021906180.jpg"></a></td>
+                        
+                        <td width="10"></td>
+                        
+                        <td height="55" valign="top"><a href="#" target="_blank"><img src="uploadfile/20130609/20130609020010105.jpg"></a></td>
+                        
+                        </tr>
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请急报</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=5&N_ID=27" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=553" target="_blank">2014日本留学材料审查</a></td>
+                        <td width="40" align="right">10.24</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=371" target="_blank">韩国出台利好新政吸引留学生</a></td>
+                        <td width="40" align="right">05.09</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=370" target="_blank">留学荷兰的优势和申请条件</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=369" target="_blank">赴日读研的优势和申请难点解析</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=368" target="_blank">爱尔兰留学：本硕奖学金详情解析</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=367" target="_blank">马来西亚留学 详解研究生申请流程</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=191" target="_blank">签证通过率较高欧洲国家力推工科留学</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_1" style="margin-top:8px;">
+                        <tr>
+                        <td width="25" align="center"><img src="Images/Quan_ico.jpg" /></td>
+                        <td align="left">申请材料</td>
+                        <td width="30" align="center"><a href="NewsList.Asp?CH_ID=5&N_ID=28" target="_blank">更多</a></td>
+                        </tr>
+                        </table>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=366" target="_blank">德国留学申请需要哪些材料？</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=365" target="_blank">荷兰留学申请材料清单</a></td>
+                        <td width="40" align="right">05.01</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=364" target="_blank">爱尔兰留学申请材料</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=363" target="_blank">新加坡申请材料</a></td>
+                        <td width="40" align="right">05.15</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=190" target="_blank">申请香港大学的研究生需要准备哪些材料</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="NewsInfo.Asp?ID=189" target="_blank">申请读日本“研究生”所应准备的材料</a></td>
+                        <td width="40" align="right">09.25</td>
+                        </tr>
+                        
+                        </table>
+                        
+                    </td>
+                    </tr>
+                    </table>
+                </div>
+                
+            
+				
+		  </div>
+        </div>
+    </div>
+  <div class="right rightBox">
+    	<div class="bt_lan">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+            <td width="25" height="24"><img src="Images/video_ico.png" /></td>
+            <td align="left">精彩视频</td>
+            </tr>
+            </table>
+        </div>
+        <div style="margin-top:5px;"><a href="#popup2" rel="popup2" title="查看视频"><img src="uploadfile/20130606/20130606031720449.jpg" width="268" height="180" /></a></div>
+        <div class="bt_lan3" style="margin-top:5px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+         
+            </table>
+        </div>
+        <div class="blogBox">
+        <iframe width="270" height="255" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=270&height=255&fansRow=1&ptype=1&speed=100&skin=2&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=2811540372&verifier=bbdef32b&dpc=1"></iframe>
+        </div>
+      
+  </div>
+	<div class="clear"></div>
+</div>
+
+<div class="Title_ico2" style="z-index:-1000"><div class="Kite_ico2" style="z-index:-1000"></div>
+</div>
+<div class="conBox_2" style="z-index:1000">
+  <div class="left leftBox">
+    <table width="100%" border="0" cellpadding="0" style="width:691px; background:url(Images/tab_xiant.jpg) left top repeat-x; height:25px;" >
+      <tr>
+        <td><div class="tab_2">
+            <div class="tab_menu_2">
+              <ul id="tabBox_2" style="z-index:9999">
+                <li class="selected"><img src="Images/Country/England.jpg" style="z-index:9999"/><span>英国</span></li>
+                <li><img src="Images/Country/America.jpg" /><span>美国</span></li>
+                <li><img src="Images/Country/Canada.jpg" /><span>加拿大</span></li>
+                <li class="mo"><img src="Images/Country/Australia.jpg" /><span>澳新</span></li>
+              </ul>
+            </div>
+        </div></td>
+      </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="335" style="padding-right:10px;" valign="top"><div class="tab_box_2">
+            
+            <div>
+              
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+                <tr>
+                  <td width="25" align="center"><img src="Images/Quan_ico2.jpg" /></td>
+                  <td align="left">本硕预科</td>
+                  <td width="30" align="center"><a href="LessonList.Asp?CH_ID=1&amp;L_ID=1" target="_blank">更多</a></td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px;">
+                <tr>
+                  <td width="80%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=68" target="_blank">伦敦商业金融学院</a></td>
+                        <td width="40" align="right">10.23</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=20" target="_blank">英国朴茨茅斯大学工商管理硕士课程入学要…</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=19" target="_blank">英国埃克塞特大学国际管理理科硕士专业详…</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=18" target="_blank">英国曼彻斯特大学风险管理理学硕士课程解…</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=17" target="_blank">英国卡地夫大学物流及运作管理硕士课程详…</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=13" target="_blank">格拉斯哥大学预科</a></td>
+                        <td width="40" align="right">05.15</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=11" target="_blank">伯恩茅斯大学预科</a></td>
+                        <td width="40" align="right">05.15</td>
+                      </tr>
+                      
+                  </table></td>
+                </tr>
+              </table>
+              
+            </div>
+          
+            <div class="hide">
+              
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+                <tr>
+                  <td width="25" align="center"><img src="Images/Quan_ico2.jpg" /></td>
+                  <td align="left">本硕预科</td>
+                  <td width="30" align="center"><a href="LessonList.Asp?CH_ID=2&amp;L_ID=3" target="_blank">更多</a></td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px;">
+                <tr>
+                  <td width="80%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=49" target="_blank">美国西北大学土木工程理学士详情</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=48" target="_blank">美国普林斯顿大学运筹学与金融工程工学士…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=47" target="_blank">美国范德堡大学会计学硕士专业详情</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=46" target="_blank">华盛顿大学计算机科学和工程理科硕士专业…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=42" target="_blank">德州A&M大学预科</a></td>
+                        <td width="40" align="right">05.21</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=41" target="_blank">爱荷华大学 </a></td>
+                        <td width="40" align="right">05.21</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=40" target="_blank">德克萨斯大学奥斯汀分校预科</a></td>
+                        <td width="40" align="right">05.21</td>
+                      </tr>
+                      
+                  </table></td>
+                </tr>
+              </table>
+              
+            </div>
+          
+            <div class="hide">
+              
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+                <tr>
+                  <td width="25" align="center"><img src="Images/Quan_ico2.jpg" /></td>
+                  <td align="left">本硕预科</td>
+                  <td width="30" align="center"><a href="LessonList.Asp?CH_ID=3&amp;L_ID=5" target="_blank">更多</a></td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px;">
+                <tr>
+                  <td width="80%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=54" target="_blank">加拿大多伦多大学数学理科硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=53" target="_blank">加拿大麦吉尔大学管理学工商管理硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=52" target="_blank">加拿大多伦多大学高级工商管理硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=51" target="_blank">加拿大渥太华大学语言学文科硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=50" target="_blank">加拿大多伦多大学金融经济学硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=45" target="_blank">加拿大麦克玛斯特大学</a></td>
+                        <td width="40" align="right">05.21</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=44" target="_blank">戴尔豪西大学</a></td>
+                        <td width="40" align="right">05.21</td>
+                      </tr>
+                      
+                  </table></td>
+                </tr>
+              </table>
+              
+            </div>
+          
+            <div class="hide">
+              
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+                <tr>
+                  <td width="25" align="center"><img src="Images/Quan_ico2.jpg" /></td>
+                  <td align="left">本硕预科</td>
+                  <td width="30" align="center"><a href="LessonList.Asp?CH_ID=4&amp;L_ID=7" target="_blank">更多</a></td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:0px;">
+                <tr>
+                  <td width="80%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=59" target="_blank">澳大利亚新南威尔士大学计算机信息技术硕…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=58" target="_blank">澳大利亚墨尔本大学教育学硕士</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=57" target="_blank">澳大利亚堪培拉大学战略采购工商管理硕士…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=56" target="_blank">澳大利亚南十字星大学工商管理硕士（金融…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=55" target="_blank">澳大利亚卧龙岗大学战略人力资源管理硕士…</a></td>
+                        <td width="40" align="right">05.29</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=34" target="_blank">奥克兰理工大学预科</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                      <tr>
+                        <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                        <td align="left"><a href="LessonInfo.Asp?ID=33" target="_blank">巴拉瑞特大学预科</a></td>
+                        <td width="40" align="right">05.18</td>
+                      </tr>
+                      
+                  </table></td>
+                </tr>
+              </table>
+              
+            </div>
+          
+        </div></td>
+        <td width="335" valign="top" style="border-left:1px dashed #A9BEDB; padding-left:10px; padding-top:11px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+              <tr>
+                <td width="25" align="center"><img src="Images/Quan_ico2.jpg" width="12" height="15" /></td>
+                <td width="280" align="left">托雅双G</td>
+                <td width="30" align="center"><a href="NewsList.Asp?N_ID=3" target="_blank">更多</a></td>
+              </tr>
+            </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:2px;">
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=534" target="_blank">雅思考试全国增设4个新考点</a></td>
+                <td width="40" align="right">10.19</td>
+              </tr>
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=476" target="_blank">新托福阅读技巧</a></td>
+                <td width="40" align="right">10.04</td>
+              </tr>
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=474" target="_blank">怎么样才能做到雅思的有效复习</a></td>
+                <td width="40" align="right">10.04</td>
+              </tr>
+              
+          </table>
+          
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+              <tr>
+                <td width="25" align="center"><img src="Images/Quan_ico2.jpg" width="12" height="15" /></td>
+                <td width="280" align="left">海外考证</td>
+                <td width="30" align="center"><a href="NewsList.Asp?N_ID=4" target="_blank">更多</a></td>
+              </tr>
+            </table>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:2px;">
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=579" target="_blank">出国留学拿“双证” 海外考证热点答疑</a></td>
+                <td width="40" align="right">11.06</td>
+              </tr>
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=477" target="_blank">SAT国庆期间开考 学校允许学生“拼分”</a></td>
+                <td width="40" align="right">10.04</td>
+              </tr>
+              
+              <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=284" target="_blank">GMAT语法比较练习题</a></td>
+                <td width="40" align="right">05.22</td>
+              </tr>
+              
+          </table>
+          </td>
+      </tr>
+      <tr>
+        <td colspan="2" valign="top" style="padding-right:10px;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_2">
+            <tr>
+              <td width="25" align="center"><img src="Images/Quan_ico2.jpg" width="12" height="15" /></td>
+              <td width="284" align="left">成功故事</td>
+              <td width="372" align="center"><div align="left"><a href="NewsList.Asp?N_ID=5" target="_blank">更多</a></div></td>
+            </tr>
+          </table>          </td>
+      </tr>
+      <tr>
+        <td valign="top" style="padding-right:10px;"><table width="333" border="0" cellspacing="0" cellpadding="0" style="margin-top:2px;">
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=607" target="_blank">英国大学申请--布里斯托大学</a></td>
+            <td width="40" align="right">12.04</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=606" target="_blank">英国硕士申请--曼彻斯特大学</a></td>
+            <td width="40" align="right">12.04</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=605" target="_blank">英国硕士申请-南安普顿大学</a></td>
+            <td width="40" align="right">12.04</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=601" target="_blank">英国硕士申请--约克大学</a></td>
+            <td width="40" align="right">11.25</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=600" target="_blank">英国硕士申请--埃塞克特大学</a></td>
+            <td width="40" align="right">11.25</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=599" target="_blank">英国硕士申请--格拉斯哥大学</a></td>
+            <td width="40" align="right">11.25</td>
+          </tr>
+          
+          <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=591" target="_blank">英国硕士申请--约克大学</a></td>
+            <td width="40" align="right">11.20</td>
+          </tr>
+          
+        </table>
+        </td>
+        <td valign="top" style="padding-right:10px; padding-left:10px"><a href="#popup3" rel="popup3" title="查看视频"><img src="uploadfile/20130606/20130606031728101.jpg" width="318" height="180" /></a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="right rightBox">
+	<div class="clear"></div>
+        <p class="p_bt_2">专业顾问</p>
+       <iframe src="vv.asp" scrolling="no" width="265px" height="410px" frameborder="0" style="background-color:#FFFFFF"></iframe>
+	    <!--<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="58%" rowspan="2"><img src="4.jpg" height="142" /></td>
+    <td width="42%" style="padding-top:19px;"><img src="5.jpg" width="137" /></td>
+  </tr>
+  <tr>
+    <td><div align="center" style="padding-top:10px; padding-left:20px;"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800078110&eid=2188z8p8p8p8y8z8q8q8p&o=http://www.01jzw.com/xin/&q=7&ref='+document.location, '_blank', 'height=544, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC="http://im.bizapp.qq.com:8000/zx_qq.gif"></div></td>
+  </tr>
+</table>-->
+  </div>
+ 
+
+	<div class="clear"></div>
+</div>
+
+
+<div class="Title_ico3"><div class="Kite_ico3"></div></div>
+<div class="conBox_3">
+	<div class="left leftBox">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td width="335" style="padding-right:10px;" valign="top">
+			
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3">
+            <tr>
+            <td width="40" align="center"><img src="Images/Country/England.jpg" /></td>
+            <td align="left">英国</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=1&N_ID=13" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=616" target="_blank">留学热潮 总结英国留学…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=549" target="_blank">圣安德鲁斯大学学生生…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=545" target="_blank">英国留学：关于签证与…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=523" target="_blank">英国将简化中国访客赴…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=485" target="_blank">英国留学签证涨了多少…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=483" target="_blank">UKBA撤销，续签速度或…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=481" target="_blank">2014英国名校录取要求…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=480" target="_blank">解析英国留学哪几类学…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=266" target="_blank">英国工签 防止短期工作…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=253" target="_blank">英国留学签证新政策 政…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            </table>
+            
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3" style="margin-top:5px;">
+            <tr>
+            <td width="40" align="center"><img src="Images/Country/Canada.jpg" /></td>
+            <td align="left">加拿大留学签证</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=3&N_ID=21" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:6px;">
+            <tr>
+            <td width="50%" valign="middle" style="padding-left:1px" align="left"><a href="NewsList.Asp?CH_ID=3&N_ID=21" target="_blank"><img src="uploadfile/20120810/20120815174808994.jpg" width="160" height="110" /></a></td>
+            <td width="50%" valign="top">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                
+                <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=503" target="_blank">2014年加拿大留学院校…</a></td>
+                </tr>
+                
+                <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=502" target="_blank">加拿大留学签证担保金…</a></td>
+                </tr>
+                
+                <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=501" target="_blank">加拿大高校设英语培训…</a></td>
+                </tr>
+                
+                <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=500" target="_blank">2014加拿大研究生申请…</a></td>
+                </tr>
+                
+                <tr>
+                <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=499" target="_blank">如何规划加拿大入学申…</a></td>
+                </tr>
+                
+                </table>
+            </td>
+            </tr>
+            </table>            
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3" style="margin-top:5px;">
+            <tr>
+            <td width="40" align="center"><span class="mo"><img src="Images/Country/Australia.jpg" /></span></td>
+            <td align="left">澳新</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=4&N_ID=25" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=577" target="_blank">澳大利亚政府调整对中国留学生签证政策</a></td>
+            <td width="40" align="right">11.04</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=552" target="_blank">澳大利亚：毕业生申请457工作签证</a></td>
+            <td width="40" align="right">10.24</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=508" target="_blank">四因素促新西兰留学热</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=507" target="_blank">新西兰坎特伯雷大学推奖学金计划吸引海外学…</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=506" target="_blank">澳洲顶尖大学入学标准和政策解析</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            </table>
+            
+        </td>
+        <td width="335" style="border-left:1px dashed #A9BEDB; padding-left:10px;" valign="top">
+			
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3">
+            <tr>
+            <td width="40" align="center"><img src="Images/Country/Australia.jpg" /></td>
+            <td align="left">美国</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=2&N_ID=17" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=263" target="_blank">美议员呼吁新增两类签…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=262" target="_blank">中美互惠基础上 美国签…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=261" target="_blank">美国留学如何让签证官…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=260" target="_blank">美国国会取消职业移民…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=259" target="_blank">2012美国留学签证申请…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=258" target="_blank">赴美国留学高峰时期可…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            </table>            
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3" style="margin-top:3px;">
+            <tr>
+            <td width="40" align="center"><img src="Images/Country/EU.jpg" /></td>
+            <td align="left">欧亚</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=5&N_ID=29" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=498" target="_blank">到韩国留学上一流大学</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=497" target="_blank">详解日本留学生考试</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=496" target="_blank">欧洲商科热门留学国家对比</a></td>
+            <td width="40" align="right">10.08</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=495" target="_blank">留学荷兰：工薪家庭首选</a></td>
+            <td width="40" align="right">10.09</td>
+            </tr>
+            
+            </table>
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3">
+            <tr>
+            <td width="25" align="center"><img src="Images/Quan_ico3.jpg" width="12" height="15" /></td>
+            <td align="left">海外移民</td>
+            <td width="30" align="center"><a href="NewsList.Asp?N_ID=6" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=514" target="_blank">英国入籍申请相关问题…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=513" target="_blank">全世界2.3亿移民 加拿…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=512" target="_blank">澳洲收紧457签证被责损…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=511" target="_blank">选择澳大利亚移民的优…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            <tr>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=510" target="_blank">英国调整移民政策 创业…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            <td width="50%">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td width="13" height="23" align="center"><img src="Images/news_dian.jpg" /></td>
+                <td align="left"><a href="NewsInfo.Asp?ID=509" target="_blank">在美留学生拿绿卡 申请…</a></td>
+                </tr>
+                </table>
+            </td>
+            
+            </tr>
+            
+            </table>            
+            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="title_3">
+            <tr>
+            <td width="25" align="center"><img src="Images/Quan_ico3.jpg" width="12" height="15" /></td>
+            <td align="left">材料模板</td>
+            <td width="30" align="center"><a href="NewsList.Asp?CH_ID=1&N_ID=14" target="_blank">更多</a></td>
+            </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:5px;">
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=466" target="_blank">有效训练学术论文写作能力</a></td>
+            <td width="40" align="right">09.30</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=433" target="_blank">担保信中英文模板</a></td>
+            <td width="40" align="right">09.25</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=432" target="_blank">在职收入证明模板</a></td>
+            <td width="40" align="right">09.25</td>
+            </tr>
+            
+            <tr>
+            <td height="23" width="13" align="center"><img src="Images/news_dian.jpg" /></td>
+            <td align="left"><a href="NewsInfo.Asp?ID=431" target="_blank">加拿大资金来源解释模板2</a></td>
+            <td width="40" align="right">09.25</td>
+            </tr>
+            
+            </table>
+
+        </td>
+        </tr>
+        </table>
+    </div>
+	<div class="right rightBox">  <p class="p_bt_1" style="margin-top:5px;">英国大学免费申请</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:4px;">
+        
+        <tr>
+        <td class="x_xian" width="20" align="center"><img src="Images/Numer/num1.png"></td>
+        <td class="x_xian" align="left"><a href="http://cosmo-edu.com.zjg002.datas.com.cn/zhuanti/zhuanti1.html" target="_blank">英国硕士免费申请</a></td>
+        </tr>
+		
+        <tr>
+        <td class="x_xian" width="20" align="center"><img src="Images/Numer/num2.png"></td>
+        <td class="x_xian" align="left"><a href="http://cosmo-edu.com.zjg002.datas.com.cn/zhuanti2/zhuanti2.html" target="_blank">英国三等学位、普通学位、升学方案设计</a></td>
+        </tr>
+		
+        <tr>
+        <td class="x_xian" width="20" align="center"><img src="Images/Numer/num3.png"></td>
+        <td class="x_xian" align="left"><a href="http://cosmo-edu.com.zjg002.datas.com.cn/zhuanti3/zhuanti3.html" target="_blank">2014年硕士免费申请</a></td>
+        </tr>
+		
+        </table>
+      <div><a href="StudyChannel.Asp?CH_ID=1#"><img src="3.jpg" border="0" /></a></div>
+        <p class="p_bt_3">大学互动地图</p>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td style="padding-top:5px;"><a href="School_Google_Map.Asp" target="_blank"><img src="uploadfile/20120810/20120815171125414.jpg" width="270" height="200" /></a></td>
+        </tr>
+        </table>
+  </div>
+	<div class="clear"></div>
+</div>
+
+<!--弹出的框-->
+<div class="popup" id="popup1">
+  <del>&times;</del>
+  <div class="body">
+    <script language="javascript" type="text/javascript">addFlash("XODEyMjA1MTY0",'610','360');</script> 
+  </div>
+</div>
+<!--结束-->
+
+<!--弹出的框-->
+<div class="popup" id="popup2">
+  <del>&times;</del>
+  <div class="body">
+    <script language="javascript" type="text/javascript">addFlash("XODEyMjAzNzY0",'610','360');</script> 
+ </div>
+</div>
+<!--结束-->
+<!--弹出的框-->
+<div class="popup" id="popup3">
+  <del>&times;</del>
+  <div class="body">
+    <script language="javascript" type="text/javascript">addFlash("XODEyMjAxOTEy",'610','360');</script> 
+</div>
+</div>
+<!--结束-->
+
+
+<SCRIPT type=text/javascript>
+							function callDialog(){
+								jQuery.getScript("http://static.b.qq.com/account/bizqq/js/wpa.js?type=13&kfuin=4000802900&ws=www.uvic.com.cn&title=%E5%9C%A8%E7%BA%BF%E4%BC%81%E4%B8%9AQQ&cot1=%E8%8B%B1%E5%9B%BD%E6%95%99%E8%82%B2%E7%AD%BE%E8%AF%81%E4%B8%AD%E5%BF%83&btn1=%E7%AB%8B%E5%88%BB%E5%9C%A8%E7%BA%BF%E5%92%A8%E8%AF%A2&fsty=0&fposX=2&fposY=0&tx=2&aty=0&a=");
+								jQuery.getScript("http://static.b.qq.com/account/bizqq/js/wpa.js?type=10&kfuin=4000802900&ws=www.uvic.com.cn&title=%E5%85%8D%E8%B4%B9%E5%92%A8%E8%AF%A2&btn1=%E5%A4%A7%E5%AD%A6%2F%E7%AD%BE%E8%AF%81&fsty=0&fposX=2&fposY=0&csty=1&tx=3");
+																	jQuery.getScript("http://static.b.qq.com/account/bizqq/js/wpa.js?type=11&kfuin=4000802900&ws=www.uvic.com.cn&title=%E8%8B%B1%E5%9B%BD%E6%95%99%E8%82%B2%E7%AD%BE%E8%AF%81%E4%B8%AD%E5%BF%83&cot=%E5%B0%8A%E6%95%AC%E7%9A%84%E7%94%A8%E6%88%B7%3A%E6%82%A8%E5%A5%BD%EF%BC%8C%E8%AF%B7%E9%97%AE%E6%9C%89%E4%BB%80%E4%B9%88%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%88%B0%E6%82%A8%EF%BC%9F&btn1=%E5%A4%A7%E5%AD%A6%2F%E7%AD%BE%E8%AF%81&btn2=%E4%B8%8B%E6%AC%A1%E5%86%8D%E8%AF%B4&fsty=0&fposX=1&fposY=1&csty=1&tx=3");
+									
+															}
+							setTimeout(callDialog, 8000);
+						</SCRIPT>
+<div id="footBox">
+	<div class="mainBox_F">
+    	
+    	<ul class="partnerBox">
+        	
+        	<li ><a href="http://www.csc.edu.cn/" target="_blank" title="1" style="display:block"><img src="uploadfile/20120810/20120810161205857.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://ukinchina.fco.gov.uk/zh/" target="_blank" title="2" style="display:block"><img src="uploadfile/20120810/20120810161216867.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.ukba.homeoffice.gov.uk/" target="_blank" title="3" style="display:block"><img src="uploadfile/20120810/20120810161227700.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://chinese.usembassy-china.org.cn/" target="_blank" title="4" style="display:block"><img src="uploadfile/20120810/20120810161238810.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.ice.gov/sevis/" target="_blank" title="5" style="display:block"><img src="uploadfile/20120810/20120810161247904.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://chaxun.neea.edu.cn/examcenter/main.jsp" target="_blank" title="6" style="display:block"><img src="uploadfile/20120810/20120810161255729.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.collegeboard.org/" target="_blank" title="7" style="display:block"><img src="uploadfile/20120810/20120810161309991.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://educationusa.state.gov/" target="_blank" title="8" style="display:block"><img src="uploadfile/20120810/20120810161316607.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.iie.org/" target="_blank" title="9" style="display:block"><img src="uploadfile/20120810/20120810161324472.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.act.org/aap/" target="_blank" title="10" style="display:block"><img src="uploadfile/20120810/20120810161341311.jpg" width="82" height="35" /></a></li>
+            
+        	<li class="mo_11"><a href="http://www.ucas.ac.uk/" target="_blank" title="11" style="display:block"><img src="uploadfile/20120810/20120810161348499.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.ets.org/toefl" target="_blank" title="12" style="display:block"><img src="uploadfile/20120810/20120810161359835.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.ets.org/gre/" target="_blank" title="13" style="display:block"><img src="uploadfile/20120810/20120810161407476.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.mba.com/" target="_blank" title="14" style="display:block"><img src="uploadfile/20120810/20120810161417858.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.ielts.org/" target="_blank" title="15" style="display:block"><img src="uploadfile/20120810/20120810161426731.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.britishcouncil.org/" target="_blank" title="16" style="display:block"><img src="uploadfile/20120810/20120810161435491.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.bbc.co.uk/" target="_blank" title="17" style="display:block"><img src="uploadfile/20120810/20120810161447220.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.hsbc.co.uk/1/2/" target="_blank" title="18" style="display:block"><img src="uploadfile/20120810/20120810161456197.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.citibank.co.uk/" target="_blank" title="19" style="display:block"><img src="uploadfile/20120810/20120810161506246.jpg" width="82" height="35" /></a></li>
+            
+        	<li ><a href="http://www.englishuk.com/" target="_blank" title="20" style="display:block"><img src="uploadfile/20120810/20120810161514782.jpg" width="82" height="35" /></a></li>
+            
+        </ul>
+        
+        <div class="clear"></div>
+	</div>
+	<div class="mainBox_F_2 mar_top20">
+		<DIV class=copyBox>
+<P style="COLOR: #cc33ff; PADDING-TOP: 10px"><IMG style="FLOAT: left; PADDING-RIGHT: 10px" src="Images/bottom_weixin1.jpg"> 朴茨茅斯办公室：<BR>24 Hampshire Terrace, PO1 2QF (大学图书馆后面)<BR>电话: 02392297144 手机:07574903525<BR>邮箱:Portsmouth@cosmo-edu.com </P>
+<P style="COLOR: #ffcc33; PADDING-TOP: 10px; CLEAR: both"><IMG style="FLOAT: left; PADDING-RIGHT: 10px" src="Images/bottom_weixin2.jpg"> 普利茅斯办公室：<BR>23 Cobourg Street, PL1 1SP (大学reception对面)<BR>电话: 02392297144 手机:07522665620<BR>邮箱:Plymouth@cosmo-edu.com </P>
+<P style="COLOR: #ff0000; PADDING-TOP: 10px; CLEAR: both"><IMG style="FLOAT: left; PADDING-RIGHT: 10px" src="Images/bottom_weixin3.jpg"> 莱斯特办公室：<BR>45 Newarke Street, LE1 5SP(DMU商学院门口)<BR>电话: 01162543880 手机: 07796720855<BR>邮箱:Leicester@cosmo-edu.com </P></DIV>
+<DIV class=footNav>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/England.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=1" target=_blank>英国留学导航</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/America.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=2" target=_blank>美国留学导航</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/Canada.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=3" target=_blank>加拿大留学导航</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/Australia.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=4" target=_blank>澳新留学导航</A></P>
+<P><A class=a2 href="SchoolList.Asp?CH_ID=1" target=_blank>大学推荐</A></P>
+<P><A class=a2 href="NewsList.Asp?CH_ID=1&amp;N_ID=32" target=_blank>热门课程</A></P>
+<P><A class=a2 href="SchoolList.Asp?CH_ID=1" target=_blank>院校排名</A></P>
+<P><A class=a2 href="NewsList.Asp?CH_ID=1&amp;N_ID=11" target=_blank>申请急报</A></P>
+<P><A class=a2 href="NewsList.Asp?CH_ID=1&amp;N_ID=12" target=_blank>申请材料</A></P></DIV>
+<DIV class=footNav>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/England.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=1" target=_blank>英国留学进阶</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/America.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=2" target=_blank>美国留学进阶</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/Canada.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=3" target=_blank>加拿大留学进阶</A></P>
+<P><IMG style="MARGIN-LEFT: -24px" src="Images/Country/Australia.jpg" width=19 height=15><A class=a2 href="StudyChannel.Asp?CH_ID=4" target=_blank>澳新留学进阶</A></P>
+<P><A class=a2 href="LessonList.Asp?CH_ID=1&amp;L_ID=1" target=_blank>本硕预科</A></P>
+<P><A class=a2 href="NewsList.Asp?N_ID=3" target=_blank>托雅双G</A></P>
+<P><A class=a2 href="NewsList.Asp?N_ID=4" target=_blank>海外考证</A></P>
+<P><A class=a2 href="NewsList.Asp?N_ID=5" target=_blank>成功故事</A></P></DIV>
+<DIV class=footNav style="BORDER-RIGHT: medium none; WIDTH: 155px; PADDING-RIGHT: 30px">
+<P><A class=a2 href="NewsList.Asp?CH_ID=1&amp;N_ID=13" target=_blank>留学签证</A></P>
+<P><A class=a2 href="NewsList.Asp?N_ID=6" target=_blank>海外移民</A></P>
+<P><A class=a2 href="NewsList.Asp?CH_ID=1&amp;N_ID=14" target=_blank>材料模版</A></P>
+<P><A class=a2 href="SchoolList.Asp?CH_ID=1" target=_blank>院校查询</A></P>
+<P><A class=a2 href="AdviserInfo.Asp?ID=11" target=_blank>专家资讯</A></P>
+<P><A class=a2 href="NewsList.Asp" target=_blank>热门专题</A></P>
+<P><A class=a2 href="AboutUs.Asp" target=_blank>关于我们</A></P>
+<P><A class=a2 href="AboutUs.Asp?A_ID=1&amp;ID=2" target=_blank>联系我们</A></P></DIV>
+<DIV></DIV>
+    </div>
+</div>
+<!-- WPA Button Begin -->
+<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzgwMDA3ODExMF82MTE4M184MDAwNzgxMTBf"></script>
+<!-- WPA Button End -->
+<script type="text/javascript" src="http://v2.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l4.gif" charset="utf-8"></script>
+</body>
+</html>

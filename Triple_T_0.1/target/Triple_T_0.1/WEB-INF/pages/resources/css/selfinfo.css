@@ -68,13 +68,23 @@
     border:1px solid #FFFFFF;
     background-color:transparent;
 }
+
+#notetitle{
+    width: 650px;
+    height: 20px;
+    overflow: hidden;
+    margin-left: 25px;
+    border: 1px dashed #aeada4;
+}
+
 #note
 {
     width: 650px;
-    height: 200px;
+    height: 180px;
     overflow: auto;
     background:none;
     margin-left: 25px;
+    margin-top: 5px;
     border: 1px dashed #aeada4;
 
 }
@@ -246,7 +256,7 @@ ul{list-style: none outside none;}
     height: 250px;
     width: 700px;
     margin-left: 7%;
-    margin-top: 3%;
+    margin-top: 1%;
     border:2px solid #FFFFFF;
 }
 .collegelogo

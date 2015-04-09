@@ -11,6 +11,7 @@ body{
 	color: #FFF;
 	display: inline;
 	float: left;
+	margin-top:20px;
 }
 
 #s_outer
@@ -43,12 +44,12 @@ body{
 	display: inline;
 	color: #FFFFFF;
 	font-size: 20px;
-	padding: 5px;
+	padding: 10px;
 	text-decoration: none;
 }
 
 .s_t_p{
-	float: left;
+
 }
 #s_collect{
 	float: right;
@@ -66,24 +67,27 @@ body{
 }
 
 /*******************************s_discribe part*******************************************************************/
+#s_disc
+{
+	width: 80%;
+	height: 250px;
+}
 #s_disc_left{
-	width:60%;
-	margin-left:10px;
+	width:30%;
 	padding: 5px;
 	float: left;
 	display: inline;
 }
 
 #s_disc_right{
-	width:30%;
-	margin-left: 10px;
+	font-size: 20px;
+	width:60%;
+	margin-left: 20px;
 	padding: 5px;
-	float: left;
 	display: inline;
 }
-
 #s_disc_right img{
-	width:30%;
+	width:20%;
 	display: block;
 }
 /*******************************s_address part********************************************************************/

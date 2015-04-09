@@ -23,9 +23,11 @@
 <div id="home-page">
 	<div id="logo">
 		<img src="/resources/img/logo.png">
-		<p class="logo-h1">Triple T</p>
-		<p class="logo-p">15/3/2015<strong>/</strong>welcome to our world</p>
+
+		<%--<p class="logo-p">更方便 更智能 更及时<strong>/</strong>welcome to our world</p>--%>
 	</div>
+	<p class="logo-h1">东大留学咨询网</p>
+	<p class="logo-p">更方便 更智能 更及时</p>
 </div>
 </body>
 

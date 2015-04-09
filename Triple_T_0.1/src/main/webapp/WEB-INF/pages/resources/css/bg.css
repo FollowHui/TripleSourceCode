@@ -19,23 +19,25 @@ body{
 	position: relative;
 }
 #logo{
-	padding-left: 39%;
+	margin-left:39%;
 	padding-top: 6%;
 	position: relative;
 }
 .logo-h1{
 	padding: 0px;
-	margin-right: 70%;
+	margin-left:1%;
 	text-align: center;
-	font-size: 74px;
+	font-size: 60px;
 	color:#856941;
 	text-transform: uppercase;
+	margin-top:10px;
 }
 .logo-p{
 	width:700px;
-	margin: 65px 40% auto -90px;
-	font-size: 25px;
+	margin: 40px 40% auto -90px;
+	font-size:35px;
 	font-family: a_love_of_thunderregular, Arial, Helvetica, sans-serif;
 	color: #1086a6;
 	text-transform: uppercase;
+	margin-left:38%;
 }

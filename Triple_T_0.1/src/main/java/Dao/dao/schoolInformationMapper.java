@@ -2,6 +2,8 @@ package Dao.dao;
 
 import Dao.model.SchoolInformation;
 
+import java.util.List;
+
 public interface SchoolInformationMapper {
     int deleteByPrimaryKey(Integer schoolid);
 
@@ -14,4 +16,6 @@ public interface SchoolInformationMapper {
     int updateByPrimaryKeySelective(SchoolInformation record);
 
     int updateByPrimaryKey(SchoolInformation record);
+    List<SchoolInformation> getSchoolByContinent(Integer continent);
+    List<SchoolInformation> getSchoolByRanking(Integer ranking);
 }

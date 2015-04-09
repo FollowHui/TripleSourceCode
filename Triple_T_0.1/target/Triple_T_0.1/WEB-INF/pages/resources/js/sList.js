@@ -47,13 +47,14 @@ function xmlHttp(param, sel){
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            //document.getElementById("search_result").innerHTML=xmlhttp.responseText;
+            document.getElementById("search_result").innerHTML=xmlhttp.responseText;
         }
     };
     xmlhttp.open("GET","/slist/filter1?param="+param + "&sel="+sel,true);
     xmlhttp.send();
 }
 
+/*
 function tuitionfinish(){
     var lowtui = parseInt(document.getElementById("low").value);
     var hightui = parseInt(document.getElementById("high").value);
@@ -77,4 +78,4 @@ function tuitionfinish(){
             xmlhttp.send();
         }
     }
-}
+}*/

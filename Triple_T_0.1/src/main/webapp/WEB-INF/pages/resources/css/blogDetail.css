@@ -12,6 +12,7 @@ body{
 	color: #FFF;
 	display: inline;
 	float: left;
+	margin-top: 20px;
 }
 
 #container{
@@ -33,7 +34,7 @@ body{
 .sd_title_t, #sd_collect{
 	float: left;
 	display: inline;
-	color: #FFFFFF; 
+	color: #FFFFFF;
 	font-size: 20px;
 	padding: 5px;
 	text-decoration: none;
@@ -63,7 +64,7 @@ body{
 }
 
 #sd_article p{
-	color: #000; 
+	color: #000;
 	font-size: 20px;
 	padding: 10px;
 }
@@ -106,7 +107,7 @@ body{
 
 #sd_list {
 	margin-top: 10px;
-	
+
 }
 
 #sd_list li{

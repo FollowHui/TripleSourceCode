@@ -1,10 +1,12 @@
 Dao\model\Comment.class
 controller\SInfomaController.class
 Dao\model\SchoolNews.class
+controller\SendCommentController.class
 Dao\dao\SchoolNewsMapper.class
 controller\IndexController.class
 service\LoginService.class
 service\InsertAllDataService.class
+service\AddNoteService.class
 Dao\model\Note.class
 service\GetSchoolNewsService.class
 Dao\model\SchoolInformation.class
@@ -19,6 +21,7 @@ service\RegisterService.class
 service\GetAllNotesService.class
 service\BlogListService.class
 controller\LogoutController.class
+service\GetSchoolService.class
 Dao\dao\NoteMapper.class
 controller\HelloController.class
 controller\BlogDetailController.class

@@ -6,6 +6,13 @@
     <result column="collectType" property="collecttype" jdbcType="BIT" />
     <result column="schoolOrNoteId" property="schoolornoteid" jdbcType="INTEGER" />
     <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="noteId" property="noteId" jdbcType="INTEGER" />
+    <result column="noteTitle" property="noteTitle" jdbcType="CHAR" />
+    <result column="pushDate" property="pushDate" jdbcType="TIMESTAMP" />
+    <result column="schoolName" property="schoolName" jdbcType="CHAR" />
+    <result column="schoolId" property="schoolId" jdbcType="INTEGER" />
+    <result column="schoolLogo" property="schoolLogo" jdbcType="CHAR" />
+
   </resultMap>
   <sql id="Base_Column_List" >
     collectId, collectType, schoolOrNoteId, userId
@@ -18,15 +25,17 @@
   </select>
   <select id="selectSchoolByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
-    <include refid="Base_Column_List" />
-    from favourites
-    where userId = #{userId,jdbcType=INTEGER} and collectType=1;
+    s.schoolName as schoolName,s.schoolId as schoolId,s.schoolLogo as schoolLogo,f.collectId as collectId,f.collectType as collectType,
+    f.schoolOrNoteId as schoolOrNoteId,f.userId as userId
+    from favourites f,schoolinformation s
+    where f.schoolOrNoteId=s.schoolId and f.userId = #{userId,jdbcType=INTEGER} and f.collectType=1;
   </select>
   <select id="selectNoteByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
-    <include refid="Base_Column_List" />
-    from favourites
-    where userId = #{userId,jdbcType=INTEGER} and collectType=0;
+    n.noteId as noteId,n.title as noteTitle,n.pushDate as pushDate,f.collectId as collectId,f.collectType as collectType,
+    f.schoolOrNoteId as schoolOrNoteId,f.userId as userId
+    from favourites f,note n
+    where f.schoolOrNoteId=n.noteId and f.userId = #{userId,jdbcType=INTEGER} and f.collectType=0;
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from favourites

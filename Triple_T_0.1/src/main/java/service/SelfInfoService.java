@@ -1,7 +1,9 @@
 package service;
 
+import Dao.dao.FavouritesMapper;
 import Dao.dao.NoteMapper;
 import Dao.dao.UserMapper;
+import Dao.model.Favourites;
 import Dao.model.Note;
 import Dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ public class SelfInfoService {
     private User user;
     @Autowired(required = false)
     NoteMapper noteMapper;
+    @Autowired(required = false)
+    FavouritesMapper favouritesMapper;
     public String changeSelfInformation(Integer userId,String email,Float score,Float GPA,Float GRE){
         user=new User();
         user.setUserid(userId);
@@ -37,10 +41,10 @@ public class SelfInfoService {
         }
         return "success";
     }
-    public List<Note> getUserFavourNote(Integer userId){
-        List<Note> noteList;
-        noteList=noteMapper.getNotesByUserId(userId);
-        return  noteList;
+    public List<Favourites> getUserFavourNote(Integer userId){
+        List<Favourites> favouritesList;
+        favouritesList=favouritesMapper.selectNoteByUserId(userId);
+        return  favouritesList;
     }
     public User getSelfInfomation(Integer userId){
         try {
@@ -50,6 +54,10 @@ public class SelfInfoService {
             e.printStackTrace();
         }
         return user;
-
+    }
+    public List<Favourites> getUserFavourSchool(Integer userId){
+        List<Favourites> favouritesList;
+        favouritesList=favouritesMapper.selectSchoolByUserId(userId);
+        return  favouritesList;
     }
 }

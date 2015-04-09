@@ -102,21 +102,21 @@
 <body>
 <div id="s_outer">
 	<div id="header">
-	<ul class="ful">
-		<c:choose>
-			<c:when test="${sessionScope.flag}">
-				<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-				<li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
+		<ul class="ful">
+			<c:choose>
+				<c:when test="${sessionScope.flag}">
+					<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+					<li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
-			</c:when>
-			<c:otherwise>
-				<li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
-				<li class="fli"><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
-			</c:otherwise>
-		</c:choose>
-	</ul>
+				</c:when>
+				<c:otherwise>
+					<li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
+					<li class="fli"><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
+				</c:otherwise>
+			</c:choose>
+		</ul>
 	</div>
 	<div id="header-nav">
 		<span style="float:left; margin-left:5%;">
@@ -124,159 +124,172 @@
 		</span>
 		<div id ="nav-title" class="nav-title" name="${schoolId}"><span>名校 详细信息</span></div>
 
-	<br clear="all"/>
-</div>
+		<br clear="all"/>
+	</div>
 	<div id="container">
-	<div id="wrap">
-		<div id="s_discribe">
-			<div class="s_title">
-				<div class="s_t_p"><p>
-					<c:choose>
-							<c:when test="${sessionScope.favourFlag}">
-								<div id="s_collect" onclick="s_collect()" name="collectCancle">[取消收藏]</div>
-							</c:when>
-							<c:otherwise>
-								<div id="s_collect" onclick="s_collect()" name="collect">[收藏学校]</div>
-							</c:otherwise>
+		<div id="wrap">
+			<div id="s_discribe">
+				<div class="s_title">
+					<div class="s_t_p"><p>
+						<c:choose>
+						<c:when test="${sessionScope.favourFlag}">
+						<div id="s_collect" onclick="s_collect()" name="collectCancle">[取消收藏]</div>
+						</c:when>
+						<c:otherwise>
+							<div id="s_collect" onclick="s_collect()" name="collect">[收藏学校]</div>
+						</c:otherwise>
 
-					</c:choose>
-			</div>
-			<div id="s_disc_left">
-				<p>
-					The mission of MIT is to advance knowledge and educate students in science, technology and other areas of scholarship that will best serve the nation and the world in the 21st century — whether the focus is cancer, energy, economics or literature (learn more about MIT's current initiatives).
-				</p>
-			</div>
-			<div id="s_disc_right">
-				<a href="http://web.mit.edu/" target="_blank"><img src="../img/MIT.jpg"></a>
+						</c:choose>
+					</div>
+					<div class="s_title"><p>${school.schoolname}</p></div>
+					<div id="s_disc">
+						<div id="s_disc_left">
+							<a href="http://web.mit.edu/"><img src="/resources/schoolLogo/${school.schoollogo}"></a>
+						</div>
+						<div id="s_disc_right">
+							<p>
+								${school.description}
+							</p>
+						</div>
+
+					</div>
+				</div>
+
+				<div id="s_address">
+					<div class="s_title"><div class="s_t_p"><p>学校地址:</p></div></div>
+					<div id="s_addr">
+						<p>成立时间:${school.settime}</p>
+						</br>
+						<p>
+							地址:${school.address}
+						</p>
+					</div>
+				</div>
+
+				<div id="s_contact">
+					<div class="s_title"><div class="s_t_p"><p>联系方式</p></div></div>
+					<div id="s_cont_content">
+						<p> 联系电话：${school.phonenumber}</p>
+					</div>
+				</div>
+				<div id="s_website">
+					<div class="s_title">
+						<p>学校官网</p>
+					</div>
+					<div id="s_web" >
+						<a href="${school.website}" style="text-decoration:none;">${school.website}</a>
+					</div>
+				</div>
+				<div id="s_project">
+					<div class="s_title"><div class="s_t_p"><p>招生项目</p></div></div>
+				</div>
+
 			</div>
 		</div>
 
-		<div id="s_address">
-			<div class="s_title"><div class="s_t_p"><p>学校地址</p></div></div>
-			<div id="s_addr">
-				<p>
-					MIT|77 Massachusetts Avenue|Cambridge, MA 02139-4307
-				</p>
+		<div class="login-mask">
+			<div class="login-box" style=" display:none;">
+				<h1>Triple T</h1>
+				<div class="close">
+					<h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
+				</div>
+				<form method="post" action="/login">
+					<div class="name">
+						<div class="before">
+							<label>用户名：</label>
+						</div>
+						<div class="back">
+							<input type="text" name="userName" id="L_username" tabindex="1" autocomplete="off" />
+						</div>
+					</div>
+					<div class="password">
+						<div class="before">
+							<label>密  码：</label>
+						</div>
+						<div class="back">
+							<input type="password" name="password" maxlength="16" id="L_password"   tabindex="2"/>
+						</div>
+
+					</div>
+					<div class="code">
+						<div class="before">
+							<label>验证码：</label>
+						</div>
+						<div class="back">
+							<input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
+						</div>
+						<div class="codeImg">
+							<img src="/Kaptcha.jpg" id="captcha-image" onclick="changeImg();"/>
+						</div>
+					</div>
+					<div class="remember">
+						<input type="checkbox" id="remember" tabindex="4">
+						<label>记住密码</label>
+					</div>
+					<div class="login">
+						<button type="submit" tabindex="5">登录</button>
+					</div>
+				</form>
 			</div>
 		</div>
-
-		<div id="s_contact">
-			<div class="s_title"><div class="s_t_p"><p>联系方式</p></div></div>
-			<div id="s_cont_content">
-				<p> 联系电话：617-253-1000</p>
+		<div class="register-mask">
+			<div class="register-box" style="display:none;">
+				<h1>Triple T</h1>
+				<div class="close">
+					<h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
+				</div>
+				<form method="post" action="/register">
+					<div class="name">
+						<div class="before">
+							<label>用户名:</label>
+						</div>
+						<div class="back">
+							<input type="text" name="" id="R_username" tabindex="1" autocomplete="off" />
+						</div>
+					</div>
+					<div class="password">
+						<div class="before">
+							<label>密码：</label>
+						</div>
+						<div class="back">
+							<input type="password"  placeholder="最少6个字符"  name="" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
+						</div>
+						<span id="sp" style="display: none">输入错误</span>
+					</div>
+					<div class="password">
+						<div class="before">
+							<label>确认密码：</label>
+						</div>
+						<div class="back">
+							<input type="password" name="" id="C_password" maxlength="16" tabindex="2" onblur="confirm(this)"/>
+						</div>
+						<span id="scp" style="display: none">输入错误</span>
+					</div>
+					<div class="mailbox">
+						<div class="before">
+							<label>邮箱:</label>
+						</div>
+						<div class="back">
+							<input type="text"  placeholder="如:15150698580@163.com" name="R_email" id="email"/>
+						</div>
+						<span id="sm" style="display: none">输入非法</span>
+					</div>
+					<div class="sex">
+						<div class="before">
+							<label>性别：</label>
+						</div>
+						<div class="back" style="margin-top: 10px;">
+							男<input type="radio" checked="checked" name="sex" value="male"/>
+							女<input type="radio" checked="checked" name="sex" value="female"/>
+						</div>
+					</div>
+					<div class="register">
+						<button type="submit" tabindex="5" class="submit">注册</button>
+					</div>
+				</form>
 			</div>
 		</div>
-
-		<div id="s_project">
-			<div class="s_title"><div class="s_t_p"><p>招生项目</p></div></div>
-		</div>
-
 	</div>
-	</div>
-
-	<div class="login-mask">
-		<div class="login-box" style=" display:none;">
-			<h1>Triple T</h1>
-			<div class="close">
-				<h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
-			</div>
-			<form method="post" action="/login">
-				<div class="name">
-					<div class="before">
-						<label>用户名：</label>
-					</div>
-					<div class="back">
-						<input type="text" name="userName" id="L_username" tabindex="1" autocomplete="off" />
-					</div>
-				</div>
-				<div class="password">
-					<div class="before">
-						<label>密  码：</label>
-					</div>
-					<div class="back">
-						<input type="password" name="password" maxlength="16" id="L_password"   tabindex="2"/>
-					</div>
-
-				</div>
-				<div class="code">
-					<div class="before">
-						<label>验证码：</label>
-					</div>
-					<div class="back">
-						<input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
-					</div>
-					<div class="codeImg">
-						<img src="/Kaptcha.jpg" id="captcha-image" onclick="changeImg();"/>
-					</div>
-				</div>
-				<div class="remember">
-					<input type="checkbox" id="remember" tabindex="4">
-					<label>记住密码</label>
-				</div>
-				<div class="login">
-					<button type="submit" tabindex="5">登录</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="register-mask">
-		<div class="register-box" style="display:none;">
-			<h1>Triple T</h1>
-			<div class="close">
-				<h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
-			</div>
-			<form method="post" action="/register">
-				<div class="name">
-					<div class="before">
-						<label>用户名:</label>
-					</div>
-					<div class="back">
-						<input type="text" name="" id="R_username" tabindex="1" autocomplete="off" />
-					</div>
-				</div>
-				<div class="password">
-					<div class="before">
-						<label>密码：</label>
-					</div>
-					<div class="back">
-						<input type="password"  placeholder="最少6个字符"  name="" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
-					</div>
-					<span id="sp" style="display: none">输入错误</span>
-				</div>
-				<div class="password">
-					<div class="before">
-						<label>确认密码：</label>
-					</div>
-					<div class="back">
-						<input type="password" name="" id="C_password" maxlength="16" tabindex="2" onblur="confirm(this)"/>
-					</div>
-					<span id="scp" style="display: none">输入错误</span>
-				</div>
-				<div class="mailbox">
-					<div class="before">
-						<label>邮箱:</label>
-					</div>
-					<div class="back">
-						<input type="text"  placeholder="如:15150698580@163.com" name="R_email" id="email"/>
-					</div>
-					<span id="sm" style="display: none">输入非法</span>
-				</div>
-				<div class="sex">
-					<div class="before">
-						<label>性别：</label>
-					</div>
-					<div class="back" style="margin-top: 10px;">
-						男<input type="radio" checked="checked" name="sex" value="male"/>
-						女<input type="radio" checked="checked" name="sex" value="female"/>
-					</div>
-				</div>
-				<div class="register">
-					<button type="submit" tabindex="5" class="submit">注册</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 </div>
 </body>
 </html>
