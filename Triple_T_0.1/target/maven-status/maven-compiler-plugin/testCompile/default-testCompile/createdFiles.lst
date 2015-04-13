@@ -6,5 +6,7 @@ service\BlogListServiceTest.class
 controller\AppTests.class
 service\RegisterServiceTest.class
 service\GetAllNotesServiceTest.class
+service\UserCFServiceTest.class
 service\LoginServiceTest.class
 service\InsertAllDataServiceTest.class
+service\GetSchoolServiceTest.class

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Dao.dao.DataSetMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.DataSet" >
+    <id column="dataId" property="dataid" jdbcType="INTEGER" />
+    <result column="Student" property="student" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+    <result column="Major" property="major" jdbcType="CHAR" />
+    <result column="undergraduate" property="undergraduate" jdbcType="CHAR" />
+    <result column="GPA" property="gpa" jdbcType="DOUBLE" />
+    <result column="TOFEL" property="tofel" jdbcType="DOUBLE" />
+    <result column="GRE" property="gre" jdbcType="DOUBLE" />
+    <result column="paper" property="paper" jdbcType="INTEGER" />
+    <result column="promotion" property="promotion" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="INTEGER" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dataId, Student, school, Major, undergraduate, GPA, TOFEL, GRE, paper, promotion, 
+    time, country
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from dataset
+    where dataId = #{dataid,jdbcType=INTEGER}
+  </select>
+  <select id="getAllData" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from dataset
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from dataset
+    where dataId = #{dataid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Dao.model.DataSet" >
+    insert into dataset (dataId, Student, school, 
+      Major, undergraduate, GPA, 
+      TOFEL, GRE, paper, promotion, 
+      time, country)
+    values (#{dataid,jdbcType=INTEGER}, #{student,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
+      #{major,jdbcType=CHAR}, #{undergraduate,jdbcType=CHAR}, #{gpa,jdbcType=DOUBLE}, 
+      #{tofel,jdbcType=DOUBLE}, #{gre,jdbcType=DOUBLE}, #{paper,jdbcType=INTEGER}, #{promotion,jdbcType=INTEGER},
+      #{time,jdbcType=INTEGER}, #{country,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="Dao.model.DataSet" >
+    insert into dataset
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dataid != null" >
+        dataId,
+      </if>
+      <if test="student != null" >
+        Student,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+      <if test="major != null" >
+        Major,
+      </if>
+      <if test="undergraduate != null" >
+        undergraduate,
+      </if>
+      <if test="gpa != null" >
+        GPA,
+      </if>
+      <if test="tofel != null" >
+        TOFEL,
+      </if>
+      <if test="gre != null" >
+        GRE,
+      </if>
+      <if test="paper != null" >
+        paper,
+      </if>
+      <if test="promotion != null" >
+        promotion,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dataid != null" >
+        #{dataid,jdbcType=INTEGER},
+      </if>
+      <if test="student != null" >
+        #{student,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=CHAR},
+      </if>
+      <if test="undergraduate != null" >
+        #{undergraduate,jdbcType=CHAR},
+      </if>
+      <if test="gpa != null" >
+        #{gpa,jdbcType=DOUBLE},
+      </if>
+      <if test="tofel != null" >
+        #{tofel,jdbcType=DOUBLE},
+      </if>
+      <if test="gre != null" >
+        #{gre,jdbcType=DOUBLE},
+      </if>
+      <if test="paper != null" >
+        #{paper,jdbcType=INTEGER},
+      </if>
+      <if test="promotion != null" >
+        #{promotion,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.DataSet" >
+    update dataset
+    <set >
+      <if test="student != null" >
+        Student = #{student,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        Major = #{major,jdbcType=CHAR},
+      </if>
+      <if test="undergraduate != null" >
+        undergraduate = #{undergraduate,jdbcType=CHAR},
+      </if>
+      <if test="gpa != null" >
+        GPA = #{gpa,jdbcType=DOUBLE},
+      </if>
+      <if test="tofel != null" >
+        TOFEL = #{tofel,jdbcType=DOUBLE},
+      </if>
+      <if test="gre != null" >
+        GRE = #{gre,jdbcType=DOUBLE},
+      </if>
+      <if test="paper != null" >
+        paper = #{paper,jdbcType=INTEGER},
+      </if>
+      <if test="promotion != null" >
+        promotion = #{promotion,jdbcType=INTEGER},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dataId = #{dataid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Dao.model.DataSet" >
+    update dataset
+    set Student = #{student,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      Major = #{major,jdbcType=CHAR},
+      undergraduate = #{undergraduate,jdbcType=CHAR},
+      GPA = #{gpa,jdbcType=DOUBLE},
+      TOFEL = #{tofel,jdbcType=DOUBLE},
+      GRE = #{gre,jdbcType=DOUBLE},
+      paper = #{paper,jdbcType=INTEGER},
+      promotion = #{promotion,jdbcType=INTEGER},
+      time = #{time,jdbcType=INTEGER},
+      country = #{country,jdbcType=VARCHAR}
+    where dataId = #{dataid,jdbcType=INTEGER}
+  </update>
+</mapper>

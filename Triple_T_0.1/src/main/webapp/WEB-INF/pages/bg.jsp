@@ -7,16 +7,16 @@
 	<tittle></tittle>
 	<link rel="stylesheet" href="/resources/css/bg.css">
 </head>
-<script src="/resources/js/snowfall.jquery.js"></script>
-<script>
-	$(document).snowfall('clear');
-	$(document).snowfall({
-		image: "/resources/img/fur.png",
-		flakeCount:5,
-		minSize: 10,
-		maxSize: 80
-	});
-</script>
+<%--<script src="/resources/js/snowfall.jquery.js"></script>--%>
+<%--<script>--%>
+	<%--$(document).snowfall('clear');--%>
+	<%--$(document).snowfall({--%>
+		<%--image: "/resources/img/fur.png",--%>
+		<%--flakeCount:5,--%>
+		<%--minSize: 10,--%>
+		<%--maxSize: 80--%>
+	<%--});--%>
+<%--</script>--%>
 
 
 <body>

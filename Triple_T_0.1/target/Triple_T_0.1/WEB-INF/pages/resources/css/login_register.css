@@ -11,6 +11,7 @@ h1
 	font-weight:700;
 	text-shadow:0 1px 4px rgba(0,0,0,.2);
 	color:#FFFFFF;
+	font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif;
 }
 .login
 {
@@ -48,6 +49,7 @@ h1
 	 height: 42px;
 	 float: left;
 	 margin-top:20px;
+	 font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif;
 }
 .login-box .remember input
 {

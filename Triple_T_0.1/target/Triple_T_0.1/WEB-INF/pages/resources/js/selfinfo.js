@@ -55,9 +55,35 @@ function sendmessage()
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            //document.getElementById("si_addmore").innerHTML=xmlhttp.responseText;
+            //document.getElementById("div1").innerHTML=xmlhttp.responseText;
         }
     };
     xmlhttp.open("GET","/selfinfo/change?sex="+sex+"&email="+email+"&grade="+grade+"&gradetype="+gradetype+"&gpa="+gpa+"&gre="+gre,true);
     xmlhttp.send();
+    alert("亲，你的个人信息修改成功");
+}
+
+function sendnote(){
+    var notetitle = document.getElementById("notetitle").value;
+    var notemessage = document.getElementById("note").value;
+
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("div1").innerHTML=xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("POST","/sendcomment?notemessage="+notemessage+"&notetitle="+notetitle,true);
+    xmlhttp.send();
+    alert("亲，你的帖子已发送成功");
 }

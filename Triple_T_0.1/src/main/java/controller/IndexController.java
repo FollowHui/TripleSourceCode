@@ -25,13 +25,12 @@ public class IndexController {
     GetAllNotesService getAllNotesService;
     @RequestMapping(value="index", method = RequestMethod.GET)
     public String getJump1(){
-        System.out.println("get ajax index");
         return "bg";
     }
 
     @RequestMapping(value="sInfoma", method = RequestMethod.GET)
     public String getJump2(ModelMap modelMap,HttpSession httpSession){
-        int sInfoCount=2;
+        int sInfoCount=5;
         httpSession.setAttribute("sInfoCount",sInfoCount);
         List<SchoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
         modelMap.addAttribute("schoolNewsList",schoolNewsList);
@@ -39,14 +38,24 @@ public class IndexController {
     }
 
     @RequestMapping(value="sList", method = RequestMethod.GET)
-    public String getJump3(){
+    public String getJump3(HttpSession httpSession){
         System.out.println("get ajax sList");
+        httpSession.removeAttribute("filter11");
+        httpSession.removeAttribute("filter12");
+        httpSession.removeAttribute("filter13");
+        httpSession.removeAttribute("filter14");
+        httpSession.removeAttribute("filter15");
+        httpSession.removeAttribute("filter21");
+        httpSession.removeAttribute("filter22");
+        httpSession.removeAttribute("filter23");
+        httpSession.removeAttribute("filter24");
+        httpSession.removeAttribute("filter25");
         return "sList";
     }
 
     @RequestMapping(value="blogList", method = RequestMethod.GET)
     public String getJump4(ModelMap modelMap,HttpSession httpSession){
-        int noteCount=2;
+        int noteCount=5;
         httpSession.setAttribute("noteCount",noteCount);
         List<Note> noteList;
         noteList=getAllNotesService.getAllNotes(noteCount);

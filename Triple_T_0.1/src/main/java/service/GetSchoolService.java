@@ -18,6 +18,13 @@ public class GetSchoolService {
         List<SchoolInformation> schoolInformations=schoolInformationMapper.getSchoolByContinent(continent);
         return  schoolInformations;
     }
+    public List<SchoolInformation> getSchoolListByRanking(Integer ranking){
+        List<SchoolInformation> schoolInformations=schoolInformationMapper.getSchoolByRanking(ranking);
+//        for(SchoolInformation schoolInformation:schoolInformations){
+//            System.out.println(schoolInformation.getRanking());
+//        }
+        return schoolInformations;
+    }
     public SchoolInformation getSchoolDetail(Integer schoolId){
         SchoolInformation schoolInformation;
         schoolInformation=schoolInformationMapper.selectByPrimaryKey(schoolId);

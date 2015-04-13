@@ -80,6 +80,8 @@
 #search_result{
 	padding-top: 5px;
 	width: 100%;
+	height: auto;
+	min-height: 500px;
 	background: url("/resources/img/bg-noise.jpg");
 	background-repeat: repeat;
 }
@@ -125,12 +127,13 @@
 .sr_img{
 	background-size: 100% auto;
 	background-repeat: no-repeat;
-	background-image: url("/resources/img/borderBrown.png");
+	/*background-image: url("/resources/img/borderBrown.png");*/
 	padding:11px;
 }
 
 .sr_img img{
 	width: 125px;
+	height: 120px;
 }
 
 .sr_name{

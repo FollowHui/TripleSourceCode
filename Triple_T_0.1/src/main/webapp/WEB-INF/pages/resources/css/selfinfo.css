@@ -1,17 +1,35 @@
 *{padding:0px;margin:0px;}
 
+h3{
+    font-family: 微软雅黑;
+    font-size: 22px;
+    color:#000;
+}
+
 .slide {
     margin: 0px;
-    padding: 0px;
+    padding-bottom: 10px;
     background-image: url("../img/bg-noise.jpg");
     background-repeat:repeat ;
     overflow: scroll;
     width: 1500px;
-    height: 100%;
+    height: auto;
     margin-left: 0px;
     font-size: 10px;
     font-family: 微软雅黑;
 }
+
+#nav-title{
+    width: 30%;
+    text-decoration: none;
+    font-size:22px;
+    color: #FFF;
+    display: inline;
+    float: left;
+    margin-top: 13px;
+    font-family:Microsoft YaHei,Segoe UI,Tahoma,Arial,Verdana,sans-serif;
+}
+
 .mylabel
 {
     font-size: 16px;
@@ -72,6 +90,7 @@
 #notetitle{
     width: 650px;
     height: 20px;
+    margin-top: 2px;
     overflow: hidden;
     margin-left: 25px;
     border: 1px dashed #aeada4;
@@ -80,7 +99,7 @@
 #note
 {
     width: 650px;
-    height: 180px;
+    height: 165px;
     overflow: auto;
     background:none;
     margin-left: 25px;
@@ -230,35 +249,35 @@ color:#FFFFFF;
     margin-left: 20%;
 }
 ul{list-style: none outside none;}
-.collecttalk
+.collecttalk, .collectschool, .writecomment
 {
     background: #D6D6D6;
     opacity: 0.8;
-    margin-top: 60px;
+    margin-top: 50px;
     margin-left: 35%;
-    height: 200px;
+    height: 250px;
     width: 700px;
     border:2px solid #FFFFFF;
     padding:2px 2px 2px 15px;
 }
+
 .school
 {
     height: 235px;
     width: 650px;
     padding:2px 10px 2px 15px;
 }
-.collectschool
-{
-
-    background: #D6D6D6;
-    opacity: 0.8;
-    float: left;
-    height: 250px;
-    width: 700px;
-    margin-left: 7%;
-    margin-top: 1%;
-    border:2px solid #FFFFFF;
-}
+/*.collectschool*/
+/*{*/
+    /*background: #D6D6D6;*/
+    /*opacity: 0.8;*/
+    /*float: left;*/
+    /*height: 250px;*/
+    /*width: 700px;*/
+    /*margin-left: 35%;*/
+    /*margin-top: 1%;*/
+    /*border:2px solid #FFFFFF;*/
+/*}*/
 .collegelogo
 {
     width: 750px;
@@ -280,9 +299,11 @@ ul{list-style: none outside none;}
     width:200px;
     margin-left: 30px;
 }
-.writecomment
-{
-    height: 230px;
-    width: 700px;
-    margin-left: 34%
-}
+/*.writecomment*/
+/*{*/
+    /*height: 230px;*/
+    /*width: 700px;*/
+    /*margin-left: 35%;*/
+    /*background: #D6D6D6;*/
+    /*opacity: 0.8;*/
+/*}*/

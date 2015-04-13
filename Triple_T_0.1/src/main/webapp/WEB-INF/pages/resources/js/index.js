@@ -5,7 +5,7 @@
 function index_Jump(param){
     var xmlhttp;
     var reqname = param.getAttribute("name");
-    var username = param.getAttribute("")
+    //var username = param.getAttribute("")
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
         xmlhttp=new XMLHttpRequest();
@@ -51,10 +51,16 @@ function onselfinfoclick(){
     {
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            document.getElementById("div1").innerHTML=xmlhttp.responseText;
+            //document.getElementById("div1").innerHTML=xmlhttp.responseText;
+            //document.body.innerHTML = xmlhttp.responseText;
+            //window.open("/selfinfo", "_blank");
         }
     };
 
-    xmlhttp.open("GET","/selfinfo",true);
+    xmlhttp.open("GET","/selfinfo",false);
     xmlhttp.send();
+
+    //if( xmlhttp.response ){
+    //    window.open("/selfinfo", "_blank");
+    //}
 }

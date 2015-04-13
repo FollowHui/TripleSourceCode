@@ -15,6 +15,18 @@
 	<script src="/resources/js/index.js"></script>
 	<script src="/resources/js/school.js"></script>
 
+	<%--<script type="text/javascript">--%>
+		<%--function s_collect(){--%>
+			<%--var flag = document.getElementById("flag").name;--%>
+			<%--if( flag !=true){--%>
+				<%--alert("请先登录");--%>
+			<%--}--%>
+			<%--else {--%>
+				<%--s_collectxmlhttp();--%>
+			<%--}--%>
+		<%--}--%>
+	<%--</script>--%>
+
 	<script type="text/javascript">
 		function changeImg(){
 			document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
@@ -35,8 +47,8 @@
 				}
 				else
 				{
-					document.getElementById("div1").style.display="none";
-					document.getElementById("div6").style.display="block";
+					//document.getElementById("div1").style.display="none";
+					//document.getElementById("div6").style.display="block";
 				}
 			})
 			$('.close').click(function(){
@@ -101,12 +113,14 @@
 
 <body>
 <div id="s_outer">
+	<div id="flag" name="${sessionScope.flag}" style="display: none"></div>
+
 	<div id="header">
 		<ul class="ful">
 			<c:choose>
 				<c:when test="${sessionScope.flag}">
 					<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-					<li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
+					<li class="fli"><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
@@ -126,62 +140,43 @@
 
 		<br clear="all"/>
 	</div>
+	<div id="div1">
 	<div id="container">
 		<div id="wrap">
 			<div id="s_discribe">
 				<div class="s_title">
-					<div class="s_t_p"><p>
-						<c:choose>
+					<div class="s_titleline">
+						<div class="s_t_p">
+							<c:choose>
 						<c:when test="${sessionScope.favourFlag}">
 						<div id="s_collect" onclick="s_collect()" name="collectCancle">[取消收藏]</div>
 						</c:when>
 						<c:otherwise>
-							<div id="s_collect" onclick="s_collect()" name="collect">[收藏学校]</div>
+							<div id="s_collect" onclick="s_collect()" name="collect" >[收藏学校]</div>
 						</c:otherwise>
 
 						</c:choose>
+						</div>
+						<div class="s_titlename"><p>${school.schoolname}</p></div>
 					</div>
-					<div class="s_title"><p>${school.schoolname}</p></div>
 					<div id="s_disc">
 						<div id="s_disc_left">
-							<a href="http://web.mit.edu/"><img src="/resources/schoolLogo/${school.schoollogo}"></a>
+							<a href="${school.address}" target="_blank"><img src="/resources/schoolLogo/${school.schoollogo}"></a>
 						</div>
 						<div id="s_disc_right">
-							<p>
-								${school.description}
-							</p>
+								<p>成立时间:${school.settime}</p><br/>
+								<p>国内排名:${school.ranking}</p><br/>
+								<p>地址:${school.address}</p><br/>
+								<p>联系电话：${school.phonenumber}</p>
 						</div>
-
 					</div>
 				</div>
 
-				<div id="s_address">
-					<div class="s_title"><div class="s_t_p"><p>学校地址:</p></div></div>
-					<div id="s_addr">
-						<p>成立时间:${school.settime}</p>
-						</br>
-						<p>
-							地址:${school.address}
-						</p>
-					</div>
-				</div>
-
-				<div id="s_contact">
-					<div class="s_title"><div class="s_t_p"><p>联系方式</p></div></div>
-					<div id="s_cont_content">
-						<p> 联系电话：${school.phonenumber}</p>
-					</div>
-				</div>
-				<div id="s_website">
-					<div class="s_title">
-						<p>学校官网</p>
-					</div>
-					<div id="s_web" >
-						<a href="${school.website}" style="text-decoration:none;">${school.website}</a>
-					</div>
-				</div>
 				<div id="s_project">
-					<div class="s_title"><div class="s_t_p"><p>招生项目</p></div></div>
+					<div class="s_titleline"><div class="s_titlename"><p>学校简介</p></div></div>
+					<div class="s_disc">
+						<p>${school.description}</p>
+					</div>
 				</div>
 
 			</div>
@@ -289,6 +284,7 @@
 				</form>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 </body>

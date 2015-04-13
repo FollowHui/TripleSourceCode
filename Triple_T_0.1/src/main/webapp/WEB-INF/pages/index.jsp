@@ -12,6 +12,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script src="/resources/js/jquery-1.4.2.min.js"></script>
 
+    <script src="/resources/js/login_register.js"></script>
     <script src="/resources/js/index.js"></script>
     <script src="/resources/js/blogList.js"></script>
     <script src="/resources/js/sInfoma.js"></script>
@@ -115,7 +116,7 @@
             <c:choose>
                 <c:when test="${sessionScope.flag}">
                     <li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-                    <li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
+                    <li class="fli"><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
@@ -155,7 +156,8 @@
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
-            <form method="post" action="/login">
+            <%--<form   id="formloginsubmit" onsubmit="onlogin()">--%>
+            <form   action="/login" method="post" >
                 <div class="name">
                     <div class="before">
                         <label>用户名：</label>

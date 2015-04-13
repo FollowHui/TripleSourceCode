@@ -18,7 +18,7 @@ public class LoginServiceTest extends TestCase {
     LoginService loginService;
     @Test
     public void testLogin(){
-        String userName="test";
+        String userName="testfdasf";
         String password="test";
         int result=loginService.getLoginInfo(userName,password);
         System.out.println(result);

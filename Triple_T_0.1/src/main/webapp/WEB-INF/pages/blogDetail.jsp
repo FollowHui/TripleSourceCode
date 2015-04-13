@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -14,6 +15,93 @@
 
 		<script src="/resources/js/index.js"></script>
 		<script src="/resources/js/blogDetail.js"></script>
+		<script type="text/javascript">
+			function changeImg(){
+				document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
+			}
+
+			function onSearch(){
+
+			}
+
+			$(document).ready(function($){
+
+				$('.theme-login').click(function(){
+					if($('.theme-login span').html()=="登录") {
+						$('.login-mask').show();
+						$('.login-mask').height($(document).height());
+						$('.login-box').slideDown(200);
+					}
+					else
+					{
+						//onselfinfoclick();
+//                    document.getElementById("div1").style.display="none";
+//                    document.getElementById("div6").style.display="block";
+					}
+				})
+				$('.close').click(function(){
+					$('.login-mask').hide();
+					$('.login-box').slideUp(200);
+				})
+
+			});
+			$(document).ready(function($){
+				$('.exit').click(function(){
+					location.href = "/logout";
+				})
+			});
+			$(document).ready(function($){
+
+				$('.theme-register').click(function(){
+					$('.register-mask').show();
+					$('.register-mask').height($(document).height());
+					$('.register-box').slideDown(200);
+				})
+				$('.close').click(function(){
+					$('.register-mask').hide();
+					$('.register-box').slideUp(200);
+				})
+
+			});
+			$(document).ready(function() {
+				$("#email").blur(function () {
+					var email = $("#email").val();
+					if (email == '') {
+						document.getElementById("sm").style.display="block";
+						return false;
+					}
+					else {
+						var reg =/^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
+						if (!reg.test(email)) {
+							document.getElementById("sm").style.display="block";
+							return false;
+						}
+					}
+					document.getElementById("sm").style.display="none";
+				})
+			});
+			function Cmd(obj){
+				var len = obj.value.replace(/[^\x00-\xff]/g, "**").length;
+				if(len < 6|| len > 18){
+					// alert("请输入6-18个字节的字符");
+					document.getElementById("sp").style.display="block";
+					//  obj.focus();
+				}else
+				{
+					document.getElementById("sp").style.display="none";
+				}
+			}
+			function confirm(obj){
+				var conpassword = obj.value;
+				var password = $("#R_password").val();
+				if(conpassword!=password){
+					document.getElementById("scp").style.display="block";
+				}else{
+
+					document.getElementById("scp").style.display="none";
+				}
+			}
+		</script>
 	</head>
 
 	<body>
@@ -23,7 +111,7 @@
 			<c:choose>
 				<c:when test="${sessionScope.flag}">
 					<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-					<li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>
+					<li class="fli"><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
@@ -40,7 +128,8 @@
 			<img src="/resources/img/llogo.png">
 		</span>
 			<div id="nav-title" name="${note.noteid}"><span>帖子 详细信息</span></div>
-	</div>
+		</div>
+		<div id="div1">
 		<div id="container">
 			<div id="wrap">
 				<div id="sd_detail">
@@ -82,7 +171,7 @@
 												${Comment.commenter}
 										</div>
 										<div class="comment_time">
-												${Comment.commentdate}
+											<td><fmt:formatDate value='${Comment.commentdate}' pattern='yyyy-MM-dd HH:mm:ss'/></td>
 										</div>
 									</div>
 									<div class="comment_detail">
@@ -90,12 +179,11 @@
 									</div>
 								</li>
 							</c:forEach>
-
-
 						</ul>
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 		<div class="login-mask">
 			<div class="login-box" style=" display:none;">

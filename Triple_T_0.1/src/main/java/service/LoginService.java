@@ -21,19 +21,20 @@ public class LoginService {
         Md5PasswordEncoder md5 = new Md5PasswordEncoder();
         try {
             user = userMapper.selectByUserName(userName);
+            String md5Pwd=md5.encodePassword(password, userName);
+            // System.out.println(md5Pwd);
+            if(user.getPassword().equals(md5Pwd)){
+                return user.getUserid();
+            }
+            else {
+                return -1;
+            }
         }
         catch(Exception e){
             e.printStackTrace();
             return -2;
         }
-        String md5Pwd=md5.encodePassword(password, userName);
-       // System.out.println(md5Pwd);
-        if(user.getPassword().equals(md5Pwd)){
-            return user.getUserid();
-        }
-        else {
-            return -1;
-        }
+
 
 
 

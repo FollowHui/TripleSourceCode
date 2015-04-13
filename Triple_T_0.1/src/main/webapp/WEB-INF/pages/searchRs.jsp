@@ -25,39 +25,39 @@
           </div>
         </li>
       </c:forEach>
-      <li>
-        <div class="sr_content_detail">
-          <div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
-          <div class="sr_name_container"><div class="sr_name">MIT</div></div>
-        </div>
-      </li>
-      <li>
-        <div class="sr_content_detail">
-          <div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
-          <div class="sr_name_container"><div class="sr_name">MIT</div></div>
-        </div>
-      </li>
+      <%--<li>--%>
+        <%--<div class="sr_content_detail">--%>
+          <%--<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>--%>
+          <%--<div class="sr_name_container"><div class="sr_name">MIT</div></div>--%>
+        <%--</div>--%>
+      <%--</li>--%>
+      <%--<li>--%>
+        <%--<div class="sr_content_detail">--%>
+          <%--<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>--%>
+          <%--<div class="sr_name_container"><div class="sr_name">MIT</div></div>--%>
+        <%--</div>--%>
+      <%--</li>--%>
 
-      <li>
-        <div class="sr_content_detail">
-          <div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
-          <div class="sr_name_container"><div class="sr_name">MIT</div></div>
-        </div>
-      </li>
+      <%--<li>--%>
+        <%--<div class="sr_content_detail">--%>
+          <%--<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>--%>
+          <%--<div class="sr_name_container"><div class="sr_name">MIT</div></div>--%>
+        <%--</div>--%>
+      <%--</li>--%>
 
-      <li>
-        <div class="sr_content_detail">
-          <div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
-          <div class="sr_name_container"><div class="sr_name">MIT</div></div>
-        </div>
-      </li>
+      <%--<li>--%>
+        <%--<div class="sr_content_detail">--%>
+          <%--<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>--%>
+          <%--<div class="sr_name_container"><div class="sr_name">MIT</div></div>--%>
+        <%--</div>--%>
+      <%--</li>--%>
 
-      <li>
-        <div class="sr_content_detail">
-          <div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>
-          <div class="sr_name_container"><div class="sr_name">MIT</div></div>
-        </div>
-      </li>
+      <%--<li>--%>
+        <%--<div class="sr_content_detail">--%>
+          <%--<div class="sr_img_container"><div class="sr_img"><img src="/resources/img/MIT.png" /></div></div>--%>
+          <%--<div class="sr_name_container"><div class="sr_name">MIT</div></div>--%>
+        <%--</div>--%>
+      <%--</li>--%>
     </ul>
   </div>
 </div>

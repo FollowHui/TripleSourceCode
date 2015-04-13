@@ -32,7 +32,7 @@ public class BlogListController {
     @RequestMapping(value="/addmore",method = RequestMethod.GET)
     public String printWelcome(ModelMap modelMap,HttpSession httpSession) {
         int noteCount =(Integer)httpSession.getAttribute("noteCount");
-        noteCount=noteCount+2;
+        noteCount=noteCount+5;
         httpSession.setAttribute("noteCount",noteCount);
         List<Note> noteList;
         noteList=getAllNotesService.getAllNotes(noteCount);

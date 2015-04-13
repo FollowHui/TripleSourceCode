@@ -24,7 +24,7 @@ public class SInfomaController {
     @RequestMapping(value="/addmore",method = RequestMethod.GET)
     public String printWelcome(ModelMap modelMap,HttpSession httpSession) {
         int sInfoCount=(Integer)httpSession.getAttribute("sInfoCount");
-        sInfoCount=sInfoCount+2;
+        sInfoCount=sInfoCount+5;
         httpSession.setAttribute("sInfoCount",sInfoCount);
         List<SchoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
         modelMap.addAttribute("schoolNewsList",schoolNewsList);

@@ -25,11 +25,6 @@
 				</li>
 				</c:forEach>
 
-
-
-
-
-
 				<li class="bl_table_title">
 					<div class="bl_container" onclick="bl_Jump(this)" name="6">
 						<div class="bl_con_title"><p>怎么申请国外的学校？</p></div>

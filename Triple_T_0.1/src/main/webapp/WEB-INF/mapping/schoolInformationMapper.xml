@@ -39,7 +39,7 @@
     select
     <include refid="Base_Column_List" />
     from schoolinformation
-    where ranking  &lt; #{ranking,jdbcType=INTEGER}
+    where ranking  &lt; #{ranking,jdbcType=INTEGER} and ranking  &gt; #{ranking,jdbcType=INTEGER}-50
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from schoolinformation

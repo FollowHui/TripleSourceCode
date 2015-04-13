@@ -27,7 +27,7 @@ public class LogoutController {
         httpSession.removeAttribute("filter23");
         httpSession.removeAttribute("filter24");
         httpSession.removeAttribute("filter25");
-        return "index";
+        return "redirect:/";
 
     }
 }
