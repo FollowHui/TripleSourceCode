@@ -1,8 +1,0 @@
-
-需要替换的文件：
-sList.jsp
-sList.css
-sList.js
-sListController.java
-school.jsp
-school.css
