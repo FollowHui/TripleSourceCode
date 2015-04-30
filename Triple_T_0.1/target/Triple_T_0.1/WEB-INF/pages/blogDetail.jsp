@@ -7,12 +7,11 @@
 		<title></title>
 
 		<link rel="stylesheet" href="/resources/css/blogDetail.css">
-		<link rel="stylesheet" href="/resources/css/index.css">
+		<link rel="stylesheet" href="/resources/css/base.css">
 		<link rel="stylesheet" href="/resources/css/login_register.css">
 		<script class="autoinsert" src="/resources/js/jquery-1.2.6.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+		<%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>--%>
 		<script src="/resources/js/jquery-1.4.2.min.js"></script>
-
 		<script src="/resources/js/index.js"></script>
 		<script src="/resources/js/blogDetail.js"></script>
 		<script type="text/javascript">
@@ -105,28 +104,37 @@
 	</head>
 
 	<body>
-	<div id="bd_outer">
-		<div id="header">
-		<ul class="ful">
-			<c:choose>
-				<c:when test="${sessionScope.flag}">
-					<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-					<li class="fli"><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
+	<div id="header" class="clearfix">
+
+		<div class="holder clearfix">
+
+			<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+			<div id="title"><span><a href="index.html" title="click me can logon" rel="home">Triple T</a></span></div>
+			<li><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
+			<ul id="siteNav">
+				<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
+				<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
+				<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
+				<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+				<c:choose>
+					<c:when test="${sessionScope.flag}">
+						<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+						<li><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
-				</c:when>
-				<c:otherwise>
-					<li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
-					<li class="fli"><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
-				</c:otherwise>
-			</c:choose>
-		</ul>
-	</div>
-		<div id="header-nav">
-		<span style="float:left; margin-left:5%;">
-			<img src="/resources/img/llogo.png">
-		</span>
+					</c:when>
+					<c:otherwise>
+						<li><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
+						<li><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
+					</c:otherwise>
+				</c:choose>
+			</ul>
+
+		</div>
+
+	</div><!-- #header -->
 			<div id="nav-title" name="${note.noteid}"><span>帖子 详细信息</span></div>
 		</div>
 		<div id="div1">

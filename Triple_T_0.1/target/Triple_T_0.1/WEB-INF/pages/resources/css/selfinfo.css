@@ -3,14 +3,11 @@
 h3{
     font-family: 微软雅黑;
     font-size: 22px;
-    color:#000;
 }
 
 .slide {
     margin: 0px;
-    padding-bottom: 10px;
-    background-image: url("../img/bg-noise.jpg");
-    background-repeat:repeat ;
+    padding-bottom: 10px;;
     overflow: scroll;
     width: 1500px;
     height: auto;
@@ -193,7 +190,6 @@ h3{
 }
 .selfinfo1
 {
-    background: #D6D6D6;
     opacity: 0.8;
     margin-top: 60px;
     margin-left: 10%;
@@ -201,7 +197,7 @@ h3{
     height: 700px;
     float: left;
     position: relative;
-    border:2px solid #FFFFFF;
+    border:1px solid GREY;
     padding:2px 2px 2px 20px;
 }
 .selfinfo2
@@ -215,7 +211,7 @@ h3{
     padding: 2px 10px 2px 10px;
     border:1px solid rgba(255,255,255,.15);
     border-radius: 6px;
-    color: BLACK;
+    color: #FFFFFF;
     letter-spacing: 2px;
     font-size: 16px;
     background:transparent;
@@ -251,13 +247,12 @@ color:#FFFFFF;
 ul{list-style: none outside none;}
 .collecttalk, .collectschool, .writecomment
 {
-    background: #D6D6D6;
     opacity: 0.8;
     margin-top: 50px;
     margin-left: 35%;
     height: 250px;
     width: 700px;
-    border:2px solid #FFFFFF;
+    /*border:2px solid #FFFFFF;*/
     padding:2px 2px 2px 15px;
 }
 
@@ -295,7 +290,7 @@ ul{list-style: none outside none;}
 {
     font-size: 13px;
     padding-top: 5px;
-    color: BLACK;
+    color: #FFFFFF;
     width:200px;
     margin-left: 30px;
 }

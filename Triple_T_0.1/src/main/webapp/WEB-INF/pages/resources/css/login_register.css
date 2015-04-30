@@ -23,23 +23,21 @@ h1
 }
 .register-box
 {
-
 	width: 410px;
 	margin:120px auto 0 auto;
 	text-align: center;
 	padding: 30px;
-	background: url(../img/mask.png);
+	background: #222;
 	border-radius: 10px;
 }
 
 .login-box
 {
-
 	width: 410px;
 	margin:120px auto 0 auto;
 	text-align: center;
 	padding: 30px;
-	background-image: url(../img/mask.png);
+	background: #222;
 	border-radius: 10px;
 }
  .name, .password,.remember,.code,.mailbox,.sex,.grades
@@ -74,7 +72,7 @@ h1
 {
 	margin-top: 10px;
 	height: 42px;
-	width: 64px;
+	width: 80px;
 	float: left;
 }
 .back
@@ -139,7 +137,7 @@ h1
 }
 .register-box input[type=text], input[type=password]
 {
-	width: 270px;
+	width: 250px;
 	height: 42px;
 	padding: 2px 10px 2px 10px;
 	border:1px solid rgba(255,255,255,.15);
@@ -155,8 +153,8 @@ button
 	width: 100%;
 	height: 44px;
 	padding: 0;
-	background:#ef4300;
-	border:1px solid #ff730e;
+	background:#222222;
+	border:1px solid #444444;
 	border-radius: 6px;
 	font-weight: 700;
 	color: #fff;
@@ -185,4 +183,26 @@ button:hover
 	display: inline;
 	float: right;
 	margin-top: 0px;
+}
+.login-mask
+{
+	z-index:99;
+	position:absolute;
+	left:0;top:0;
+	width:100%;
+	height:100%;
+	background:	rgba(50,50,50,0.9);
+	-moz-opacity:0.5;
+	display:none;
+}
+.register-mask
+{
+	z-index:99;
+	position:absolute;
+	left:0;top:0;
+	width:100%;
+	height:100%;
+	background:	rgba(50,50,50,0.9);
+	-moz-opacity:0.5;
+	display:none;
 }

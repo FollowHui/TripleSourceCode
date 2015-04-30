@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="wrap">
-  <div id="sr_title">搜索结果</div>
+  <%--<div id="sr_title">搜索结果</div>--%>
   <div id="sr_content">
     <ul>
       <c:forEach items="${schoolList}" var="SchoolInformation">

@@ -1,0 +1,349 @@
+/* BODY ---------------------------------------------------------*/
+	
+	body {
+		color: #999da1;
+		background: #333a42 url(../images/dark_bg.png);
+	}
+
+/* MISC ---------------------------------------------------------*/
+
+	.intro {
+		color: #DDD;
+	}
+	
+	hr {
+		border: none;
+		border-bottom: 1px solid #5C6065;
+	}
+
+	abbr, acronym {
+		border-bottom: 1px dotted #666666;
+	}
+	
+	ins, dfn {
+		border-bottom: 1px solid #666666;
+	}
+	
+	code {
+		border: 1px dotted #CCC;
+		background: #EFEFEF;
+	}
+
+	blockquote, quote {
+		background: url(../images/quote_dark_bg.png) 40px 5px no-repeat;
+		min-height: 45px;
+		color: #666b71;
+	}
+
+/* LINKS ---------------------------------------------------------*/
+
+	#main a,
+	#footer a {
+		border-bottom: 1px solid #999da1;
+	}
+
+	a:link,
+	a:visited,
+	a:hover,
+	a:focus,
+	a:active {
+		color: #FFF;
+		text-decoration: none;
+	}
+	
+	a:hover,
+	a:focus {
+		color: #999da1;
+	}
+
+/* LISTS ---------------------------------------------------------*/
+
+	ul#pageTabs li a {
+		color: #999;
+		border: none;
+	}
+	
+	ul#pageNav li a {
+		border: none;
+	}
+	
+	ul#pageNav li.previous a {
+		background-position: -287px -247px;
+	}
+	ul#pageNav li.previous a:hover,
+	ul#pageNav li.previous a:focus {
+		background-position: -246px -247px;
+	}
+	
+	ul#pageNav li.next a {
+		background-position: -205px -247px;
+	}
+	ul#pageNav li.next a:hover,
+	ul#pageNav li.next a:focus {
+		background-position: -164px -247px;
+	}
+	
+	ul#pageTabs li.selected a,
+	ul#pageTabs li a:hover,
+	ul#pageTabs li a:focus {
+		color: #FFF;
+	}
+	
+	ul.pagination li a {
+		border: 1px solid #5C6065!important;
+		color: #999;
+	}
+	
+	ul.pagination li.selected a {
+		color: #333A42;
+		background: #FFF;
+		border-color: #FFF!important;
+	}
+	
+	ol#commentList li {
+		border-top: 1px solid #5C6065;
+	}
+	
+	ol#commentList li p {
+		color: #666b71;
+	}
+	
+	ol#commentList li p cite,
+	ol#commentList li p cite a {
+		color: #999;
+	}
+	
+	ul.socialLinks li a span.facebook {
+		background-position: -82px -61px;
+	}
+	
+	ul.socialLinks li a span.twitter {
+		background-position: -82px -101px;
+	}
+	
+	ul.socialLinks li a span.rss {
+		background-position: -82px -141px;
+	}
+	
+	ul.socialLinks li a span.email {
+		background-position: -82px -182px;
+	}
+
+/* TABLES ---------------------------------------------------------*/
+
+	table {
+		border: 1px solid #5C6065;
+	}
+	
+	table th,
+	table td {
+		border: 1px solid #5C6065;
+	}
+	
+	table thead th {
+		background: #3E444B;
+		border-bottom: 1px solid #5C6065;
+	}
+	
+	table tbody tr:hover,
+	table tbody tr:focus {
+		background: #3E444B;
+	}
+
+/* HEADINGS ---------------------------------------------------------*/
+	
+	h1, h2, h3, h4 {
+		color: #CCC;
+	}
+	
+	h2 {
+		background: url(../images/h2_dark_bg.png) 0 55% repeat-x;
+	}
+	
+	h2 cufon,
+	h2 cufon canvas {
+		background: url(../images/dark_bg.png);
+	}
+
+/* HEADER ---------------------------------------------------------*/
+	
+	#header {
+		background: #FFF;
+	}
+	
+	#title a {
+		color: #333a42;
+	}
+	
+	ul#siteNav li a {
+		color: #999;
+	}
+	
+	ul#siteNav li.selected a,
+	ul#siteNav li a:hover,
+	ul#siteNav li a:focus {
+		color: #333a42;
+	}
+	
+	ul#siteNav > li.selected > a {
+		background: url(../images/sitenav_selected_dark.png) 50% 100% no-repeat;
+	}
+
+	/*ul#siteNav > li.hasSub.hover > a,*/
+	/*ul#siteNav li.hasSub ul {*/
+		/*background: #999;*/
+	/*}*/
+
+	/*ul#siteNav li.hasSub.hover a {*/
+		/*color: #FFF;*/
+	/*}*/
+	/**/
+	/*ul#siteNav li.hasSub.hover ul li a:hover,*/
+	/*ul#siteNav li.hasSub.hover ul li a:focus {*/
+		/*color: #CCC;*/
+	/*}*/
+	/**/
+	/*ul#siteNav li.hasSub.hover ul li a {*/
+		/*border-top: 1px solid #898989;*/
+	/*}*/
+
+ul#pageTabs > li.hasSub.hover > a,
+ul#pageTabs li.hasSub ul {
+	background: #999;
+
+}
+
+ul#pageTabs li.hasSub.hover a {
+	color: #FFF;
+}
+
+ul#pageTabs li.hasSub.hover ul li a:hover,
+ul#pageTabs li.hasSub.hover ul li a:focus {
+	color: #CCC;
+}
+
+ul#pageTabs li.hasSub.hover ul li a {
+	border-top: 1px solid #898989;
+}
+
+ul#pageTabs li.hasSub ul{
+	display: none;
+}
+
+ul#pageTabs li.hasSub:hover ul{
+	display: block;
+}
+	
+/* SLIDER ---------------------------------------------------------*/
+
+	#slider {
+		background: url(../images/loading_dark.gif) 50% 50% no-repeat;
+	}
+
+	#slider a {
+		border-bottom: none;
+	}
+
+	#slider a span {
+		background: #FFF;
+		color: #333a42;
+	}
+	
+	#slider .nivo-controlNav {
+		color: #FFF;
+	}
+
+	#slider .nivo-controlNav .nivo-control {
+		background: #FFF;
+	}
+	
+	#slider .nivo-controlNav .nivo-control:hover,
+	#slider .nivo-controlNav .nivo-control:focus,
+	#slider .nivo-controlNav .active {
+		background: #333a42;
+	}
+
+/* GALLERY ---------------------------------------------------------*/
+
+	#main a.gallery {
+		border-bottom: none;
+	}
+	
+/* FORMS ---------------------------------------------------------*/
+
+	/*form input[type=text],*/
+	/*form input[type=password],*/
+	/*form textarea {*/
+		/*border: 1px solid #FFF;*/
+		/*color: #666666;*/
+	/*}*/
+	
+	/*form button {*/
+		/*background: #CC0000;*/
+		/*color: #FFF;*/
+	/*}*/
+	
+	form button:hover,
+	form button:focus {
+		background: #000;
+	}
+
+/* BLOG ---------------------------------------------------------*/
+
+	h3.info {
+		color: #999;
+	}
+	
+	.introText {
+		color: #FFF;
+	}
+	
+	#main .blogImage a {
+		border-bottom: none;
+	}
+	
+	.blogImage > span {
+		background: #FFF;
+		color: #333A42;
+	}
+
+/* SIDEBAR ---------------------------------------------------------*/
+	
+	.sidebarCol div {
+		background: #2b3138;
+		background: rgba(0,0,0,.2);
+	}
+	
+	.sidebarCol form div {
+		background: none;
+	}
+	
+	.sidebarCol ul,
+	.sidebarCol dl {
+		color: #999;
+	}
+	
+	.sidebarCol div ul li,
+	.sidebarCol div dl dt {
+		background: url(../images/list_bg.png) 0 50% no-repeat;
+	}
+
+/* TWITTER ---------------------------------------------------------*/
+
+	#latestTweet {
+		border-top: 1px solid #5C6065;
+		color: #666b71;
+		font-family: Georgia;
+		font-size: 14px;
+		font-style: italic;
+	}
+	
+	#latestTweet ul li {
+		background: url(../images/sprite.png) 0 -311px no-repeat;
+	}
+
+/* FOOTER ---------------------------------------------------------*/
+	
+	#footer {
+		border-top: 1px solid #5C6065;
+	}

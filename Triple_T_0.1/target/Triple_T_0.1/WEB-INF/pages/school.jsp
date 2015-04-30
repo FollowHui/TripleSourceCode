@@ -6,10 +6,14 @@
 	<title></title>
 
 	<link rel="stylesheet" href="/resources/css/school.css">
-	<link rel="stylesheet" href="/resources/css/index.css">
+	<link rel="stylesheet" href="/resources/css/base.css">
 	<link rel="stylesheet" href="/resources/css/login_register.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/clearfix.css">
+	<link rel="stylesheet" type="text/css" href="/resources/css/jquery.fancybox-1.3.1.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/resources/css/dark.css">
 	<script class="autoinsert" src="/resources/js/jquery-1.2.6.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+	<%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>--%>
 	<script src="/resources/js/jquery-1.4.2.min.js"></script>
 
 	<script src="/resources/js/index.js"></script>
@@ -115,27 +119,26 @@
 <div id="s_outer">
 	<div id="flag" name="${sessionScope.flag}" style="display: none"></div>
 
-	<div id="header">
-		<ul class="ful">
-			<c:choose>
-				<c:when test="${sessionScope.flag}">
-					<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-					<li class="fli"><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
-                        <c:out value="${sessionScope.userName}"/>
-                    </span></a></li>
+	<div id="header" class="clearfix">
 
-				</c:when>
-				<c:otherwise>
-					<li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
-					<li class="fli"><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
-				</c:otherwise>
-			</c:choose>
-		</ul>
-	</div>
+		<div class="holder clearfix">
+
+			<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+			<div id="title"><span><a href="index.html" title="click me can logon" rel="home">Triple T</a></span></div>
+			<ul id="siteNav">
+				<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
+				<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
+				<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
+				<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+
+				<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+			</ul>
+
+		</div>
+
+	</div><!-- #header -->
 	<div id="header-nav">
-		<span style="float:left; margin-left:5%;">
-			<img src="/resources/img/llogo.png">
-		</span>
 		<div id ="nav-title" class="nav-title" name="${schoolId}"><span>名校 详细信息</span></div>
 
 		<br clear="all"/>
@@ -181,7 +184,17 @@
 
 			</div>
 		</div>
+		<div id="footer">
 
+			<ul>
+				<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
+				<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
+				<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
+				<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+				<li><a href="contact.html">关于我们</a></li>
+			</ul>
+
+		</div><!-- #footer -->
 		<div class="login-mask">
 			<div class="login-box" style=" display:none;">
 				<h1>Triple T</h1>

@@ -3,11 +3,9 @@
 #container{
 	min-width: 1024px;
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
-	background: url("/resources/img/bg-noise.jpg");
 	background-repeat: repeat;
 }
 #wrap{
-	width: 1080px;
 	height: 100%;
 	margin: 0 auto;
 	padding-top:10px;
@@ -16,7 +14,6 @@
 .si_title{
 	width: 100%;
 	height: 30px;
-	background-color: #663300;
 }
 
 .si_title p{
@@ -29,21 +26,19 @@
 .si_title{
 	width: 100%;
 	height: 30px;
-	background-color: #663300;
 }
 
 .si_title p{
-	color: #FFFFFF;
+	color: #EEE;
 	font-size: 20px;
 	padding: 5px;
 	text-decoration: none;
 }
 
 #si_table{
-	border: 2px solid #663300;
 	width: 80%;
 	padding-top:10px;
-	margin: 25px auto;
+	margin:10px auto;
 }
 
 #si_table li{
@@ -56,40 +51,38 @@
 	height: 20px;
 	margin-left:4%;
 	padding:8px;
-	color: #000000;
+	color: GREY;
 }
 
 .si_container:hover{
-	opacity: 0.3;
+
 	cursor: pointer;
-	background: #663300;
-	color: #FFFFFF;
+	background: #222;
 }
 .si_con_title{
 	float: left;
 	width: 70%;
 	height:20px;
-	line-height:18px;
+	line-height:20px;
 	overflow: hidden;
 	display: inline;
 }
 
 .si_con_title p{
+	color: #CCC;
 	text-decoration: none;
-	color: #000;
-	font-size: 1.3em;
+	font-size: 1.04em;
 }
 
 .si_con_time p{
+	color: #CCC;
 	text-decoration: none;
-	color: #000;
-	font-size: 1.2em;
+	font-size: 1.02em;
 }
-
 
 .si_con_time{
 	float: right;
-	width: 10%;
+	width: 15%;
 	height:20px;
 	overflow: hidden;
 	display: inline;
@@ -99,7 +92,7 @@
 	margin: 7px auto;
 	width: 92%;
 	height: 20px;
-	background-color: #663300;
+	background-color: GREY;
 	opacity: 0.4;
 }
 

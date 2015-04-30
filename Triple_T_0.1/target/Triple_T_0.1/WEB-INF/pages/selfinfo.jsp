@@ -4,121 +4,45 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="/resources/css/selfinfo.css">
-		<link rel="stylesheet" href="/resources/css/index.css">
-		<script src="/resources/js/index.js"></script>
+		<link rel="stylesheet" href="/resources/css/base.css">
+		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="/resources/css/clearfix.css">
+		<link rel="stylesheet" type="text/css" href="/resources/css/jquery.fancybox-1.3.1.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="/resources/css/dark.css">
 		<script src="/resources/js/selfinfo.js"></script>
+		<script src="/resources/js/index.js"></script>
 
 		<script type="text/javascript">
-			function changeImg(){
-				document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
-			}
-
-			function onSearch(){
-
-			}
-
-			$(document).ready(function($){
-
-				$('.theme-login').click(function(){
-					if($('.theme-login span').html()=="登录") {
-						$('.login-mask').show();
-						$('.login-mask').height($(document).height());
-						$('.login-box').slideDown(200);
-					}
-					else
-					{
-						onselfinfoclick();
-//                    document.getElementById("div1").style.display="none";
-//                    document.getElementById("div6").style.display="block";
-					}
-				})
-				$('.close').click(function(){
-					$('.login-mask').hide();
-					$('.login-box').slideUp(200);
-				})
-
-			});
 			$(document).ready(function($){
 				$('.exit').click(function(){
 					location.href = "/logout";
 				})
 			});
-			$(document).ready(function($){
 
-				$('.theme-register').click(function(){
-					$('.register-mask').show();
-					$('.register-mask').height($(document).height());
-					$('.register-box').slideDown(200);
-				})
-				$('.close').click(function(){
-					$('.register-mask').hide();
-					$('.register-box').slideUp(200);
-				})
-
-			});
-			$(document).ready(function() {
-				$("#email").blur(function () {
-					var email = $("#email").val();
-					if (email == '') {
-						document.getElementById("sm").style.display="block";
-						return false;
-					}
-					else {
-						var reg =/^([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|-|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,3}$/;
-						if (!reg.test(email)) {
-							document.getElementById("sm").style.display="block";
-							return false;
-						}
-					}
-					document.getElementById("sm").style.display="none";
-				})
-			});
-			function Cmd(obj){
-				var len = obj.value.replace(/[^\x00-\xff]/g, "**").length;
-				if(len < 6|| len > 18){
-					// alert("请输入6-18个字节的字符");
-					document.getElementById("sp").style.display="block";
-					//  obj.focus();
-				}else
-				{
-					document.getElementById("sp").style.display="none";
-				}
-			}
-			function confirm(obj){
-				var conpassword = obj.value;
-				var password = $("#R_password").val();
-				if(conpassword!=password){
-					document.getElementById("scp").style.display="block";
-				}else{
-
-					document.getElementById("scp").style.display="none";
-				}
-			}
 		</script>
 	</head>
-	<body>
-	<div id="header">
-		<ul class="ful">
-			<li class="fli"><a class="exit" href="/logout" style="text-decoration:none"><span>退出</span></a></li>
-			<%--<c:choose>--%>
-				<%--<c:when test="${sessionScope.flag}">--%>
-					<%--<li class="fli"><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>--%>
-					<%--<li class="fli"><a class="theme-login" href="javascript:;"style="text-decoration:none"><span>--%>
-                        <%--<c:out value="${sessionScope.userName}"/>--%>
-                    <%--</span></a></li>--%>
+	<body  class="jsDisabled">
+		<div id="header" class="clearfix">
 
-				<%--</c:when>--%>
-				<%--<c:otherwise>--%>
-					<%--<li class="fli"><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>--%>
-					<%--<li class="fli"><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>--%>
-				<%--</c:otherwise>--%>
-			<%--</c:choose>--%>
-		</ul>
-	</div>
+					<div class="holder clearfix">
+
+					<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+					<div id="title"><span><a href="index.html" title="click me can logon" rel="home">Triple T</a></span></div>
+					<ul id="siteNav">
+						<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
+						<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
+						<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
+						<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+
+						<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+					</ul>
+
+				</div>
+
+			</div><!-- #header -->
+		<div class="wrap">
 	<div id="header-nav">
-		<span style="float:left; margin-left:5%;">
-			<img src="/resources/img/llogo.png">
-		</span>
 		<div id="nav-title" name=""><span>用户 详细信息</span></div>
 	</div>
 	<div class="slide">
@@ -238,6 +162,7 @@
 			<%--</form>--%>
 		</div>
 	</div>
+			</div>
 	</body>
 
 </html>

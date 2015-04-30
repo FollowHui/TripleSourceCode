@@ -23,7 +23,7 @@ public class LoginController {
     LoginService loginService;
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public
-//    @ResponseBody
+    @ResponseBody
     String getLoginResult(ModelMap modelMap,
                                     @RequestParam(value="userName",required = false) String userName,
 //                                  @RequestParam(value="email",required = false) String email,
@@ -36,16 +36,16 @@ public class LoginController {
         String code = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         code = code.toLowerCase();
         if(verifyCode.length()==0){
-            return "redirect:/";
+            return "验证码为空";
         }
         verifyCode = verifyCode.toLowerCase();
         if (verifyCode.equals(code)){
             if(userName.length()==0){
-                return "redirect:/";
+                return "用户名为空";
             }
             else if(password.length()==0){
                 System.out.println("密码为空");
-                return "redirect:/";
+                return "密码为空";
             }else{
                 int resultCode=loginService.getLoginInfo(userName,password);
                 System.out.println("resultcode=" + resultCode);
@@ -53,18 +53,18 @@ public class LoginController {
                     httpSession.setAttribute("flag",true);
                     httpSession.setAttribute("userId",resultCode);
                     httpSession.setAttribute("userName",userName);
-                    return "redirect:/";
+                    return "登录成功";
                 }
                 else if(resultCode==-1){
-                    return "redirect:/";
+                    return "密码错误";
                 }
                 else{
-                    return "redirect:/";
+                    return "用户不存在";
                 }
             }
         }
         else{
-           return "redirect:/";
+           return "验证码错误";
         }
 
     }

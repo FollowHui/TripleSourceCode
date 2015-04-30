@@ -6,10 +6,30 @@
 	min-width: 1024px;
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
 }
+
+.sl_title{
+	position: relative;
+}
+.sl_title h1{
+	color: #FFFFFF;
+	font-size: 20px;
+	padding: 5px;
+	text-decoration: none;
+}
+
+#sl_title_left{
+	width:20%;
+	float:left;
+}
+
+#sl_title_right{
+	width: 60%;
+	float:left;
+}
+
 /***********************************filter part**********************************************************/
 #search_filter{
 	width: 100%;
-	background-color: #026276;
 }
 
 .filter{
@@ -82,14 +102,11 @@
 	width: 100%;
 	height: auto;
 	min-height: 500px;
-	background: url("/resources/img/bg-noise.jpg");
-	background-repeat: repeat;
 }
 
 #sr_title{
 	width: 100%;
 	height: 25px;
-	background-color: #663300;
 	color: #FFFFFF;
 	font-size: 20px;
 	padding: 5px;
