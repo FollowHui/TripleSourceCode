@@ -115,26 +115,27 @@
 	ol li {
 		list-style: decimal;
 	}
-	
+
 	ul#pageTabs {
 		position: absolute;
 		top: 15px;
 		right: 0;
 	}
-	
+
 	ul#pageTabs li {
 		float: left;
-		list-style: none;
+		list-style-type: none;
 		margin: 0 0 0 20px;
 		font-size: 20px;
 		background: url(../img/sitenav_bg.png) 0 50% no-repeat;
 	}
 
+
 	ul#pageTabs li.hasSub ul li{
-		list-style: none;
+		list-style-type: none;
 		margin: 0 0 0 20px;
 		font-size: 20px;
-		background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+		background: #222;
 	}/*******************************************************/
 
 	ul#pageTabs li:first-child {
@@ -145,7 +146,7 @@
 		text-decoration: none;
 		padding: 0 0 0 20px;
 	}
-	
+
 	ul#pageNav {
 		position: absolute;
 		top: 15px;
@@ -315,6 +316,9 @@
 		border-top: none;
 	}
 
+	.footInfo h2{
+		margin-left: 0 !important;
+	}
 /* HEADINGS ---------------------------------------------------------*/
 
 	h1, h2, h3 {
@@ -380,7 +384,7 @@
 		line-height: 18px;
 		text-transform: uppercase;
 		list-style: none;
-		background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+		/*background: url(../img/sitenav_bg.png) 0 50% no-repeat;*/
 	}
 
 	ul#siteNav li:hover {
@@ -435,7 +439,78 @@
 	ul#siteNav li.hover ul li:first-child a {
 		border-top: none!important;
 	}
+#pageTabs a {
+	display: block;
+	width: 120px;
+	text-align:center;
+}
+#pageTabs a:link {
+	color:#666;
+	text-decoration:none;
+}
+#pageTabs a:visited {
+	color:#666;
+	text-decoration:none;
+}
+#pageTabs a:hover {
+	color:#FFF;
+	text-decoration:none;
+	font-weight:bold;
+}
+#pageTabs li {
+	float: left;
+	list-style: none;
+	margin: 0 0 0 20px;
+	font-size: 20px;
+	list-style-type: none;
+	cursor: hand;
+	background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+}
 
+#pageTabs li ul {
+	line-height: 27px;
+	list-style-type: none;
+	text-align:left;
+	left: -999em;
+	width: 120px;
+	cursor: hand;
+	position: absolute;
+	margin-left:-6px;
+}
+#pageTabs li ul li{
+	float: left;
+	background: GREY;
+}
+#pageTabs li ul a{
+	wedisplay: block;
+	width: 120px;
+	text-align:left;
+	padding-left:24px;
+}
+#pageTabs li ul li a:hover{
+	background:#999;
+	width: 120px;
+}
+#pageTabs li ul a:link {
+	color:#666;
+	text-decoration:none;
+}
+#pageTabs li ul a:visited {
+	color:#666;
+	text-decoration:none;
+}
+#pageTabs li ul a:hover {
+	color:#F3F3F3;
+	text-decoration:none;
+	font-weight:normal;
+	background:#C00;
+}
+#pageTabs li:hover ul {
+	left: auto;
+}
+#pageTabs li.sfhover ul {
+	left: auto;
+}
 /* SLIDER ---------------------------------------------------------*/
 
 	#slider {
@@ -641,7 +716,7 @@
 		list-style: none;
 		margin: 0 0 0 10px;
 		padding: 0 0 0 10px;
-		background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+		/*background: url(../img/sitenav_bg.png) 0 50% no-repeat;*/
 	}
 	
 	#footer ul li:first-child {
@@ -652,6 +727,8 @@
 
 	body.jsDisabled h2 {
 		background: none;
+		font-size: 28px;
+		/*margin-left:25px;*/
 	}
 
 	body.jsDisabled #slider {

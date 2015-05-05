@@ -6,7 +6,9 @@
 	line-height: 0;
 	height: 0;
 }
- 
+body{
+	font-family: "Microsoft YaHei";
+}
 html[xmlns] .clearfix {
 	display: block;
 }

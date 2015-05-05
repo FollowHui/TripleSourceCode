@@ -60,4 +60,10 @@ public class SelfInfoService {
         favouritesList=favouritesMapper.selectSchoolByUserId(userId);
         return  favouritesList;
     }
+    public List<Note> getUserNotes(Integer userId){
+        List<Note> noteList;
+        noteList=noteMapper.getNotesByUserId(userId);
+        return noteList;
+
+    }
 }

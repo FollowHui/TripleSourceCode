@@ -1,5 +1,7 @@
 *{padding:0px;margin:0px;}
-
+body{
+	font-family: "Microsoft YaHei";
+}
 ul,li
 {
 	list-style:none;
@@ -7,7 +9,7 @@ ul,li
 h1
 {
 	display: inline;
-	font-size:30px;
+	font-size:44px;
 	font-weight:700;
 	text-shadow:0 1px 4px rgba(0,0,0,.2);
 	color:#FFFFFF;
@@ -122,6 +124,7 @@ h1
 	margin-top:15px;
 	margin-left: -20px;
 }
+
 .login-box input[type=text], input[type=password]
 {
 	width: 270px;
@@ -133,7 +136,6 @@ h1
 	letter-spacing: 2px;
 	font-size: 16px;
 	background:transparent;
-
 }
 .register-box input[type=text], input[type=password]
 {

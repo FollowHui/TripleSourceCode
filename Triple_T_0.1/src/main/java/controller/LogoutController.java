@@ -17,16 +17,17 @@ public class LogoutController {
         httpSession.setAttribute("favourFlag",false);
         httpSession.setAttribute("favourNoteFlag",false);
         httpSession.removeAttribute("userId");
-        httpSession.removeAttribute("filter11");
-        httpSession.removeAttribute("filter12");
-        httpSession.removeAttribute("filter13");
-        httpSession.removeAttribute("filter14");
-        httpSession.removeAttribute("filter15");
-        httpSession.removeAttribute("filter21");
-        httpSession.removeAttribute("filter22");
-        httpSession.removeAttribute("filter23");
-        httpSession.removeAttribute("filter24");
-        httpSession.removeAttribute("filter25");
+//        httpSession.removeAttribute("userId");
+//        httpSession.removeAttribute("filter11");
+//        httpSession.removeAttribute("filter12");
+//        httpSession.removeAttribute("filter13");
+//        httpSession.removeAttribute("filter14");
+//        httpSession.removeAttribute("filter15");
+//        httpSession.removeAttribute("filter21");
+//        httpSession.removeAttribute("filter22");
+//        httpSession.removeAttribute("filter23");
+//        httpSession.removeAttribute("filter24");
+//        httpSession.removeAttribute("filter25");
         return "redirect:/";
 
     }

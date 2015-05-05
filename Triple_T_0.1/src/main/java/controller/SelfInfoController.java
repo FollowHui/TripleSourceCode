@@ -1,6 +1,7 @@
 package controller;
 
 import Dao.model.Favourites;
+import Dao.model.Note;
 import Dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,15 +53,19 @@ public class SelfInfoController {
             User user;
             List<Favourites> favouritesList;
             List<Favourites> favouriteSchoolList;
+            List<Note> noteList;
             System.out.println(userId);
             user = selfInfoService.getSelfInfomation(userId);
             favouritesList=selfInfoService.getUserFavourNote(userId);
             favouriteSchoolList=selfInfoService.getUserFavourSchool(userId);
+            noteList=selfInfoService.getUserNotes(userId);
             modelMap.addAttribute("user", user);
             modelMap.addAttribute("noteList",favouritesList);
             modelMap.addAttribute("schoolList",favouriteSchoolList);
+            modelMap.addAttribute("myNotes",noteList);
             return "selfinfo";
+        }else {
+            return "redirect:/";
         }
-        return "selfinfo";
     }
 }

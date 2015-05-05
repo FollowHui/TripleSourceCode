@@ -1,12 +1,14 @@
 *{ padding: 0; margin: 0;}
-
+body{
+	font-family: "Microsoft YaHei";
+}
 #container{
 	min-width: 1024px;
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
 
 }
 #wrap{
-	height: 100%;
+	width: 100%;
 	margin: 0 auto;
 	padding-top:10px;
 }
@@ -36,7 +38,7 @@
 
 .bl_container{
 	width: 90%;
-	height: 20px;
+	height: 35px;
 	margin-left:4%;
 	padding:8px;
 	color: #FFFFFF;
@@ -51,16 +53,16 @@
 .bl_con_title{
 	float: left;
 	width: 70%;
-	height:20px;
+	height: 35px;
 	overflow: hidden;
-	line-height: 20px;
+	line-height: 35px;
 	display: inline;
 }
 
 .bl_con_title p, .bl_con_favor p, .bl_con_comment p{
-	color:#CCC;
+	color: #CCC;
 	text-decoration: none;
-	font-size: 1.04em;
+	font-size: 18px;
 }
 
 .bl_con_favor, .bl_con_comment{

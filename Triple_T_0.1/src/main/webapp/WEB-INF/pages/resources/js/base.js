@@ -13,20 +13,21 @@ function getCookie(name){
 }
 
 function addCookie(name,value,expiresHours){
-    var cookieString=name+"="+escape(value);
+    var cookieString=name+"="+encodeURIComponent(value);
     //判断是否设置过期时间
     if(expiresHours>0){
         var date=new Date();
         date.setTime(date.getTime+expiresHours*3600*1000);
         cookieString=cookieString+"; expires="+date.toGMTString();
     }
+    cookieString = cookieString+"; path=/";
     document.cookie=cookieString;
 }
 
 function deleteCookie(name){
     var date=new Date();
     date.setTime(date.getTime()-10000);
-    document.cookie=name+"=v; expires="+date.toGMTString();
+    document.cookie=name+"=v; expires="+date.toGMTString()+"; path=/";
 }
 
 

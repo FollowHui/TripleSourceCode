@@ -2,7 +2,8 @@
 	
 	body {
 		color: #999da1;
-		background: #333a42 url(../images/dark_bg.png);
+		background: #333a42 url(../img/dark_bg.png);
+		font-family: "Microsoft YaHei";
 	}
 
 /* MISC ---------------------------------------------------------*/
@@ -30,7 +31,7 @@
 	}
 
 	blockquote, quote {
-		background: url(../images/quote_dark_bg.png) 40px 5px no-repeat;
+		background: url(../img/quote_dark_bg.png) 40px 5px no-repeat;
 		min-height: 45px;
 		color: #666b71;
 	}
@@ -58,11 +59,6 @@
 
 /* LISTS ---------------------------------------------------------*/
 
-	ul#pageTabs li a {
-		color: #999;
-		border: none;
-	}
-	
 	ul#pageNav li a {
 		border: none;
 	}
@@ -82,12 +78,7 @@
 	ul#pageNav li.next a:focus {
 		background-position: -164px -247px;
 	}
-	
-	ul#pageTabs li.selected a,
-	ul#pageTabs li a:hover,
-	ul#pageTabs li a:focus {
-		color: #FFF;
-	}
+
 	
 	ul.pagination li a {
 		border: 1px solid #5C6065!important;
@@ -155,14 +146,16 @@
 	h1, h2, h3, h4 {
 		color: #CCC;
 	}
+	h1{
+		font-size: 44px;
+	}
 	
 	h2 {
-		background: url(../images/h2_dark_bg.png) 0 55% repeat-x;
 	}
 	
 	h2 cufon,
 	h2 cufon canvas {
-		background: url(../images/dark_bg.png);
+		background: url(../img/dark_bg.png);
 	}
 
 /* HEADER ---------------------------------------------------------*/
@@ -185,55 +178,65 @@
 		color: #333a42;
 	}
 	
-	ul#siteNav > li.selected > a {
-		background: url(../images/sitenav_selected_dark.png) 50% 100% no-repeat;
-	}
-
-	/*ul#siteNav > li.hasSub.hover > a,*/
-	/*ul#siteNav li.hasSub ul {*/
-		/*background: #999;*/
+	/*ul#siteNav > li.selected > a {*/
+		/*background: url("") 50% 100% no-repeat;*/
 	/*}*/
 
-	/*ul#siteNav li.hasSub.hover a {*/
-		/*color: #FFF;*/
-	/*}*/
-	/**/
-	/*ul#siteNav li.hasSub.hover ul li a:hover,*/
-	/*ul#siteNav li.hasSub.hover ul li a:focus {*/
-		/*color: #CCC;*/
-	/*}*/
-	/**/
-	/*ul#siteNav li.hasSub.hover ul li a {*/
-		/*border-top: 1px solid #898989;*/
-	/*}*/
+ul#pageTab li.hasSub {
+	float: left;
+	width: 120px;
+	list-style: none;
+	font-size: 22px;
+	margin-left:14px;
+	background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+}
 
-ul#pageTabs > li.hasSub.hover > a,
-ul#pageTabs li.hasSub ul {
+ul#pageTab li.hasSub:hover {
+	cursor: pointer;
+	color: #fff;
+}
+
+ul#pageTab > li.hasSub.hover > a{
 	background: #999;
-
 }
 
-ul#pageTabs li.hasSub.hover a {
-	color: #FFF;
-}
+/*ul#pageTab li.hasSub.hover a {*/
+	/*color: #FFF;*/
+/*}*/
 
-ul#pageTabs li.hasSub.hover ul li a:hover,
-ul#pageTabs li.hasSub.hover ul li a:focus {
+ul#pageTab li.hasSub.hover ul li a:hover,
+ul#pageTab li.hasSub.hover ul li a:focus {
+	cursor: pointer;
 	color: #CCC;
 }
 
-ul#pageTabs li.hasSub.hover ul li a {
+ul#pageTab li.hasSub.hover ul li a {
 	border-top: 1px solid #898989;
 }
 
-ul#pageTabs li.hasSub ul{
+ul#pageTab li.hasSub ul{
 	display: none;
+	margin-top:3px;
+	margin-left:20px;
 }
 
-ul#pageTabs li.hasSub:hover ul{
+ul#pageTab li.hasSub:hover ul{
 	display: block;
+	cursor: pointer;
 }
-	
+
+ul#pageTab > li.hasSub > ul > li.theSub{
+	list-style: none;
+	margin: 0 0 0 20px;
+	font-size: 20px;
+	line-height: 26px;
+	background: url(../img/sitenav_bg.png) 0 50% no-repeat;
+}
+
+ul#pageTab > li.hasSub > ul > li.theSub:hover{
+	color:#fff;
+}
+
 /* SLIDER ---------------------------------------------------------*/
 
 	#slider {
@@ -346,4 +349,6 @@ ul#pageTabs li.hasSub:hover ul{
 	
 	#footer {
 		border-top: 1px solid #5C6065;
+		align:"right";
+		valign:"bottom";
 	}

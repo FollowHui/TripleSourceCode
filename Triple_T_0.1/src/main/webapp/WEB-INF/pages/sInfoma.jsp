@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title></title>
 	<link rel="stylesheet" href="/resources/css/sInfoma.css">
+	<script src="/resources/js/sInfoma.js"></script>
 </head>
 
 <body>

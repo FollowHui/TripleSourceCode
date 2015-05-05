@@ -2,14 +2,14 @@
  * Created by Administrator on 2015/4/7.
  */
 function s_collect(){
-    var flag = document.getElementById("flag").getAttribute("name");
-
+    var flag = getCookie("flag");
     if( flag !="true"){
         alert("请先登录");
+        location.reload(true);
     }
     else {
         var param = document.getElementById("s_collect").getAttribute("name");
-        var paramid = parseInt(document.getElementById("nav-title").getAttribute("name"));
+        var paramid = parseInt(document.getElementById("s_titlename").getAttribute("name"));
 
         var xmlhttp;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -29,6 +29,6 @@ function s_collect(){
 
         setTimeout(function () {
             location.reload(true);
-        }, 300);
+        }, 100);
     }
 }

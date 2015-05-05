@@ -2,14 +2,20 @@
  * Created by Administrator on 2015/4/4.
  */
 *{padding:0; margin: 0;}
+body{
+	font-family: "Microsoft YaHei";
+}
 #container_sList{
 	min-width: 1024px;
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
 }
 
-.sl_title{
+.sl_title {
 	position: relative;
+	width: 100%;
+	height: 44px;
 }
+
 .sl_title h1{
 	color: #FFFFFF;
 	font-size: 20px;
@@ -18,13 +24,17 @@
 }
 
 #sl_title_left{
-	width:20%;
-	float:left;
+	color: #EEE;
+	font-size: 20px;
+	padding: 5px;
+	text-decoration: none;
 }
 
-#sl_title_right{
-	width: 60%;
-	float:left;
+#sl_title_right {
+	width: 35%;
+	float: left;
+	margin-left: 42%;
+	padding: 5px;
 }
 
 /***********************************filter part**********************************************************/
@@ -113,7 +123,7 @@
 }
 
 #wrap{
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -155,4 +165,63 @@
 
 .sr_name{
 	word-wrap:break-word;
+}
+.showCollege{
+
+}
+#collegeTabs{
+	margin-left: -0.2%;
+	margin-top: 8%;
+}
+#collegeTabs li{
+	list-style-type: none;
+}
+.college{
+	width: 800px;
+	height: 180px;
+	border:1px solid GREY;
+	margin-top: 20px;
+	padding:10px;
+}
+.successCases{
+	margin-top: 10px;
+	width:35%;
+	float: right;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.collegeLogo{
+	float: left;
+	padding: 20px 0 0 35px;
+	width:20%;
+}
+
+.collegeLogo img{
+	width: 110px;
+}
+.collegeDescribe
+{
+	width: 35%;
+	float: left;
+	margin-top: 30px;
+	padding-left: 1%;
+	font-size: 16px;
+}
+
+.collegeDescribe p, .successCases p, .successCases h3{
+	line-height: 30px;
+	margin-bottom: 0;
+}
+#si_addmore{
+	margin:7px 0 0 8%
+	width: 100%;
+	height: 20px;
+	background-color: GREY;
+	opacity: 0.4;
+}
+
+#si_addmore:hover{
+	opacity: 0.8;
+	cursor: pointer;
 }

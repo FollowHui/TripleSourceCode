@@ -2,6 +2,8 @@
 body{
 
 	background-position: center;
+	font-family: "Microsoft YaHei";
+
 }
 
 #nav-title{
@@ -11,7 +13,7 @@ body{
 	color: #FFF;
 	display: inline;
 	float: left;
-	margin-top:13px;
+	padding:13px;
 }
 
 #s_outer
@@ -29,19 +31,18 @@ body{
 }
 #wrap{
 	width: 80%;
-	height: 100%;
 	margin: 0 auto;
-	padding-top: 20px;
 }
 
 .s_titleline{
-	width: 100%;
+	width: 90%;
 	height: 30px;
+	margin-left:5%;
 	margin-bottom: 5px;
 	background-color:GREY;
 }
 
-.s_titlename{
+#s_titlename{
 	width: 40%;
 	float: left;
 	display: inline;
@@ -61,7 +62,15 @@ body{
 
 .s_titlename p, .s_titlename a{
 	display: inline;
-	color: #ffffff;
+	color: #FFF;
+	font-size: 20px;
+	padding: 10px;
+	text-decoration: none;
+	line-height:22px;
+}
+#s_titlename p, #s_titlename a{
+	display: inline;
+	color: #FFF;
 	font-size: 20px;
 	padding: 10px;
 	text-decoration: none;
@@ -92,10 +101,11 @@ body{
 {
 	width: 80%;
 	margin: 0 auto;
+	height:40%;
 }
 #s_disc_left{
-	width:30%;
-	height:250px;
+	width:26%;
+	height:20%;
 	padding: 5px;
 	float: left;
 	display: inline;
@@ -103,20 +113,21 @@ body{
 
 #s_disc_right{
 	font-size: 20px;
-	width:60%;
+	width:50%;
 	float: left;
 	margin-left: 6%;
-	padding: 5px;
+	padding: 3.5%;
 	display: inline;
 }
 
 #s_disc_right p{
 	display: inline;
-	color: #000000;
+	color: #cccccc;
 	font-size: 20px;
 	padding: 10px;
 	text-decoration: none;
-	line-height:22px;
+	line-height:35px;
+	letter-spacing: 2px;
 }
 #s_disc_left img{
 	width:100%;
@@ -135,10 +146,11 @@ body{
 
 .s_disc p{
 	display: inline;
-	color: #000000;
+	color: #cccccc;
 	font-size: 18px;
 	text-decoration: none;
-	line-height:20px;
+	line-height:23px;
+	letter-spacing: 1px;
 }
 
 

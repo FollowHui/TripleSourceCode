@@ -1,6 +1,7 @@
 package controller;
 
 import Dao.model.Note;
+import Dao.model.SchoolInformation;
 import Dao.model.SchoolNews;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import service.GetAllNotesService;
 import service.GetSchoolNewsService;
+import service.GetSchoolService;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +22,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class IndexController {
+    @Autowired
+    GetSchoolService getSchoolService;
     @Autowired
     GetSchoolNewsService getSchoolNewsService;
     @Autowired
@@ -38,18 +43,25 @@ public class IndexController {
     }
 
     @RequestMapping(value="sList", method = RequestMethod.GET)
-    public String getJump3(HttpSession httpSession){
+    public String getJump3(HttpSession httpSession,ModelMap modelMap){
         System.out.println("get ajax sList");
-        httpSession.removeAttribute("filter11");
-        httpSession.removeAttribute("filter12");
-        httpSession.removeAttribute("filter13");
-        httpSession.removeAttribute("filter14");
-        httpSession.removeAttribute("filter15");
-        httpSession.removeAttribute("filter21");
-        httpSession.removeAttribute("filter22");
-        httpSession.removeAttribute("filter23");
-        httpSession.removeAttribute("filter24");
-        httpSession.removeAttribute("filter25");
+//        httpSession.removeAttribute("filter11");
+//        httpSession.removeAttribute("filter12");
+//        httpSession.removeAttribute("filter13");
+//        httpSession.removeAttribute("filter14");
+//        httpSession.removeAttribute("filter15");
+//        httpSession.removeAttribute("filter21");
+//        httpSession.removeAttribute("filter22");
+//        httpSession.removeAttribute("filter23");
+//        httpSession.removeAttribute("filter24");
+//        httpSession.removeAttribute("filter25");
+        int schoolCount=3;
+        httpSession.setAttribute("schoolCount",schoolCount);
+        httpSession.removeAttribute("filter1");
+        httpSession.removeAttribute("filter2");
+        List<SchoolInformation> schoolInformationsRank=new ArrayList<SchoolInformation>();
+        schoolInformationsRank=getSchoolService.getSchoolListByRanking(50);
+        modelMap.addAttribute("schoolList",schoolInformationsRank);
         return "sList";
     }
 

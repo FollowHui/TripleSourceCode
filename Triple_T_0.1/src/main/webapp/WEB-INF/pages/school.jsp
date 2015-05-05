@@ -13,23 +13,13 @@
 	<link rel="stylesheet" type="text/css" href="/resources/css/jquery.fancybox-1.3.1.css" media="screen">
 	<link rel="stylesheet" type="text/css" href="/resources/css/dark.css">
 	<script class="autoinsert" src="/resources/js/jquery-1.2.6.min.js"></script>
-	<%--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>--%>
 	<script src="/resources/js/jquery-1.4.2.min.js"></script>
 
 	<script src="/resources/js/index.js"></script>
 	<script src="/resources/js/school.js"></script>
+	<script src="/resources/js/base.js"></script>
+	<script src="/resources/js/login_register.js"></script>
 
-	<%--<script type="text/javascript">--%>
-		<%--function s_collect(){--%>
-			<%--var flag = document.getElementById("flag").name;--%>
-			<%--if( flag !=true){--%>
-				<%--alert("请先登录");--%>
-			<%--}--%>
-			<%--else {--%>
-				<%--s_collectxmlhttp();--%>
-			<%--}--%>
-		<%--}--%>
-	<%--</script>--%>
 
 	<script type="text/javascript">
 		function changeImg(){
@@ -38,22 +28,31 @@
 
 		$(document).ready(function($){
 			$('.exit').click(function(){
-				location.href = "/logout";
+				var flag= getCookie("flag");
+				if(flag!="true"){
+//                    alert("您已登出");
+					location.reload(true);
+				}else {
+					deleteCookie("flag");
+					location.href = "/logout";
+				}
 			})
 		});
 		$(document).ready(function($){
 
 			$('.theme-login').click(function(){
 				if($('.theme-login span').html()=="登录") {
-					$('.login-mask').show();
-					$('.login-mask').height($(document).height());
-					$('.login-box').slideDown(200);
+					var flag= getCookie("flag");
+					if(flag=="true"){
+						alert("您已登录");
+						location.reload(true);
+					}else {
+						$('.login-mask').show();
+						$('.login-mask').height($(document).height());
+						$('.login-box').slideDown(200);
+					}
 				}
-				else
-				{
-					//document.getElementById("div1").style.display="none";
-					//document.getElementById("div6").style.display="block";
-				}
+
 			})
 			$('.close').click(function(){
 				$('.login-mask').hide();
@@ -117,35 +116,37 @@
 
 <body>
 <div id="s_outer">
-	<div id="flag" name="${sessionScope.flag}" style="display: none"></div>
-
 	<div id="header" class="clearfix">
 
 		<div class="holder clearfix">
 
 			<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
 
-			<div id="title"><span><a href="index.html" title="click me can logon" rel="home">Triple T</a></span></div>
+			<div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
 			<ul id="siteNav">
-				<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
-				<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
-				<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
-				<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+				<c:choose>
+					<c:when test="${sessionScope.flag}">
+						<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+						<li><a class="theme-login"  name="selfinfo" target="_blank" style="text-decoration:none" onclick="loginout()"><span>
+                        <c:out value="${sessionScope.userName}"/>
+                    </span></a></li>
 
-				<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
+						<li><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 
 		</div>
 
 	</div><!-- #header -->
-	<div id="header-nav">
-		<div id ="nav-title" class="nav-title" name="${schoolId}"><span>名校 详细信息</span></div>
 
-		<br clear="all"/>
-	</div>
 	<div id="div1">
 	<div id="container">
 		<div id="wrap">
+			<%--<div id ="nav-title" class="nav-title" name="${schoolId}"><span>名校 详细信息</span></div>--%>
 			<div id="s_discribe">
 				<div class="s_title">
 					<div class="s_titleline">
@@ -160,7 +161,7 @@
 
 						</c:choose>
 						</div>
-						<div class="s_titlename"><p>${school.schoolname}</p></div>
+						<div id="s_titlename" name="${schoolId}"><p>${school.schoolname}</p></div>
 					</div>
 					<div id="s_disc">
 						<div id="s_disc_left">
@@ -184,60 +185,48 @@
 
 			</div>
 		</div>
-		<div id="footer">
 
-			<ul>
-				<li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
-				<li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
-				<li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
-				<li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
-				<li><a href="contact.html">关于我们</a></li>
-			</ul>
-
-		</div><!-- #footer -->
 		<div class="login-mask">
 			<div class="login-box" style=" display:none;">
 				<h1>Triple T</h1>
 				<div class="close">
 					<h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
 				</div>
-				<form method="post" action="/login">
-					<div class="name">
-						<div class="before">
-							<label>用户名：</label>
-						</div>
-						<div class="back">
-							<input type="text" name="userName" id="L_username" tabindex="1" autocomplete="off" />
-						</div>
+				<div class="name">
+					<div class="before">
+						<label>用户名：</label>
 					</div>
-					<div class="password">
-						<div class="before">
-							<label>密  码：</label>
-						</div>
-						<div class="back">
-							<input type="password" name="password" maxlength="16" id="L_password"   tabindex="2"/>
-						</div>
+					<div class="back">
+						<input type="text" name="userName" id="L_username" tabindex="1" autocomplete="off" />
+					</div>
+				</div>
+				<div class="password">
+					<div class="before">
+						<label>密  码：</label>
+					</div>
+					<div class="back">
+						<input type="password" name="password" maxlength="16" id="L_password"   tabindex="2"/>
+					</div>
 
+				</div>
+				<div class="code">
+					<div class="before">
+						<label>验证码：</label>
 					</div>
-					<div class="code">
-						<div class="before">
-							<label>验证码：</label>
-						</div>
-						<div class="back">
-							<input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
-						</div>
-						<div class="codeImg">
-							<img src="/Kaptcha.jpg" id="captcha-image" onclick="changeImg();"/>
-						</div>
+					<div class="back">
+						<input type="text" name="verifyCode" maxlength="4" id="code" tabindex="3"/>
 					</div>
-					<div class="remember">
-						<input type="checkbox" id="remember" tabindex="4">
-						<label>记住密码</label>
+					<div class="codeImg">
+						<img src="/Kaptcha.jpg" id="captcha-image" onclick="changeImg();"/>
 					</div>
-					<div class="login">
-						<button type="submit" tabindex="5">登录</button>
-					</div>
-				</form>
+				</div>
+				<div class="remember">
+					<input type="checkbox" id="remember" tabindex="4">
+					<label>记住密码</label>
+				</div>
+				<div class="login">
+					<button type="submit" tabindex="5" onclick="onlogin()">登录</button>
+				</div>
 			</div>
 		</div>
 		<div class="register-mask">
@@ -252,7 +241,7 @@
 							<label>用户名:</label>
 						</div>
 						<div class="back">
-							<input type="text" name="" id="R_username" tabindex="1" autocomplete="off" />
+							<input type="text" name="userName" id="R_username" tabindex="1" autocomplete="off" />
 						</div>
 					</div>
 					<div class="password">
@@ -260,7 +249,7 @@
 							<label>密码：</label>
 						</div>
 						<div class="back">
-							<input type="password"  placeholder="最少6个字符"  name="" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
+							<input type="password"  placeholder="最少6个字符"  name="password" id="R_password" maxlength="16" tabindex="2" onblur="Cmd(this)"/>
 						</div>
 						<span id="sp" style="display: none">输入错误</span>
 					</div>
@@ -278,7 +267,7 @@
 							<label>邮箱:</label>
 						</div>
 						<div class="back">
-							<input type="text"  placeholder="如:15150698580@163.com" name="R_email" id="email"/>
+							<input type="text"  placeholder="如:15150698580@163.com" name="email" id="email"/>
 						</div>
 						<span id="sm" style="display: none">输入非法</span>
 					</div>

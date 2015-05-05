@@ -25,6 +25,7 @@
     n.userId as userId,u.userName as notePublisher,title,collectedTimes,noteId
     from note n,user u
     where n.userId = u.userId
+    Order By n.pushDate Desc
     limit 0,#{noteCount,jdbcType=INTEGER}
   </select>
   <select id="getNotesByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -32,7 +33,7 @@
     <include refid="Base_Column_List" />
     from note
     where userId=#{userId,jdbcType=INTEGER}
-    limit 0,5
+    Order By pushDate Desc
   </select>
   <select id="getCommentTimes" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
     select

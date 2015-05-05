@@ -1,39 +1,8 @@
 /**
  * Created by freyja on 2015/4/5.
  */
-var addrs = [0,0,0,0,0,0];
-var ranks = [0,0,0,0,0,0];
 
-function addrclick(param){
-    //var data = parseInt(param.getAttribute("name"));
-    var data = param.getAttribute("name");
-    var fil;
-    if ( data < 20 && data > 10 ){
-        fil = data % 10 - 1;
-        if( addrs[fil] == 0){
-            param.className = "f_right_f1";
-            addrs[fil] = 1;
-            xmlHttp(data, "true");
-        } else {
-            param.className = "f_right_f";
-            addrs[fil] = 0;
-            xmlHttp(data, "false");
-        }
-    } else if( data < 30 && data > 20){
-        fil = data % 20 - 1;
-        if( ranks[fil] == 0){
-            param.className = "f_right_f1";
-            ranks[fil] = 1;
-            xmlHttp(data, "true");
-        } else {
-            param.className = "f_right_f";
-            ranks[fil] = 0;
-            xmlHttp(data, "false");
-        }
-    }
-}
-
-function xmlHttp(param, sel){
+function xmlHttp(param){
     var xmlhttp;
     if (window.XMLHttpRequest)
     {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -50,32 +19,53 @@ function xmlHttp(param, sel){
             document.getElementById("search_result").innerHTML=xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET","/slist/filter1?param="+param + "&sel="+sel,true);
+    xmlhttp.open("GET","/slist/filter1?param="+param,true);
     xmlhttp.send();
 }
 
-/*
-function tuitionfinish(){
-    var lowtui = parseInt(document.getElementById("low").value);
-    var hightui = parseInt(document.getElementById("high").value);
-
-    if ( !isNaN(lowtui) && !isNaN(hightui)) {
-        if (lowtui < 0 || hightui > 100000 || lowtui >= hightui) {
-            alert("输入的学费区间不合法");
-        } else {
-            var xmlhttp;
-            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp = new XMLHttpRequest();
-            } else {// code for IE6, IE5
-                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            xmlhttp.onreadystatechange = function () {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    //document.getElementById("search_result").innerHTML=xmlhttp.responseText;
-                }
-            };
-            xmlhttp.open("GET", "/slist/filter2?low=" + lowtui + "&high=" + hightui, true);
-            xmlhttp.send();
-        }
+function getAddressChoose(param){
+    var addressName =document.getElementById(param.id).innerText;
+    document.getElementById("addressPrefer").innerText = addressName;
+    switch (addressName){
+        case "美国"   : xmlHttp(11); break;
+        case "新澳"   : xmlHttp(12); break;
+        case "加拿大" : xmlHttp(13); break;
+        case "英国"   : xmlHttp(14); break;
+        case "亚欧"   : xmlHttp(15); break;
+        default      : xmlHttp(10);
     }
-}*/
+
+}
+function getRankChoose(param){
+    var rankName =document.getElementById(param.id).innerText;
+    document.getElementById("rankPrefer").innerText = rankName;
+    switch (rankName){
+        case "1-50"   : xmlHttp(21); break;
+        case "51-100" : xmlHttp(22); break;
+        case "101-150": xmlHttp(23); break;
+        case "151-200": xmlHttp(24); break;
+        case "200+"   : xmlHttp(25); break;
+        default       : xmlHttp(20);
+    }
+}
+
+function sr_addmoreclick(){
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {// code for IE6, IE5
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            document.getElementById("search_result").innerHTML=xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET","/slist/addmore",true);
+    xmlhttp.send();
+}

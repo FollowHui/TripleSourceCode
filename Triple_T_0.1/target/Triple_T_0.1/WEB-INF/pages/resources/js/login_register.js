@@ -29,4 +29,17 @@ function onlogin(){
     };
     xmlhttp.open("POST","/login?"+"userName="+username+"&password="+password+"&verifyCode="+code,true);
     xmlhttp.send();
+
+}
+
+function loginout(){
+    var flag = getCookie("flag");
+    if ( flag == "true"){
+        window.open("/selfinfo");
+    }
+    else{
+        alert("您已登出");
+        location.reload(true);
+    }
+
 }

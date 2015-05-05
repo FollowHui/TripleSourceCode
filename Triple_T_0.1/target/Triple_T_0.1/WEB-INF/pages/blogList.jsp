@@ -13,9 +13,10 @@
 <div id="container">
 	<div id="wrap">
 		<div class="bl_title"><p>论坛</p></div>
+
 		<div id="bl_table">
 			<ul>
-				<c:forEach items="${noteList}" var="Note" begin="0" end="${sessionScope.noteCount}">
+				<c:forEach items="${noteList}" var="Note" begin="${0}" end="${sessionScope.noteCount}">
 				<li class="bl_table_title">
 					<div class="bl_container"><a href="/bloglist/bljump/${Note.noteid}" target="_blank">
 						<div class="bl_con_title"><p>${Note.title}</p></div>
@@ -25,17 +26,11 @@
 				</li>
 				</c:forEach>
 
-				<li class="bl_table_title">
-					<div class="bl_container" onclick="bl_Jump(this)" name="6">
-						<div class="bl_con_title"><p>怎么申请国外的学校？</p></div>
-						<div class="bl_con_favor"><p>收藏(10)</p></div>
-						<div class="bl_con_comment"><p>评论(20)</p></div>
-					</div>
-				</li>
 			</ul>
 
-			<div id="bl_addmore" onclick="bl_addmoreclick()"></div>
+
 		</div>
+		<div id="bl_addmore" onclick="bl_addmoreclick()"></div>
 	</div>
 </div>
 </body>

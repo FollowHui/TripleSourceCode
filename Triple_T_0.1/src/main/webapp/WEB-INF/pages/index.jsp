@@ -15,6 +15,11 @@
     <script src="/resources/js/index.js"></script>
     <script src="/resources/js/base.js"></script>
     <script src="/resources/js/login_register.js"></script>
+    <script src="/resources/js/selfinfo.js"></script>
+    <script src="/resources/js/blogList.js"></script>
+    <script src="/resources/js/school.js"></script>
+    <script src="/resources/js/sInfoma.js"></script>
+    <script src="/resources/js/sList.js"></script>
     <script type="text/javascript">
         function changeImg(){
             document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
@@ -24,8 +29,8 @@
 
             $('.theme-login').click(function(){
                 if($('.theme-login span').html()=="登录") {
-                    var flag= getCookie("flag");
-                    if(flag=="true"){
+                    var flag = getCookie("flag");
+                    if(flag == "true"){
                         alert("您已登录");
                         location.reload(true);
                     }else {
@@ -33,22 +38,34 @@
                         $('.login-mask').height($(document).height());
                         $('.login-box').slideDown(200);
                     }
+                    document.getElementById("index1").style.background="url()";
+                    document.getElementById("sInfoma1").style.background="url()";
+                    document.getElementById("sList1").style.background="url()";
+                    document.getElementById("blogList1").style.background="url()";
                 }
                 else {
                     onselfinfoclick();
+                    document.getElementById("index1").style.background="url()";
+                    document.getElementById("sInfoma1").style.background="url()";
+                    document.getElementById("sList1").style.background="url()";
+                    document.getElementById("blogList1").style.background="url()";
                 }
             })
             $('.close').click(function(){
                 $('.login-mask').hide();
                 $('.login-box').slideUp(200);
+                document.getElementById("index1").style.background="url()";
+                document.getElementById("sInfoma1").style.background="url()";
+                document.getElementById("sList1").style.background="url()";
+                document.getElementById("blogList1").style.background="url()";
             })
 
         });
         $(document).ready(function($){
             $('.exit').click(function(){
-                var flag= getCookie("flag");
+                var flag = getCookie("flag");
                 if(flag!="true"){
-                    alert("您已登出");
+//                    alert("您已登出");
                     location.reload(true);
                 }else {
                     deleteCookie("flag");
@@ -120,26 +137,24 @@
 
             <div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
             <ul id="siteNav">
-                <li class="selected"><a href="/"
-                        <%--name="index" --%>
-                        <%--onclick="index_Jump(this)"--%>
-                        >首页</a></li>
-                <li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
-                <li><a name="sList" onclick="index_Jump(this)">名校推荐</a></li>
-                <li><a name="blogList" onclick="index_Jump(this)">论坛</a></li>
+                <li class="selected" ><a id="index1" href="/" style="background: url(/resources/img/sitenav_selected_dark.png) 50% 100% no-repeat;">首页</a></li>
+                <li class="selected"  ><a id="sInfoma1"name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
+                <li class="selected" ><a id="sList1" name="sList" onclick="index_Jump(this)">名校推荐</a></li>
+                <li class="selected" ><a id="blogList1" name="blogList" onclick="index_Jump(this)">论坛</a></li>
                 <c:choose>
-                    <c:when test="${sessionScope.flag}">
-                        <li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
-                        <li><a class="theme-login" href="/selfinfo" target="_blank" style="text-decoration:none"><span>
+                <c:when test="${sessionScope.flag}">
+                    <li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+                    <%--<li><a class="theme-login"  name="selfinfo" style="text-decoration:none" onclick="index_Jump(this)"><span>--%>
+                    <li><a class="theme-login"  name="selfinfo" style="text-decoration:none" onclick="loginout()"><span>
                         <c:out value="${sessionScope.userName}"/>
                     </span></a></li>
 
-                    </c:when>
-                    <c:otherwise>
-                        <li><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
-                        <li><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
-                    </c:otherwise>
-                </c:choose>
+                </c:when>
+                <c:otherwise>
+                    <li><a class="theme-register" href="javascript:;"style="text-decoration:none"><span>注册</span></a></li>
+                    <li><a class="theme-login" href="javascript:;" style="text-decoration:none"><span>登录</span></a></li>
+                </c:otherwise>
+            </c:choose>
             </ul>
 
         </div>
@@ -152,14 +167,7 @@
             <%@include file="bg.jsp"%>
         </div>
 
-        <div id="div6" style="display:none">
-            <%@include file="selfinfo.jsp"%>
-        </div>
-
-
-
         <div id="footer">
-
             <ul>
                 <li class="selected"><a name="index" onclick="index_Jump(this)">首页</a></li>
                 <li><a name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>
@@ -177,8 +185,6 @@
             <div class="close">
                 <h1><a href="javascript:;" style="text-decoration:none">X</a></h1>
             </div>
-            <%--<form   id="formloginsubmit" onsubmit="onlogin()">--%>
-            <%--<form   action="/login" method="post" >--%>
                 <div class="name">
                     <div class="before">
                         <label>用户名：</label>
@@ -214,7 +220,6 @@
                 <div class="login">
                     <button type="submit" tabindex="5" onclick="onlogin()">登录</button>
                 </div>
-            <%--</form>--%>
         </div>
     </div>
     <div class="register-mask">
