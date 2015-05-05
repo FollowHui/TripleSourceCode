@@ -1,3 +1,4 @@
+controller\uploadPhotoController.class
 Dao\model\Comment.class
 controller\SInfomaController.class
 Dao\model\SchoolNews.class
