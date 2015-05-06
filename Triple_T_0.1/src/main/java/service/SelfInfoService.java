@@ -64,6 +64,10 @@ public class SelfInfoService {
         List<Note> noteList;
         noteList=noteMapper.getNotesByUserId(userId);
         return noteList;
-
+    }
+    public void changeImage(Integer userId,String headImage ){
+        User user=userMapper.selectByPrimaryKey(userId);
+        user.setHeadimage(headImage);
+        userMapper.updateByPrimaryKeySelective(user);
     }
 }

@@ -12,6 +12,7 @@
     <result column="schoolName" property="schoolName" jdbcType="CHAR" />
     <result column="schoolId" property="schoolId" jdbcType="INTEGER" />
     <result column="schoolLogo" property="schoolLogo" jdbcType="CHAR" />
+    <result column="continent" property="continent" jdbcType="INTEGER" />
 
   </resultMap>
   <sql id="Base_Column_List" >
@@ -26,7 +27,7 @@
   <select id="selectSchoolByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     s.schoolName as schoolName,s.schoolId as schoolId,s.schoolLogo as schoolLogo,f.collectId as collectId,f.collectType as collectType,
-    f.schoolOrNoteId as schoolOrNoteId,f.userId as userId
+    f.schoolOrNoteId as schoolOrNoteId,f.userId as userId,s.continent as continent
     from favourites f,schoolinformation s
     where f.schoolOrNoteId=s.schoolId and f.userId = #{userId,jdbcType=INTEGER} and f.collectType=1;
   </select>

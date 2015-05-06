@@ -32,7 +32,7 @@
         <c:forEach items="${schoolList}" var="SchoolInformation" begin="0" end="${sessionScope.schoolCount}">
           <li class="college">
             <div class="collegeLogo">
-              <a href="/school/${SchoolInformation.schoolid}" target="_blank"><img src="/resources/schoolLogo/${SchoolInformation.schoollogo}"  style="height:150px;"></a>
+              <a href="/school/${SchoolInformation.schoolid}" target="_blank"><img src="/resources/schoolLogo/${SchoolInformation.continent}/${SchoolInformation.schoollogo}"  style="height:150px;"></a>
             </div>
             <div class="collegeDescribe">
               <p>学校名称:${SchoolInformation.schoolname}</p>

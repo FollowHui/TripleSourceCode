@@ -165,7 +165,7 @@
 					</div>
 					<div id="s_disc">
 						<div id="s_disc_left">
-							<a href="${school.address}" target="_blank"><img src="/resources/schoolLogo/${school.schoollogo}"></a>
+							<a href="${school.address}" target="_blank"><img src="/resources/schoolLogo/${school.continent}/${school.schoollogo}"></a>
 						</div>
 						<div id="s_disc_right">
 								<p>成立时间:${school.settime}</p><br/>

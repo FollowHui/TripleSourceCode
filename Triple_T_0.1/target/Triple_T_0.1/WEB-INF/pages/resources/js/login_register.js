@@ -1,6 +1,9 @@
 /**
  * Created by Administrator on 2015/4/10.
  */
+function changeImg(){
+    document.getElementById("captcha-image").src = "/Kaptcha.jpg?" + Math.floor(Math.random()*100);
+}
 function onlogin(){
     var username = document.getElementById("L_username").value;
     var password = document.getElementById("L_password").value;
@@ -24,7 +27,9 @@ function onlogin(){
                 addCookie("flag","true",0);
                 //alert(getCookie("flag"));
                 location.reload(true);
-            }else{alert(response);}
+            }else{
+                alert(response);
+                changeImg();}
         }
     };
     xmlhttp.open("POST","/login?"+"userName="+username+"&password="+password+"&verifyCode="+code,true);

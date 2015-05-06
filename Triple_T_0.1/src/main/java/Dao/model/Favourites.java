@@ -18,6 +18,13 @@ public class Favourites {
     private Integer schoolId;
     private String schoolLogo;
     private String schoolName;
+    private int continent;
+    public int getContinent(){
+        return continent;
+    }
+    public void setContinent(Integer continent){
+        this.continent=continent;
+    }
     public String getSchoolName(){
         return schoolName;
     }

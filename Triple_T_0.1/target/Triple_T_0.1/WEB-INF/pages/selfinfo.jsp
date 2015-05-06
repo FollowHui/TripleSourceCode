@@ -38,9 +38,10 @@
 
 		<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
 
-		<div id="title"><span><a href="index.html" title="click me can logon" rel="home">Triple T</a></span></div>
+		<div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
 		<ul id="siteNav">
-			<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>
+			<%--<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>--%>
+			<li><a href="/" style="text-decoration:none"><span>返回</span></a></li>
 		</ul>
 
 	</div>
@@ -54,7 +55,7 @@
 		<div id="content">
 		<div class="selfinfo1">
 			<form method="post" action="/upload" enctype="multipart/form-data">
-		<div id="localImag"><img id="preview" style="width:150px;height:180px;" src="/resources/img/icon.png"></div>
+		<div id="localImag"><img id="preview" style="width:150px;height:180px;" src="/resources/headImage/${user.headimage}"></div>
 		<div class="uploadandsubmit">
 				<div class="uploadsubmit">
 			<a href="javascript:;" class="a-upload"><input type="file" name="file" id="imgfile" style="width:150px;" onchange="javascript:setImagePreview();"><span>选择文件</span></a>
@@ -153,10 +154,13 @@
 			<div class="talk">
 				<ul>
 					<c:forEach items="${noteList}" var="Favourites" begin="0" end="9">
-						<li><a href="/bloglist/bljump/${Favourites.noteId}">${Favourites.noteTitle}</a>
-							<span>
-            				<td><fmt:formatDate value='${Favourites.pushDate}' pattern='yyyy-MM-dd HH:mm:ss'/></td>
-         				 	</span>
+						<li>
+							<div class="notelist">
+								<a  href="/bloglist/bljump/${Favourites.noteId}">
+									<div class="aDiv">${Favourites.noteTitle}</div>
+            						<div class="spanDiv"><fmt:formatDate value='${Favourites.pushDate}' pattern='yyyy-MM-dd HH:mm:ss'/></div>
+								</a>
+							</div>
 						</li>
 					</c:forEach>
 				</ul>
@@ -175,10 +179,20 @@
 		<div class="talk">
 			<ul>
 				<c:forEach items="${myNotes}" var="Note" begin="0" end="9">
-					<li><a href="/bloglist/bljump/${Note.noteid}">${Note.title}</a>
+					<li>
+						<div class="notelist">
+							<a href="/bloglist/bljump/${Note.noteid}">
+							<div class="aDiv">
+							${Note.title}
+								</div>
+								<div class="spanDiv">
+									<fmt:formatDate value='${Note.pushdate}' pattern='yyyy-MM-dd HH:mm:ss'/>
+								</div>
+							</a>
 							<span>
-            				<td><fmt:formatDate value='${Note.pushdate}' pattern='yyyy-MM-dd HH:mm:ss'/></td>
+            				<td></td>
          				 	</span>
+							</div>
 					</li>
 				</c:forEach>
 			</ul>
@@ -197,7 +211,7 @@
 				<div class="collegelogo">
 					<ul>
 						<c:forEach items="${schoolList}" var="Favourites" begin="0" end="9">
-							<li><a href="/school/${Favourites.schoolId}"><img src="/resources/schoolLogo/${Favourites.schoolLogo}" style="width:40px;height:40px;border:none;float: left;"></a><p style="padding:10px;">${Favourites.schoolName}</p></li>
+							<li><a href="/school/${Favourites.schoolId}"><img src="/resources/schoolLogo/${Favourites.continent}/${Favourites.schoolLogo}" style="width:40px;height:40px;border:none;float: left;"></a><p style="padding:10px;">${Favourites.schoolName}</p></li>
 						</c:forEach>
 
 					</ul>
