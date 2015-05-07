@@ -122,7 +122,7 @@
 
 			<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
 
-			<div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
+			<div id="title"><span><a href="/" title="返回首页" rel="home"></a></span></div>
 			<ul id="siteNav">
 				<c:choose>
 					<c:when test="${sessionScope.flag}">

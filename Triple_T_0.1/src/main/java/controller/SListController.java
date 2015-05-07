@@ -3,7 +3,6 @@ package controller;
 /**
  * Created by Administrator on 2015/4/5.
  */
-import Dao.dao.SchoolInformationMapper;
 import Dao.model.SchoolInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

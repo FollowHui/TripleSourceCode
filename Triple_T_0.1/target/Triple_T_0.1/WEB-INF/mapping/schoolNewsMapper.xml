@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Dao.dao.SchoolNewsMapper" >
-  <resultMap id="BaseResultMap" type="Dao.model.SchoolNews" >
+  <resultMap id="BaseResultMap" type="Dao.model.schoolNews" >
     <id column="schoolNewsId" property="schoolnewsid" jdbcType="INTEGER" />
     <result column="newsDate" property="newsdate" jdbcType="CHAR" />
     <result column="newsContent" property="newscontent" jdbcType="CHAR" />
@@ -27,13 +27,13 @@
     delete from schoolnews
     where schoolNewsId = #{schoolnewsid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="Dao.model.SchoolNews" >
+  <insert id="insert" parameterType="Dao.model.schoolNews" >
     insert into schoolnews (schoolNewsId, newsDate, newsContent, 
       url, schoolId)
     values (#{schoolnewsid,jdbcType=INTEGER}, #{newsdate,jdbcType=TIMESTAMP}, #{newscontent,jdbcType=CHAR}, 
       #{url,jdbcType=CHAR}, #{schoolid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="Dao.model.SchoolNews" >
+  <insert id="insertSelective" parameterType="Dao.model.schoolNews" >
     insert into schoolnews
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="schoolnewsid != null" >
@@ -70,7 +70,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.SchoolNews" >
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.schoolNews" >
     update schoolnews
     <set >
       <if test="newsdate != null" >
@@ -88,7 +88,7 @@
     </set>
     where schoolNewsId = #{schoolnewsid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="Dao.model.SchoolNews" >
+  <update id="updateByPrimaryKey" parameterType="Dao.model.schoolNews" >
     update schoolnews
     set newsDate = #{newsdate,jdbcType=TIMESTAMP},
       newsContent = #{newscontent,jdbcType=CHAR},

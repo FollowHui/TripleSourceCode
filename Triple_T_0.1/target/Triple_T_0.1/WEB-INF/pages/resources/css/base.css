@@ -358,10 +358,14 @@
 	
 	#title {
 		float: left;
+		width:200px;
+		height:50px;
 		font-size: 50px;
 		line-height: 50px;
 		text-transform: uppercase;
 		margin: 0;
+		background-image: url("/resources/img/weblogo.png");
+
 	}
 	
 	#title a {
@@ -382,7 +386,7 @@
 		margin: 0;
 		font-size: 18px;
 		line-height: 18px;
-		text-transform: uppercase;
+		/*text-transform: uppercase;*/
 		list-style: none;
 		/*background: url(../img/sitenav_bg.png) 0 50% no-repeat;*/
 	}

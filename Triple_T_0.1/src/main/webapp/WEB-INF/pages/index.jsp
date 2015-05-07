@@ -135,7 +135,7 @@
 
             <div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
 
-            <div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
+            <div id="title"><span><a href="/" title="返回首页" rel="home"></a></span></div>
             <ul id="siteNav">
                 <li class="selected" ><a id="index1" href="/" style="background: url(/resources/img/sitenav_selected_dark.png) 50% 100% no-repeat;">首页</a></li>
                 <li class="selected"  ><a id="sInfoma1"name="sInfoma" onclick="index_Jump(this)">校内资讯</a></li>

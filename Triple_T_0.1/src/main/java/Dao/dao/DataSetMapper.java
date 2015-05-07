@@ -16,5 +16,6 @@ public interface DataSetMapper {
     int updateByPrimaryKeySelective(DataSet record);
 
     int updateByPrimaryKey(DataSet record);
-    List<DataSet> getAllData();
+
+    List<DataSet> getStudentInfo(Integer schoolId);
 }

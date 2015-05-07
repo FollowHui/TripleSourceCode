@@ -10,7 +10,7 @@
 
 <body>
 <div id="container">
-	<div id="wrap">
+	<div class="wrap">
 		<div class="si_title"><p>校内资讯</p></div>
 		<div id="si_table">
 			<ul>

@@ -7,7 +7,7 @@ body{
 	width:expression(document.body.clientWidth<1024?"1024px":auto);
 
 }
-#wrap{
+.wrap{
 	width: 100%;
 	margin: 0 auto;
 	padding-top:10px;

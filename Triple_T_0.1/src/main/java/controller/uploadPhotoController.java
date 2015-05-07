@@ -30,38 +30,56 @@ public class uploadPhotoController {
                             ,HttpSession httpSession,
                             ModelMap modelMap){
         System.out.println("come in upload controller");
+        System.out.println(mFile.getBytes().length);
         Integer userId = (Integer) httpSession.getAttribute("userId");
         if (userId != null) {
-            String path = new File(this.getClass().getResource("").getPath()).getAbsolutePath();
-            path = path+"/../../pages/resources/headImage/";
-            String location = path+userId+".jpg";
-            File file = new File(location);
-            String pathCopy="C:\\Users\\Administrator\\Desktop\\计算机设计大赛\\sourceCode\\1.3\\new\\Triple_T.4.30\\Triple_T_0.1\\src\\main\\webapp\\WEB-INF\\pages\\resources\\headImage";
-            String locationCopy=pathCopy+"/"+userId+".jpg";
-            File fileCopy=new File(locationCopy);
-            System.out.println(file.getAbsolutePath());
-            try {
-                mFile.getFileItem().write(file);
-                mFile.getFileItem().write(fileCopy);
-                String headImage=userId+".jpg";
-                selfInfoService.changeImage(userId,headImage);
-            } catch (Exception e) {
-                e.printStackTrace();
+            if(mFile.getBytes().length==0){
+                User user;
+                List<Favourites> favouritesList;
+                List<Favourites> favouriteSchoolList;
+                List<Note> noteList;
+                System.out.println(userId);
+                user = selfInfoService.getSelfInfomation(userId);
+                favouritesList=selfInfoService.getUserFavourNote(userId);
+                favouriteSchoolList=selfInfoService.getUserFavourSchool(userId);
+                noteList=selfInfoService.getUserNotes(userId);
+                modelMap.addAttribute("user", user);
+                modelMap.addAttribute("noteList",favouritesList);
+                modelMap.addAttribute("schoolList",favouriteSchoolList);
+                modelMap.addAttribute("myNotes",noteList);
+                return "selfinfo";
+            }else {
+                String path = new File(this.getClass().getResource("").getPath()).getAbsolutePath();
+                path = path + "/../../pages/resources/headImage/";
+                String location = path + userId + ".jpg";
+                File file = new File(location);
+                String pathCopy = "C:\\Users\\Administrator\\Desktop\\计算机设计大赛\\sourceCode\\1.4\\TripleSourceCode201556\\TripleSourceCode\\Triple_T_0.1\\src\\main\\webapp\\WEB-INF\\pages\\resources\\headImage";
+                String locationCopy = pathCopy + "/" + userId + ".jpg";
+                File fileCopy = new File(locationCopy);
+                System.out.println(file.getAbsolutePath());
+                try {
+                    mFile.getFileItem().write(file);
+                    mFile.getFileItem().write(fileCopy);
+                    String headImage = userId + ".jpg";
+                    selfInfoService.changeImage(userId, headImage);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                User user;
+                List<Favourites> favouritesList;
+                List<Favourites> favouriteSchoolList;
+                List<Note> noteList;
+                System.out.println(userId);
+                user = selfInfoService.getSelfInfomation(userId);
+                favouritesList = selfInfoService.getUserFavourNote(userId);
+                favouriteSchoolList = selfInfoService.getUserFavourSchool(userId);
+                noteList = selfInfoService.getUserNotes(userId);
+                modelMap.addAttribute("user", user);
+                modelMap.addAttribute("noteList", favouritesList);
+                modelMap.addAttribute("schoolList", favouriteSchoolList);
+                modelMap.addAttribute("myNotes", noteList);
+                return "selfinfo";
             }
-            User user;
-            List<Favourites> favouritesList;
-            List<Favourites> favouriteSchoolList;
-            List<Note> noteList;
-            System.out.println(userId);
-            user = selfInfoService.getSelfInfomation(userId);
-            favouritesList=selfInfoService.getUserFavourNote(userId);
-            favouriteSchoolList=selfInfoService.getUserFavourSchool(userId);
-            noteList=selfInfoService.getUserNotes(userId);
-            modelMap.addAttribute("user", user);
-            modelMap.addAttribute("noteList",favouritesList);
-            modelMap.addAttribute("schoolList",favouriteSchoolList);
-            modelMap.addAttribute("myNotes",noteList);
-            return "selfinfo";
         }else {
             return "redirect:/";
         }

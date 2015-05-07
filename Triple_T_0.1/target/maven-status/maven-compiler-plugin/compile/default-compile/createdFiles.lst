@@ -1,7 +1,6 @@
 controller\uploadPhotoController.class
 Dao\model\Comment.class
 controller\SInfomaController.class
-Dao\model\SchoolNews.class
 controller\SendCommentController.class
 Dao\dao\SchoolNewsMapper.class
 controller\IndexController.class
@@ -16,6 +15,7 @@ Dao\dao\DataSetMapper.class
 Dao\dao\CommentMapper.class
 controller\RegisterController.class
 controller\LoginController.class
+Dao\model\schoolNews.class
 service\SelfInfoService.class
 Dao\dao\FavouritesMapper.class
 service\UserCFService.class
@@ -28,6 +28,7 @@ controller\LogoutController.class
 service\GetSchoolService.class
 service\DataCollection\SchoolInfo.class
 Dao\dao\NoteMapper.class
+service\GetStudentInfoService.class
 controller\HelloController.class
 controller\BlogDetailController.class
 Dao\dao\UserMapper.class

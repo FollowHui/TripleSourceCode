@@ -11,7 +11,7 @@
 
 <body>
 <div id="container">
-	<div id="wrap">
+	<div class="wrap">
 		<div class="bl_title"><p>论坛</p></div>
 
 		<div id="bl_table">

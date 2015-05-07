@@ -28,9 +28,9 @@ public class SchoolController {
         if(userId==null){
             httpSession.setAttribute("favourFlag",false);
             modelMap.addAttribute("schoolId",schoolId);
-            SchoolInformation schoolInformation;
-            schoolInformation=getSchoolService.getSchoolDetail(schoolId);
-            modelMap.addAttribute("school",schoolInformation);
+            SchoolInformation SchoolInformation;
+            SchoolInformation =getSchoolService.getSchoolDetail(schoolId);
+            modelMap.addAttribute("school", SchoolInformation);
             return "school";
         }
         boolean result=favouriteSchoolService.getFavouriteSchoolResult(userId,schoolId);
@@ -38,10 +38,10 @@ public class SchoolController {
         if(result){
             httpSession.setAttribute("favourFlag", true);
         }
-        SchoolInformation schoolInformation;
-        schoolInformation=getSchoolService.getSchoolDetail(schoolId);
+        SchoolInformation SchoolInformation;
+        SchoolInformation =getSchoolService.getSchoolDetail(schoolId);
         modelMap.addAttribute("schoolId",schoolId);
-        modelMap.addAttribute("school",schoolInformation);
+        modelMap.addAttribute("school", SchoolInformation);
         return "school";
     }
 

@@ -16,11 +16,9 @@ function index_Jump(param){
     }
     xmlhttp.onreadystatechange=function()
     {
-        //document.getElementById("div6").style.display="none";
         document.getElementById("div1").style.display="block";
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
-            //document.getElementById("div6").style.display="none";
             document.getElementById("div1").style.display="block";
             document.getElementById("div1").innerHTML=xmlhttp.responseText;
         }
@@ -33,12 +31,17 @@ function index_Jump(param){
         xmlhttp.open("GET", "/index", true);
     }
     else if(reqname == "sInfoma") {
-        document.getElementById("index1").style.background="url()";
-        document.getElementById("sInfoma1").style.background="url(/resources/img/sitenav_selected_dark.png) 50% 100% no-repeat";
-        document.getElementById("sList1").style.background="url()";
-        document.getElementById("blogList1").style.background="url()";
-        xmlhttp.open("GET", "/sInfoma", true);
-
+        var flag = getCookie("flag");
+        if( flag == "true"){
+            document.getElementById("index1").style.background="url()";
+            document.getElementById("sInfoma1").style.background="url(/resources/img/sitenav_selected_dark.png) 50% 100% no-repeat";
+            document.getElementById("sList1").style.background="url()";
+            document.getElementById("blogList1").style.background="url()";
+            xmlhttp.open("GET", "/sInfoma", true);
+        }
+        else{
+            alert("您还没有登录哦~");
+        }
     }
     else if(reqname == "sList") {
         document.getElementById("index1").style.background="url()";

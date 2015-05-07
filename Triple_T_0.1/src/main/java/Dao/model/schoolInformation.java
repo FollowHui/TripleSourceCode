@@ -1,5 +1,7 @@
 package Dao.model;
 
+import java.util.List;
+
 public class SchoolInformation {
     private Integer schoolid;
 
@@ -32,6 +34,14 @@ public class SchoolInformation {
     private String schoollogo;
 
     private String description;
+
+    private List<DataSet> dataSets;
+    public void setDataSets(List<DataSet> dataSets){
+        this.dataSets=dataSets;
+    }
+    public List<DataSet> getDataSets(){
+        return dataSets;
+    }
 
     public Integer getSchoolid() {
         return schoolid;

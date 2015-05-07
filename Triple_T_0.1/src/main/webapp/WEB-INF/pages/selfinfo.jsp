@@ -27,7 +27,17 @@
 				//}
 			})
 		});
-
+		function checkImage(){
+			var oInput = document.getElementById("imgfile").value;
+			if(oInput==""){
+				alert("你尚未选择图片!!");
+				location.reload(true);
+				return false;
+			}
+			else{
+				document.forms["headImage"].submit();
+			}
+		}
 	</script>
 </head>
 <body>
@@ -38,7 +48,7 @@
 
 		<div class="skipLink"><a href="#content" title="Skip to content">Skip to content</a></div>
 
-		<div id="title"><span><a href="/" title="click me can logon" rel="home">Triple T</a></span></div>
+		<div id="title"><span><a href="/" title="返回首页" rel="home"></a></span></div>
 		<ul id="siteNav">
 			<%--<li><a class="exit" href="javascript:;" style="text-decoration:none"><span>退出</span></a></li>--%>
 			<li><a href="/" style="text-decoration:none"><span>返回</span></a></li>
@@ -54,14 +64,14 @@
 	</div>
 		<div id="content">
 		<div class="selfinfo1">
-			<form method="post" action="/upload" enctype="multipart/form-data">
+			<form name="headImage" method="post" action="/upload" enctype="multipart/form-data">
 		<div id="localImag"><img id="preview" style="width:150px;height:180px;" src="/resources/headImage/${user.headimage}"></div>
 		<div class="uploadandsubmit">
 				<div class="uploadsubmit">
 			<a href="javascript:;" class="a-upload"><input type="file" name="file" id="imgfile" style="width:150px;" onchange="javascript:setImagePreview();"><span>选择文件</span></a>
 		</div>
 				<div class="uploadButton">
-				<input type="submit" value="上传"/>
+				<input type="submit" value="上传" onclick="checkImage()"/>
 					</div>
 			</div>
 				</form>
@@ -211,7 +221,12 @@
 				<div class="collegelogo">
 					<ul>
 						<c:forEach items="${schoolList}" var="Favourites" begin="0" end="9">
-							<li><a href="/school/${Favourites.schoolId}"><img src="/resources/schoolLogo/${Favourites.continent}/${Favourites.schoolLogo}" style="width:40px;height:40px;border:none;float: left;"></a><p style="padding:10px;">${Favourites.schoolName}</p></li>
+							<li>
+								<a href="/school/${Favourites.schoolId}">
+										<img src="/resources/schoolLogo/${Favourites.continent}/${Favourites.schoolLogo}" style="width:40px;height:40px;border:none;float: left;">
+										<p style="padding:10px;">${Favourites.schoolName}</p>
+								</a>
+							</li>
 						</c:forEach>
 
 					</ul>

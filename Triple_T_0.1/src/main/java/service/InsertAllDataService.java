@@ -159,22 +159,22 @@ public class InsertAllDataService {
                 description=description+result;
             }
         }
-            SchoolInformation schoolInformation=new SchoolInformation();
-            schoolInformation.setAddress(address);
-            schoolInformation.setDescription(description);
-            schoolInformation.setEmailaddress(emailAddress);
-            schoolInformation.setPhonenumber(phoneNumber);
-            schoolInformation.setSchoolname(schoolName);
-            schoolInformation.setRanking(ranking);
-            schoolInformation.setWebsite(website);
-            schoolInformation.setSchoollogo(schoolLogo);
-            schoolInformation.setTuition(tuition);
-            schoolInformation.setHotclass(hotclass);
-            schoolInformation.setOffercondition(condition);
-            schoolInformation.setSettime(setTime);
-            schoolInformation.setSchoollogo(schoolLogo);
-            schoolInformation.setContinent(5);
-            schoolInformationMapper.insertSelective(schoolInformation);
+            SchoolInformation SchoolInformation =new SchoolInformation();
+            SchoolInformation.setAddress(address);
+            SchoolInformation.setDescription(description);
+            SchoolInformation.setEmailaddress(emailAddress);
+            SchoolInformation.setPhonenumber(phoneNumber);
+            SchoolInformation.setSchoolname(schoolName);
+            SchoolInformation.setRanking(ranking);
+            SchoolInformation.setWebsite(website);
+            SchoolInformation.setSchoollogo(schoolLogo);
+            SchoolInformation.setTuition(tuition);
+            SchoolInformation.setHotclass(hotclass);
+            SchoolInformation.setOffercondition(condition);
+            SchoolInformation.setSettime(setTime);
+            SchoolInformation.setSchoollogo(schoolLogo);
+            SchoolInformation.setContinent(5);
+            schoolInformationMapper.insertSelective(SchoolInformation);
         
         }
     }

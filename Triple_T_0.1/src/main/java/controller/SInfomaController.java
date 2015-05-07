@@ -3,11 +3,9 @@ package controller;
 /**
  * Created by Administrator on 2015/4/4.
  */
-import Dao.model.SchoolNews;
+import Dao.model.schoolNews;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +24,7 @@ public class SInfomaController {
         int sInfoCount=(Integer)httpSession.getAttribute("sInfoCount");
         sInfoCount=sInfoCount+5;
         httpSession.setAttribute("sInfoCount",sInfoCount);
-        List<SchoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
+        List<schoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
         modelMap.addAttribute("schoolNewsList",schoolNewsList);
         return "sInfoma";
     }

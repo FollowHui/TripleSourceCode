@@ -3,27 +3,27 @@ package Dao.model;
 public class DataSet {
     private Integer dataid;
 
-    private String student;
+    private Integer datatype;
 
-    private String school;
+    private Integer apptime;
 
-    private String major;
+    private Integer graschool;
 
-    private String undergraduate;
+    private String grapro;
 
     private Double gpa;
 
-    private Double tofel;
+    private Double grereal;
 
-    private Double gre;
+    private Double tofelreal;
 
-    private Integer paper;
+    private Integer appschool;
 
-    private Integer promotion;
+    private String apppro;
 
-    private Integer time;
+    private Integer iscom;
 
-    private String country;
+    private Integer ispaper;
 
     public Integer getDataid() {
         return dataid;
@@ -33,36 +33,36 @@ public class DataSet {
         this.dataid = dataid;
     }
 
-    public String getStudent() {
-        return student;
+    public Integer getDatatype() {
+        return datatype;
     }
 
-    public void setStudent(String student) {
-        this.student = student == null ? null : student.trim();
+    public void setDatatype(Integer datatype) {
+        this.datatype = datatype;
     }
 
-    public String getSchool() {
-        return school;
+    public Integer getApptime() {
+        return apptime;
     }
 
-    public void setSchool(String school) {
-        this.school = school == null ? null : school.trim();
+    public void setApptime(Integer apptime) {
+        this.apptime = apptime;
     }
 
-    public String getMajor() {
-        return major;
+    public Integer getGraschool() {
+        return graschool;
     }
 
-    public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
+    public void setGraschool(Integer graschool) {
+        this.graschool = graschool;
     }
 
-    public String getUndergraduate() {
-        return undergraduate;
+    public String getGrapro() {
+        return grapro;
     }
 
-    public void setUndergraduate(String undergraduate) {
-        this.undergraduate = undergraduate == null ? null : undergraduate.trim();
+    public void setGrapro(String grapro) {
+        this.grapro = grapro == null ? null : grapro.trim();
     }
 
     public Double getGpa() {
@@ -73,51 +73,51 @@ public class DataSet {
         this.gpa = gpa;
     }
 
-    public Double getTofel() {
-        return tofel;
+    public Double getGrereal() {
+        return grereal;
     }
 
-    public void setTofel(Double tofel) {
-        this.tofel = tofel;
+    public void setGrereal(Double grereal) {
+        this.grereal = grereal;
     }
 
-    public Double getGre() {
-        return gre;
+    public Double getTofelreal() {
+        return tofelreal;
     }
 
-    public void setGre(Double gre) {
-        this.gre = gre;
+    public void setTofelreal(Double tofelreal) {
+        this.tofelreal = tofelreal;
     }
 
-    public Integer getPaper() {
-        return paper;
+    public Integer getAppschool() {
+        return appschool;
     }
 
-    public void setPaper(Integer paper) {
-        this.paper = paper;
+    public void setAppschool(Integer appschool) {
+        this.appschool = appschool;
     }
 
-    public Integer getPromotion() {
-        return promotion;
+    public String getApppro() {
+        return apppro;
     }
 
-    public void setPromotion(Integer promotion) {
-        this.promotion = promotion;
+    public void setApppro(String apppro) {
+        this.apppro = apppro == null ? null : apppro.trim();
     }
 
-    public Integer getTime() {
-        return time;
+    public Integer getIscom() {
+        return iscom;
     }
 
-    public void setTime(Integer time) {
-        this.time = time ;
+    public void setIscom(Integer iscom) {
+        this.iscom = iscom;
     }
 
-    public String getCountry() {
-        return country;
+    public Integer getIspaper() {
+        return ispaper;
     }
 
-    public void setCountry(String country) {
-        this.country = country == null ? null : country.trim();
+    public void setIspaper(Integer ispaper) {
+        this.ispaper = ispaper;
     }
 }

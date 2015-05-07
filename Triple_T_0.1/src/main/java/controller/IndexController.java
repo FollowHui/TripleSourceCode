@@ -2,7 +2,7 @@ package controller;
 
 import Dao.model.Note;
 import Dao.model.SchoolInformation;
-import Dao.model.SchoolNews;
+import Dao.model.schoolNews;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,7 +37,7 @@ public class IndexController {
     public String getJump2(ModelMap modelMap,HttpSession httpSession){
         int sInfoCount=5;
         httpSession.setAttribute("sInfoCount",sInfoCount);
-        List<SchoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
+        List<schoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
         modelMap.addAttribute("schoolNewsList",schoolNewsList);
         return "sInfoma";
     }
@@ -61,7 +61,7 @@ public class IndexController {
         httpSession.removeAttribute("filter2");
         List<SchoolInformation> schoolInformationsRank=new ArrayList<SchoolInformation>();
         schoolInformationsRank=getSchoolService.getSchoolListByRanking(50);
-        modelMap.addAttribute("schoolList",schoolInformationsRank);
+        modelMap.addAttribute("schoolList", schoolInformationsRank);
         return "sList";
     }
 

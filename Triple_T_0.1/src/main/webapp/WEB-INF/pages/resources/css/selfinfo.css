@@ -238,7 +238,7 @@ slide_input input.disabled
     margin-top:5px;
     width:150px;
     height:180px;
-    margin-left: 13%;
+    margin-left: 9%;
     display: block;
 }
 .selfinfo1 {
@@ -347,7 +347,6 @@ ul{list-style: none outside none;}
 .school
 {
     height: 235px;
-    width: 650px;
     padding:2px 10px 2px 15px;
 }
 /*.collectschool*/
@@ -363,7 +362,6 @@ ul{list-style: none outside none;}
 /*}*/
 .collegelogo
 {
-    width: 750px;
     height: 200px;
     background-color: transparent;
     border-color: transparent;
@@ -371,7 +369,6 @@ ul{list-style: none outside none;}
 .collegelogo li
 {
     padding: 10px;
-    width: 150px;
     height: 30px;
 }
 .collegelogo p
@@ -379,8 +376,8 @@ ul{list-style: none outside none;}
     font-size: 13px;
     padding-top: 5px;
     color: #FFFFFF;
-    width:200px;
-    margin-left: 120px;
+    width: 100%;
+    margin-left: 10%;
 }
 #messagebutton
 {
@@ -473,7 +470,7 @@ ul{list-style: none outside none;}
 }
 
 .aDiv{
-    font-size:13px;
+    font-size:17px;
     width: 60%;
     overflow:hidden;
     float:left;
@@ -481,7 +478,7 @@ ul{list-style: none outside none;}
 }
 .spanDiv
 {
-    font-size: 13px;
+    font-size: 17px;
     width: 35%;
     overflow:hidden;
     float: left;

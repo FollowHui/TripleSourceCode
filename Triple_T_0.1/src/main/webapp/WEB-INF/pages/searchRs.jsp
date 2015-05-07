@@ -32,7 +32,7 @@
         <c:forEach items="${schoolList}" var="SchoolInformation" begin="0" end="${sessionScope.schoolCount}">
           <li class="college">
             <div class="collegeLogo">
-              <a href="/school/${SchoolInformation.schoolid}" target="_blank"><img src="/resources/schoolLogo/${SchoolInformation.continent}/${SchoolInformation.schoollogo}"  style="height:150px;"></a>
+              <a href="/school/${SchoolInformation.schoolid}" target="_blank"><img src="/resources/schoolLogo/${SchoolInformation.continent}/${SchoolInformation.schoollogo}"  style="width:150px;"></a>
             </div>
             <div class="collegeDescribe">
               <p>学校名称:${SchoolInformation.schoolname}</p>
@@ -57,9 +57,26 @@
             </div>
             <div class="successCases">
               <h3>该大学申请案例:</h3>
-              <p>郭政吉 东南大学软件工程 均分90</p>
-              <p>郭政吉 东南大学通信工程 均分90</p>
-              <p>郭政吉 东南大学经济学管理 均分90</p>
+              <c:forEach items="${SchoolInformation.dataSets}" var="DataSet">
+              <%--<p>郭政吉 东南大学软件工程 均分90</p--%>
+                <p>
+                  <c:if test="${DataSet.graschool==1}">
+                    <c:out value="本科Top5 "></c:out>
+                  </c:if>
+                  <c:if test="${DataSet.graschool==2}">
+                    <c:out value="本科Top15"></c:out>
+                  </c:if>
+                  <c:if test="${DataSet.graschool==3}">
+                    <c:out value="本科Top30"></c:out>
+                  </c:if>
+                  <c:if test="${DataSet.graschool==4}">
+                    <c:out value="本科其它211"></c:out>
+                  </c:if>
+                  <c:if test="${DataSet.graschool==5}">
+                    <c:out value="本科非211"></c:out>
+                    </c:if>专业：${DataSet.grapro} GPA:${DataSet.gpa}</p>
+              </c:forEach>
+
             </div>
           </li>
         </c:forEach>

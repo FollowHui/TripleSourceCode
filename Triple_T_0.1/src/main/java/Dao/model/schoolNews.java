@@ -2,7 +2,7 @@ package Dao.model;
 
 
 
-public class SchoolNews {
+public class schoolNews {
     private Integer schoolnewsid;
 
     private String newsdate;
