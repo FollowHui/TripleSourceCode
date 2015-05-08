@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Dao.dao.SchoolChineseMapper" >
+  <resultMap id="BaseResultMap" type="Dao.model.SchoolChinese" >
+    <id column="schoolId" property="schoolid" jdbcType="INTEGER" />
+    <result column="schoolName" property="schoolname" jdbcType="VARCHAR" />
+    <result column="schoolType" property="schooltype" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    schoolId, schoolName, schoolType
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from schoolchinese
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </select>
+  <select id="selectBySchoolName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from schoolchinese
+    where schoolName = #{schoolName,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from schoolchinese
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="Dao.model.SchoolChinese" >
+    insert into schoolchinese (schoolId, schoolName, schoolType
+      )
+    values (#{schoolid,jdbcType=INTEGER}, #{schoolname,jdbcType=VARCHAR}, #{schooltype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="Dao.model.SchoolChinese" >
+    insert into schoolchinese
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="schoolid != null" >
+        schoolId,
+      </if>
+      <if test="schoolname != null" >
+        schoolName,
+      </if>
+      <if test="schooltype != null" >
+        schoolType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="schoolid != null" >
+        #{schoolid,jdbcType=INTEGER},
+      </if>
+      <if test="schoolname != null" >
+        #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="schooltype != null" >
+        #{schooltype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="Dao.model.SchoolChinese" >
+    update schoolchinese
+    <set >
+      <if test="schoolname != null" >
+        schoolName = #{schoolname,jdbcType=VARCHAR},
+      </if>
+      <if test="schooltype != null" >
+        schoolType = #{schooltype,jdbcType=INTEGER},
+      </if>
+    </set>
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="Dao.model.SchoolChinese" >
+    update schoolchinese
+    set schoolName = #{schoolname,jdbcType=VARCHAR},
+      schoolType = #{schooltype,jdbcType=INTEGER}
+    where schoolId = #{schoolid,jdbcType=INTEGER}
+  </update>
+</mapper>

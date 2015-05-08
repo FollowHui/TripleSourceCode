@@ -33,21 +33,7 @@ function setImagePreview(avalue) {
     return true;
 
 }
-//function uploadPhoto(){
-//    var xmlhttp;
-//    if (window.XMLHttpRequest)
-//    {// code for IE7+, Firefox, Chrome, Opera, Safari
-//        xmlhttp=new XMLHttpRequest();
-//    }
-//    else
-//    {// code for IE6, IE5
-//        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-//    }
-//
-//
-//    xmlhttp.open("POST","/upload",false);
-//    xmlhttp.send();
-//}
+
 function sendmessage()
 {
     var flag = getCookie("flag");
@@ -62,6 +48,8 @@ function sendmessage()
         var gradetype = ((document.getElementById("s_gradetype").value) == "托福" ? "tofel" : "itels");
         var gpa = parseFloat(document.getElementById("S_gpa").value);
         var gre = parseFloat(document.getElementById("S_gre").value);
+        var gsch = document.getElementById("S_gschool").value;
+        var gsub = document.getElementById("S_gsubject").value;
         var myphoto = document.getElementById("localImag").value;
         var xmlhttp;
         if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -75,7 +63,8 @@ function sendmessage()
                 //document.getElementById("div1").innerHTML=xmlhttp.responseText;
             }
         };
-        xmlhttp.open("GET", "/selfinfo/change?sex=" + sex + "&email=" + email + "&grade=" + grade + "&gradetype=" + gradetype + "&gpa=" + gpa + "&gre=" + gre, true);
+        //xmlhttp.open("GET", "/selfinfo/change?sex=" + sex + "&email=" + email + "&grade=" + grade + "&gradetype=" + gradetype + "&gpa=" + gpa + "&gre=" + gre, true);
+        xmlhttp.open("GET", "/selfinfo/change?sex=" + sex + "&email=" + email + "&grade=" + grade + "&gradetype=" + gradetype + "&gpa=" + gpa + "&gre=" + gre + "&gsch=" + gsch + "&gsub=" + gsub, true);
         xmlhttp.send();
         alert("亲，你的个人信息修改成功");
         document.getElementById("S_username").disabled = true;
@@ -83,6 +72,8 @@ function sendmessage()
         document.getElementById("S_grade").disabled = true;
         document.getElementById("S_gpa").disabled = true;
         document.getElementById("S_gre").disabled = true;
+        document.getElementById("S_gschool").disabled = true;
+        document.getElementById("S_gsubject").disabled = true;
     }
 
 }
@@ -124,9 +115,6 @@ function changeoption1(){
     document.getElementById("cs").style.color="";
     document.getElementById("mt").style.color="";
     document.getElementById("wt").style.color="";
-
-
-
 }
 function changeoption2(){
     document.getElementById("selfinfo2").style.display="none";
@@ -176,13 +164,13 @@ function changeoption5(){
     document.getElementById("mt").style.color="";
     document.getElementById("wt").style.color="#FFF";
 }
-function modify(){
 
+function modify(){
     document.getElementById("S_username").disabled=false;
     document.getElementById("S_email").disabled=false;
     document.getElementById("S_grade").disabled=false;
     document.getElementById("S_gpa").disabled=false;
     document.getElementById("S_gre").disabled=false;
-
-
+    document.getElementById("S_gschool").disabled=false;
+    document.getElementById("S_gsubject").disabled=false;
 }

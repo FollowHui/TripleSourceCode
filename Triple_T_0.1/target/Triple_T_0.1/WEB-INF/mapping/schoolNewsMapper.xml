@@ -17,11 +17,11 @@
     from schoolnews
     where schoolNewsId = #{schoolnewsid,jdbcType=INTEGER}
   </select>
-  <select id="selectAllSchoolNews" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="selectSchoolNewsBySchoolId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select
-    *
+    <include refid="Base_Column_List" />
     from schoolnews
-    limit 0,#{sInfoCount,jdbcType=INTEGER}
+    where schoolId = #{schoolId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from schoolnews

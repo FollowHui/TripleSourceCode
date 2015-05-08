@@ -23,6 +23,30 @@ public class User {
 
     private Float grescore;
 
+    private Integer schoolId;
+    private String gsub;
+    public String getGsub(){
+        return  gsub;
+    }
+    private String schoolName;
+    public String getSchoolName(){
+        return schoolName;
+    }
+    public void setSchoolName(String schoolName){
+        this.schoolName=schoolName;
+    }
+
+    public void setGsub(String gsub){
+        this.gsub=gsub;
+    }
+
+    public  Integer getSchoolId(){
+        return schoolId;
+    }
+    public void setSchoolId(Integer schoolId){
+        this.schoolId=schoolId;
+    }
+
     public Integer getUserid() {
         return userid;
     }

@@ -29,6 +29,8 @@ public class SelfInfoController {
                               @RequestParam(value="gradetype",required = false)String gradetype,
                               @RequestParam(value="gpa",required = false)Float gpa,
                               @RequestParam(value="gre",required = false)Float gre,
+                              @RequestParam(value="gsch",required = false)String gsch,
+                              @RequestParam(value="gsub",required = false)String gsub,
                               HttpSession httpSession
     ){
         int userId=(Integer)(httpSession.getAttribute("userId"));
@@ -41,7 +43,9 @@ public class SelfInfoController {
         if(gre.isNaN()){
             gre=null;
         }
-        selfInfoService.changeSelfInformation(userId,email,score,gpa,gre);
+        System.out.println(gsch);
+        System.out.println(gsub);
+        selfInfoService.changeSelfInformation(userId,email,score,gpa,gre,gsch,gsub);
 
     }
 

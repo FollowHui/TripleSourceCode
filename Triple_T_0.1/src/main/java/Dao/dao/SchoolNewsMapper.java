@@ -16,5 +16,5 @@ public interface SchoolNewsMapper {
     int updateByPrimaryKeySelective(schoolNews record);
 
     int updateByPrimaryKey(schoolNews record);
-    List<schoolNews> selectAllSchoolNews(int sInfoCount);
+    List<schoolNews> selectSchoolNewsBySchoolId(Integer schoolId);
 }

@@ -12,10 +12,12 @@
     <result column="test_Type" property="testType" jdbcType="BIT" />
     <result column="GPA" property="gpa" jdbcType="REAL" />
     <result column="GREScore" property="grescore" jdbcType="REAL" />
+    <result column="schoolId" property="schoolId" jdbcType="INTEGER" />
+    <result column="gsub" property="gsub" jdbcType="CHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     userId, userName, password, sex, headImage, emailAddress, score, test_Type, GPA, 
-    GREScore
+    GREScore,schoolId,gsub
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -36,11 +38,12 @@
   <insert id="insert" parameterType="Dao.model.User" >
     insert into user (userId, userName, password, 
       sex, headImage, emailAddress, 
-      score, test_Type, GPA, GREScore
+      score, test_Type, GPA, GREScore,schoolId,gsub
       )
     values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
       #{sex,jdbcType=BIT}, #{headimage,jdbcType=CHAR}, #{emailaddress,jdbcType=CHAR}, 
-      #{score,jdbcType=REAL}, #{testType,jdbcType=BIT}, #{gpa,jdbcType=REAL}, #{grescore,jdbcType=REAL}
+      #{score,jdbcType=REAL}, #{testType,jdbcType=BIT}, #{gpa,jdbcType=REAL}, #{grescore,jdbcType=REAL},#{schoolId,jdbcType=INTEGER}
+      ,#{gsub,jdbcType=CHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="Dao.model.User" >
@@ -76,6 +79,12 @@
       <if test="grescore != null" >
         GREScore,
       </if>
+      <if test="schoolId != null" >
+        schoolId,
+      </if>
+      <if test="gsub != null" >
+        gsub,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -107,6 +116,12 @@
       </if>
       <if test="grescore != null" >
         #{grescore,jdbcType=REAL},
+      </if>
+      <if test="schoolId != null" >
+        #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gsub != null" >
+        #{gsub,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -140,6 +155,12 @@
       <if test="grescore != null" >
         GREScore = #{grescore,jdbcType=REAL},
       </if>
+      <if test="schoolId != null" >
+        schoolId = #{schoolId,jdbcType=INTEGER},
+      </if>
+      <if test="gsub != null" >
+        gsub = #{gsub,jdbcType=CHAR},
+      </if>
     </set>
     where userId = #{userid,jdbcType=INTEGER}
   </update>
@@ -153,7 +174,9 @@
       score = #{score,jdbcType=REAL},
       test_Type = #{testType,jdbcType=BIT},
       GPA = #{gpa,jdbcType=REAL},
-      GREScore = #{grescore,jdbcType=REAL}
+      GREScore = #{grescore,jdbcType=REAL},
+      schoolId = #{schoolId,jdbcType=INTEGER},
+      gsub = #{gsub,jdbcType=CHAR}
     where userId = #{userid,jdbcType=INTEGER}
   </update>
 </mapper>

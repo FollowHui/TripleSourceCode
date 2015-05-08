@@ -35,9 +35,10 @@ public class IndexController {
 
     @RequestMapping(value="sInfoma", method = RequestMethod.GET)
     public String getJump2(ModelMap modelMap,HttpSession httpSession){
+        Integer userId=(Integer)httpSession.getAttribute("userId");
         int sInfoCount=5;
         httpSession.setAttribute("sInfoCount",sInfoCount);
-        List<schoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(sInfoCount);
+        List<schoolNews> schoolNewsList=getSchoolNewsService.getschoolNews(userId);
         modelMap.addAttribute("schoolNewsList",schoolNewsList);
         return "sInfoma";
     }

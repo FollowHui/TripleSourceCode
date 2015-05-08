@@ -3,6 +3,7 @@ Dao\model\Comment.class
 controller\SInfomaController.class
 controller\SendCommentController.class
 Dao\dao\SchoolNewsMapper.class
+Dao\dao\SchoolChineseMapper.class
 controller\IndexController.class
 service\LoginService.class
 service\InsertAllDataService.class
@@ -35,6 +36,7 @@ Dao\dao\UserMapper.class
 controller\BlogListController.class
 service\AddCommentService.class
 controller\SchoolController.class
+Dao\model\SchoolChinese.class
 service\FavouriteSchoolService.class
 service\DataCollection\AbstractUserInfo.class
 controller\SelfInfoController.class

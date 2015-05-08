@@ -2,9 +2,11 @@ package service;
 
 import Dao.dao.FavouritesMapper;
 import Dao.dao.NoteMapper;
+import Dao.dao.SchoolChineseMapper;
 import Dao.dao.UserMapper;
 import Dao.model.Favourites;
 import Dao.model.Note;
+import Dao.model.SchoolChinese;
 import Dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,13 +27,24 @@ public class SelfInfoService {
     NoteMapper noteMapper;
     @Autowired(required = false)
     FavouritesMapper favouritesMapper;
-    public String changeSelfInformation(Integer userId,String email,Float score,Float GPA,Float GRE){
+    @Autowired(required = false)
+    SchoolChineseMapper schoolChineseMapper;
+    public String changeSelfInformation(Integer userId,String email,Float score,Float GPA,Float GRE,String gsch,String gsub){
         user=new User();
         user.setUserid(userId);
         user.setEmailaddress(email);
         user.setScore(score);
         user.setGpa(GPA);
         user.setGrescore(GRE);
+        user.setGsub(gsub);
+        SchoolChinese schoolChinese;
+        schoolChinese=schoolChineseMapper.selectBySchoolName(gsch);
+        if(schoolChinese==null){
+            System.out.println("no such school");
+        }else {
+            Integer schoolId = schoolChinese.getSchoolid();
+            user.setSchoolId(schoolId);
+        }
         try {
             userMapper.updateByPrimaryKeySelective(user);
         }
@@ -49,6 +62,14 @@ public class SelfInfoService {
     public User getSelfInfomation(Integer userId){
         try {
             user=userMapper.selectByPrimaryKey(userId);
+            Integer schoolId=user.getSchoolId();
+            if(schoolId==null){
+
+            }else{
+                SchoolChinese schoolChinese=schoolChineseMapper.selectByPrimaryKey(schoolId);
+                String schoolName=schoolChinese.getSchoolname();
+                user.setSchoolName(schoolName);
+            }
         }
         catch (Exception e){
             e.printStackTrace();

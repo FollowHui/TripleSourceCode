@@ -53,7 +53,6 @@ div#content{
 .layer
 {
     padding: 8px;
-    width: 270px;
     height: 50px;
 }
 .slide img {
@@ -63,21 +62,20 @@ div#content{
 }
 .mylabel
 {
-    width: 70px;
+    width: 100px;
     height: 35px;
     font-size: 20px;
     float: left;
     display: block;
-    color:#FFFFFF;
-    text-align:left;
-    vertical-align:middle;
-    margin-top:15px;
+    color: #FFFFFF;
+    text-align: left;
+    vertical-align: middle;
+    margin-top: 15px;
 }
 .slide_input
 {
-    width: 300px;
+    float: left;
     height: 35px;
-    padding: 0px 0px 0px 10px;
 }
 .slide_input input{
     float: left;
@@ -96,6 +94,14 @@ div#content{
     float: left;
     margin-top: 10px;
     width: 220px;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+select#s_gradetype{
+    float: left;
+    width: 70px;
     height: 30px;
     border-radius: 6px;
     font-size: 20px;
@@ -254,16 +260,13 @@ slide_input input.disabled
 }
 #selfinfo2
 {
-    opacity: 0.8;
     margin-top: 12%;
     margin-left: 20%;
-    width:250px;
+    width: 370px;
     height: 700px;
     float: left;
     position: relative;
-    padding:2px 2px 2px 20px;
-    background-color: transparent;
-
+    padding: 2px 2px 2px 20px;
 }
 .selfdata
 {

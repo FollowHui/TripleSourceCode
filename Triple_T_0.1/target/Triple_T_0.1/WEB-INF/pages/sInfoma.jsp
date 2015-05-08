@@ -14,6 +14,9 @@
 		<div class="si_title"><p>校内资讯</p></div>
 		<div id="si_table">
 			<ul>
+				<c:if test="${schoolNewsList.size()==0}">
+					<div class="si_con_title"><p>请在个人信息中选择您的学校&nbsp您的信息越完善&nbsp推荐越合理</p></div>
+				</c:if>
 				<c:forEach items="${schoolNewsList}" var="SchoolNews" begin="0" end="${sessionScope.sInfoCount}">
 				<li class="si_table_title">
 					<div class="si_container" ><a href="${SchoolNews.url}" target="_blank">

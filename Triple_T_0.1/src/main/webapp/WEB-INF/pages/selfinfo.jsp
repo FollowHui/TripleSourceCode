@@ -116,21 +116,46 @@
 			</div>
 			<div class="layer">
 				<div class="mylabel">
-					<label>分数:</label>
+					<label>本科学校:</label>
 				</div>
 				<div class="slide_input">
-					<input type="text" id="S_grade" name="grade" value="${user.score}" disabled/><br/>
+					<input type="text" id="S_gschool" name="gradschool" value="${user.schoolName}" disabled/><br/>
 				</div>
 			</div>
 			<div class="layer">
 				<div class="mylabel">
-					<label>类型:</label>
+					<label>本科专业:</label>
 				</div>
 				<div class="slide_input">
+					<%--<input type="text" id="S_gsubject" name="gradschool" value="请输入专业名称" disabled/><br/>--%>
+						<select id="S_gsubject" >
+							<c:if test="${user.gsub==null}">
+								<c:out value="请选择专业"></c:out>
+							</c:if>
+							<c:if test="${user.gsub!=null}">
+								<option>${user.gsub}</option>a
+							</c:if>
+							<option>商科和管理</option>
+							<option>基础科学</option>
+							<option>工程类</option>
+							<option>法律</option>
+							<option>教育和教学</option>
+							<option>传媒</option>
+							<option>建筑</option>
+							<option>设计</option>
+						</select>
+				</div>
+			</div>
+			<div class="layer">
+				<div class="mylabel">
+					<%--<label>分数:</label>--%>
 					<select id="s_gradetype">
 						<option>托福</option>
 						<option>雅思</option>
 					</select>
+				</div>
+				<div class="slide_input">
+					<input type="text" id="S_grade" name="grade" value="${user.score}" disabled/><br/>
 				</div>
 			</div>
 			<div class="layer">
