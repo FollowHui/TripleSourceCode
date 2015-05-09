@@ -18,4 +18,6 @@ public interface DataSetMapper {
     int updateByPrimaryKey(DataSet record);
 
     List<DataSet> getStudentInfo(Integer schoolId);
+    List<DataSet> getAllStudentInfo();
+
 }

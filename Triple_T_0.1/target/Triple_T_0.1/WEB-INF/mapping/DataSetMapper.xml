@@ -25,6 +25,11 @@
     from dataset
     where dataId = #{dataid,jdbcType=INTEGER}
   </select>
+  <select id="getAllStudentInfo" resultMap="BaseResultMap"  >
+    select
+    *
+    from dataset
+  </select>
   <select id="getStudentInfo" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />

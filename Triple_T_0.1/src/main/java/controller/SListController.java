@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.GetSchoolService;
+import service.RecommandSchoolService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -22,60 +23,79 @@ import java.util.List;
 public class SListController {
     @Autowired(required = false)
     GetSchoolService getSchoolService;
+    @Autowired(required = false)
+    RecommandSchoolService recommandSchoolService;
     @RequestMapping(value="/filter1",method = RequestMethod.GET)
     public String slistAddrRankFilter(ModelMap modelMap,
                                     @RequestParam(value="param",required = false) String filter,
                                     HttpSession httpSession) {
-        List<SchoolInformation> schoolInformationsContury=new ArrayList<SchoolInformation>();
-        List<SchoolInformation> schoolInformationsRank=new ArrayList<SchoolInformation>();
-        int filterInt=Integer.parseInt(filter);
-        System.out.println("get ajax " + filterInt);
-        if(filterInt<20) {
-            httpSession.setAttribute("filter1", filterInt);
-        }else{
-            httpSession.setAttribute("filter2",filterInt);
-        }
-        if(filterInt==10){
-            httpSession.removeAttribute("filter1");
-        }else if(filterInt==20){
-            httpSession.removeAttribute("filter2");
-        }
-        Integer filter1=(Integer)httpSession.getAttribute("filter1");
-        Integer filter2=(Integer)httpSession.getAttribute("filter2");
-        System.out.println(filter1);
-        System.out.println(filter2);
-        if(filter1==null) {
-            if(filter2==null){
-                schoolInformationsRank=getSchoolService.getSchoolListByRanking(50);
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
-            }else{
-                int rank=filter2%10*50;
-                schoolInformationsRank=getSchoolService.getSchoolListByRanking(rank);
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
+        List<SchoolInformation> schoolInformations=new ArrayList<SchoolInformation>();
+        Integer userId=(Integer)httpSession.getAttribute("userId");
+            int filterInt = Integer.parseInt(filter);
+            System.out.println("get ajax " + filterInt);
+            if (filterInt < 20) {
+                httpSession.setAttribute("filter1", filterInt);
+            } else {
+                httpSession.setAttribute("filter2", filterInt);
+            }
+            if (filterInt == 10) {
+                httpSession.removeAttribute("filter1");
+            } else if (filterInt == 20) {
+                httpSession.removeAttribute("filter2");
+            }
+            Integer filter1 = (Integer) httpSession.getAttribute("filter1");
+            Integer filter2 = (Integer) httpSession.getAttribute("filter2");
+            System.out.println(filter1);
+            System.out.println(filter2);
 
+        if(userId!=null) {
+            schoolInformations=recommandSchoolService.getRecommandSchool(userId);
+            Iterator<SchoolInformation> itr=schoolInformations.iterator();
+            if (filter1 == null) {
+                if (filter2 == null) {
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                } else {
+                    int rank = filter2 % 10 * 50;
+                    while(itr.hasNext()){
+                        SchoolInformation schoolInformation=itr.next();
+                        if(schoolInformation.getRanking()>rank||schoolInformation.getRanking()<rank-50){
+                            itr.remove();
+                        }
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                }
+            } else {
+                if (filter2 == null) {
+                    System.out.println("come continent");
+                    int continent = filter1 % 10;
+                    System.out.println("continent:"+continent);
+                        while(itr.hasNext()) {
+                            SchoolInformation schoolInformation = itr.next();
+                            if (schoolInformation.getContinent() != continent) {
+                                itr.remove();
+                            }
+                        }
+                    for(SchoolInformation schoolInformation:schoolInformations){
+                        System.out.println(schoolInformation.getContinent());
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                } else {
+                    int continent = filter1 % 10;
+                    int rankMax = filter2 % 10 * 50;
+                    while(itr.hasNext()){
+                        SchoolInformation schoolInformation=itr.next();
+                        if(schoolInformation.getContinent()!=continent||schoolInformation.getRanking()>rankMax||schoolInformation.getRanking()<rankMax-50){
+                            itr.remove();
+                        }
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                   }
             }
         }else{
-            if(filter2==null){
-                int continent = filter1 % 10;
-                schoolInformationsContury = getSchoolService.getSchoolListByContinent(continent);
-                modelMap.addAttribute("schoolList",schoolInformationsContury);
-            }else {
-                int continent = filter1 % 10;
-                schoolInformationsContury = getSchoolService.getSchoolListByContinent(continent);
-                //System.out.println(schoolInformationsContury.get(1).getRanking());
-                Iterator<SchoolInformation> itr = schoolInformationsContury.iterator();
-                while (itr.hasNext()) {
-                    SchoolInformation schoolInformationTemp = itr.next();
-                    int rank = schoolInformationTemp.getRanking();
-                    int rankMax=filter2%10*50;
-                    if (rank > (rankMax-50) && rank < rankMax) {
-                        schoolInformationsRank.add(schoolInformationTemp);
-                    } else {
-                    }
-                }
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
-            }
+            modelMap.addAttribute("schoolList", schoolInformations);
         }
+        return "searchRs";
+    }
 
         /*实现早前筛选逻辑
         ***********************************************************************
@@ -243,8 +263,7 @@ public class SListController {
         ***********************************************************************
          */
 
-        return "searchRs";
-    }
+
 
     @RequestMapping(value="/addmore",method = RequestMethod.GET)
     public String sListAddmore(ModelMap modelMap,
@@ -253,42 +272,57 @@ public class SListController {
         int schoolCount=(Integer)httpSession.getAttribute("schoolCount");
         schoolCount=schoolCount+3;
         httpSession.setAttribute("schoolCount",schoolCount);
-        List<SchoolInformation> schoolInformationsContury=new ArrayList<SchoolInformation>();
-        List<SchoolInformation> schoolInformationsRank=new ArrayList<SchoolInformation>();
+        List<SchoolInformation> schoolInformations=new ArrayList<SchoolInformation>();
         Integer filter1=(Integer)httpSession.getAttribute("filter1");
         Integer filter2=(Integer)httpSession.getAttribute("filter2");
+        Integer userId=(Integer)httpSession.getAttribute("userId");
         System.out.println(filter1);
         System.out.println(filter2);
-        if(filter1==null) {
-            if(filter2==null){
-                schoolInformationsRank=getSchoolService.getSchoolListByRanking(50);
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
-            }else{
-                int rank=filter2%10*50;
-                schoolInformationsRank=getSchoolService.getSchoolListByRanking(rank);
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
-
+        if(userId!=null) {
+            schoolInformations=recommandSchoolService.getRecommandSchool(userId);
+            Iterator<SchoolInformation> itr=schoolInformations.iterator();
+            if (filter1 == null) {
+                if (filter2 == null) {
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                } else {
+                    int rank = filter2 % 10 * 50;
+                    while(itr.hasNext()){
+                        SchoolInformation schoolInformation=itr.next();
+                        if(schoolInformation.getRanking()>rank||schoolInformation.getRanking()<rank-50){
+                            itr.remove();
+                        }
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                }
+            } else {
+                if (filter2 == null) {
+                    System.out.println("come continent");
+                    int continent = filter1 % 10;
+                    System.out.println("continent:"+continent);
+                    while(itr.hasNext()) {
+                        SchoolInformation schoolInformation = itr.next();
+                        if (schoolInformation.getContinent() != continent) {
+                            itr.remove();
+                        }
+                    }
+                    for(SchoolInformation schoolInformation:schoolInformations){
+                        System.out.println(schoolInformation.getContinent());
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                } else {
+                    int continent = filter1 % 10;
+                    int rankMax = filter2 % 10 * 50;
+                    while(itr.hasNext()){
+                        SchoolInformation schoolInformation=itr.next();
+                        if(schoolInformation.getContinent()!=continent||schoolInformation.getRanking()>rankMax||schoolInformation.getRanking()<rankMax-50){
+                            itr.remove();
+                        }
+                    }
+                    modelMap.addAttribute("schoolList", schoolInformations);
+                }
             }
         }else{
-            if(filter2==null){
-                int continent = filter1 % 10;
-                schoolInformationsContury = getSchoolService.getSchoolListByContinent(continent);
-                modelMap.addAttribute("schoolList",schoolInformationsContury);
-            }else {
-                int continent = filter1 % 10;
-                schoolInformationsContury = getSchoolService.getSchoolListByContinent(continent);
-                Iterator<SchoolInformation> itr = schoolInformationsContury.iterator();
-                while (itr.hasNext()) {
-                    SchoolInformation schoolInformationTemp = itr.next();
-                    int rank = schoolInformationTemp.getRanking();
-                    int rankMax=filter2%10*50;
-                    if (rank > (rankMax-50) && rank < rankMax) {
-                        schoolInformationsRank.add(schoolInformationTemp);
-                    } else {
-                    }
-                }
-                modelMap.addAttribute("schoolList",schoolInformationsRank);
-            }
+            modelMap.addAttribute("schoolList", schoolInformations);
         }
         //model.addAttribute("message", "Hello world!");
         System.out.println("slist addmore");

@@ -2,21 +2,21 @@ package service.DataCollection;
 
 public class AbstractUserInfo {
 	public int userid;
-	public boolean gradsch;
+	public int gradsch;
+	public String subject;
+	public int time;
 	public double GPA;
 	public int Toefl;
 	public int GRE;
 	public int paper;
 	public int recomand;
-	public int time;
-	public String school;
-	public AbstractUserInfo(){
-
-	}
 	
-	public AbstractUserInfo(int userid, boolean gradsch, double gpa, int toefl, int gre, int paper, int recomand, int time, String school){
+	public Integer school;
+	
+	public AbstractUserInfo(int userid, int gradsch,String subject, int time, double gpa, int toefl, int gre, int paper, int recomand, Integer school){
 		this.userid = userid;
 		this.gradsch = gradsch;
+		this.subject = subject;
 		this.GPA = gpa;
 		this.Toefl = toefl;
 		this.GRE = gre;

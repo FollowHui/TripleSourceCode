@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import service.GetAllNotesService;
 import service.GetSchoolNewsService;
 import service.GetSchoolService;
+import service.RecommandSchoolService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class IndexController {
     GetSchoolNewsService getSchoolNewsService;
     @Autowired
     GetAllNotesService getAllNotesService;
+    @Autowired(required = false)
+    RecommandSchoolService recommandSchoolService;
     @RequestMapping(value="index", method = RequestMethod.GET)
     public String getJump1(){
         return "bg";
@@ -56,14 +59,20 @@ public class IndexController {
 //        httpSession.removeAttribute("filter23");
 //        httpSession.removeAttribute("filter24");
 //        httpSession.removeAttribute("filter25");
-        int schoolCount=3;
-        httpSession.setAttribute("schoolCount",schoolCount);
-        httpSession.removeAttribute("filter1");
-        httpSession.removeAttribute("filter2");
-        List<SchoolInformation> schoolInformationsRank=new ArrayList<SchoolInformation>();
-        schoolInformationsRank=getSchoolService.getSchoolListByRanking(50);
-        modelMap.addAttribute("schoolList", schoolInformationsRank);
-        return "sList";
+        Integer userId=(Integer)httpSession.getAttribute("userId");
+        List<SchoolInformation> schoolInformations = new ArrayList<SchoolInformation>();
+        if(userId!=null) {
+            int schoolCount = 3;
+            httpSession.setAttribute("schoolCount", schoolCount);
+            httpSession.removeAttribute("filter1");
+            httpSession.removeAttribute("filter2");
+            schoolInformations = recommandSchoolService.getRecommandSchool(userId);
+            modelMap.addAttribute("schoolList", schoolInformations);
+            return "sList";
+        }else {
+            modelMap.addAttribute("schoolList", schoolInformations);
+            return "sList";
+        }
     }
 
     @RequestMapping(value="blogList", method = RequestMethod.GET)
